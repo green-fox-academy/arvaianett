@@ -1,0 +1,98 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url("topography.png");
+    
+}
+
+.part1 {
+    padding: 0 10% 3% 10%;
+}
+
+.part2 {
+    padding: 0 10% 0 10%;
+}
+
+p {
+    font-family: consolas, courier;
+}
+
+.menu {
+    background-color: #333333;
+    height: 3em;
+    color: #ff0099;
+    background-image: url("logo.png");
+    background-position: left;
+    background-repeat: ;
+}
+
+a {
+    color: #ff0099;
+    text-decoration: none;
+}
+
+nav ul {
+    text-align: right;
+    padding-right: 7em;
+    margin: 0 auto;
+    padding-top: 1em;
+    
+}
+
+nav ul li{
+    color: #ff0099;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline;
+    padding-right: 2em;
+}
+
+.navbar {
+  float: rigth;
+}
+
+h1 {
+    text-transform: capitalize;
+    font-family: 'PT Serif', serif;
+    padding-top: 1em;
+    font-size: 3em;
+}
+
+h2 {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+h1 h2 {
+    font-family: 'PT Serif', serif;
+}
+
+h3 {
+    font-size: 2em;
+    margin: 0.5em 0 0.5em 0;
+}
+.part1 h3 {
+    color: #ff0099;
+}
+
+img {
+    height: 3em;
+    width: 3em;
+    float: left;
+    padding-left: 8em;
+}
+
+map {
+  height: 3em;
+  width: 3em;
+  float: left;
+  padding-left: 8em; 
+}
+
+hr {
+    border-top: 2px dashed #8c8b8b;
+    width: 1.5em;
+    text-align: center;
+}

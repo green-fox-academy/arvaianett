@@ -1,0 +1,8 @@
+img {
+    width: 5em; /*px is unusual, because of the variety of devices*/
+    margin: 20%;
+}
+
+.images {
+    display: inline; /*images next to each other*/
+}

@@ -1,0 +1,17 @@
+div {
+    width: 358px;
+    height: 145px;
+    background-color: #0E91A1;
+    color: #005678;
+    border: 5px solid #7DCE94;
+    margin-bottom: 17px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: lighter;
+  font-family: Helvetica;
+  padding-left: 16px;
+}
