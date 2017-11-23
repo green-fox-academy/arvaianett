@@ -22,9 +22,6 @@ p {
     background-color: #333333;
     height: 3em;
     color: #ff0099;
-    background-image: url("logo.png");
-    background-position: left;
-    background-repeat: ;
 }
 
 a {
@@ -82,13 +79,6 @@ img {
     width: 3em;
     float: left;
     padding-left: 8em;
-}
-
-map {
-  height: 3em;
-  width: 3em;
-  float: left;
-  padding-left: 8em; 
 }
 
 hr {
