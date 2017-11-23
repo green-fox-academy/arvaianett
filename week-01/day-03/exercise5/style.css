@@ -1,0 +1,25 @@
+h1 {
+    color: #FF7F59;
+}
+
+h2 {
+    color: #912BE2;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: upper-roman; 
+}
+
+ol > li:nth-child(1), ol > li:nth-child(2), ol >li:nth-child(3) {
+    color: #FF32FF;
+    text-decoration: underline;
+    text-decoration-color: #FF32FF;
+}
+
+ol > li:nth-child(4) {
+    text-decoration: underline;
+}
