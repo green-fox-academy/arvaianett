@@ -1,0 +1,32 @@
+body {
+    color: #3584F6;
+}
+
+h1 {
+   font-family: Helvetica;
+    font-size: 36px;
+}
+
+body:nth-child(1) {
+  width: 350;
+  height: 127;
+  color: #B87891;
+}
+
+body:nth-child(2) {
+  width: 350;
+  height: 127;
+  color: #F2F062;
+}
+
+body:nth-child(3) {
+  width: 350;
+  height: 127;
+  color: #A9E6E6;
+}
+
+body:nth-child(4) {
+  width: 350;
+  height: 127;
+  color: #7692E4;
+}
