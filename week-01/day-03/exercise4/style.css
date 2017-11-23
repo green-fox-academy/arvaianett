@@ -1,3 +1,14 @@
-body {
-    font-family: 'Segoe UI';
+h1 {
+    color: #EDBA51;
+    font-family: serif;
+    font-weight: 400;
+}
+
+p, xmp {
+    line-height: 1px;
+}
+
+p {
+    margin-left: 15px;
+    letter-spacing: 1px;
 }
