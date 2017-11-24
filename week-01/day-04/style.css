@@ -59,3 +59,7 @@ footer {
     height: 187px;
     margin-top: 17px;    
 }
+
+input {
+    box-sizing: border-box;
+}
