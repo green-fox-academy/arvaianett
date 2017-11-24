@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+}
+
+.back {
+    background-color: purple;
+    width: 820px;
+    height: 805px;
+    box-sizing: border-box;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.main {
+    background-color: lawngreen;
+    width: 625px;
+    height: 780px;
+    margin: auto;
+    padding-top: 12px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: red;
+    width: 100%;
+    height: 43px; 
+}
+
+h1 {
+    margin: 0;
+}
+
+.content {
+    background-color: blue;
+    width: 100%;
+    height: 437px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 17px;
+}
+
+.personal {
+    background-color: peru;
+    width: 312.5px;
+    height: 437px;
+    float: left;
+}
+
+.contact {
+    background-color: powderblue;
+    width: 312.5px;
+    height: 437px;
+    float: right;   
+}
+
+footer {
+    background-color: rebeccapurple;
+    width: 100%;
+    height: 187px;
+    margin-top: 17px;    
+}
