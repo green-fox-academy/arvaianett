@@ -1,3 +1,7 @@
+body {
+    width: 264px;
+}
+
 .asteroid.big {
     color: blue;
 }
