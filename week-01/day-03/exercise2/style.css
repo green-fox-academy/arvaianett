@@ -1,43 +1,46 @@
 h1 {
     font-family: Helvetica;
     font-size: 36px;
+    font-weight: lighter;
     color: #FFFFFF;
     margin: auto;
+    text-align: center;
 }
 
 span {
-    width: 378px;
-    height: 545px;
-    background-color: blue;
+    width: 380px;
+    height: 530px;
+    box-sizing: content-box;
+    background-color: #3584F6;
+    padding-top: 17px;
     display: block;
 }
 
 div {
-    padding: 0;
-    margin: 0;
+    padding-top: 50px;
     margin: auto;
 }
 
 div:nth-child(1) {
     width: 350px;
-    height: 127px;
+    height: 77px;
     background-color: #E67676;
 }
 
 div:nth-child(2) {
     width: 350px;
-    height: 127px;
+    height: 77px;
     background-color: #F2F062;
 }
 
 div:nth-child(3) {
     width: 350px;
-    height: 127px;
+    height: 77px;
     background-color: #A9E6E6;
 }
 
 div:nth-child(4) {
     width: 350px;
-    height: 127px;
+    height: 77px;
     background-color: #7692E4;
 }
