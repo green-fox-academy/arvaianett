@@ -1,0 +1,20 @@
+body > div {
+    width: 377px;
+    height: 288px;
+    background-color: #4285F4;
+}
+
+div > div {
+    width: 348px;
+    height: 257px;
+    margin: auto;
+    padding-top: 16px;
+}
+
+/* div:nth-of-type(1) {
+    background-color: #E67676;
+} */
+
+/* div:nth-of-type(4) {
+    background-color: #A9E6E6;
+} */
