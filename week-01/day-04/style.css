@@ -3,7 +3,7 @@ body {
 }
 
 .back {
-    background-color: purple;
+    background-color: #DCD6CD;
     width: 820px;
     height: 805px;
     box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
 }
 
 .main {
-    background-color: lawngreen;
+    background-color: #DCD6CD;
     width: 625px;
     height: 780px;
     margin: auto;
@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    background-color: red;
+    background-color: #DCD6CD;
     width: 100%;
     height: 43px; 
 }
@@ -40,14 +40,14 @@ h1 {
 }
 
 .personal {
-    background-color: #DCD6CD;
+    background-color: yellow;
     width: 312.5px;
     height: 437px;
     float: left;
 }
 
 .contact {
-    background-color: #DCD6CD;
+    background-color: olive;
     width: 312.5px;
     height: 437px;
     float: right;   
@@ -68,6 +68,10 @@ h1 {
 h1, h2 {
     font-weight: lighter;
 }
+
+h1 {
+    color: #4A4261;
+}
  /*******************************************personal****************/
 .form1:nth-child(1) {
     width: 300px;
@@ -75,40 +79,71 @@ h1, h2 {
     background-color: darkblue;
     margin: auto;
 }
- /* .born+sex {
-    background-color: khaki;
+
+input[type="text"] {
+    display: block;
+    width: 298px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+input[type="number"] {
+    display: block;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.born-sex {
     width: 312.5px;
-    height: 70px;
+    height: 62px;
     box-sizing: border-box;
 }
 
 .born {
+    height: 62px;
     float: left;
+    display: block;
 }
 
 .sex {
-    float: right;
+    height: 62px;
+    float: right;    
 }
 
-input[type="name"] {
-    width: 80px;
-} */
+.label-sex {
+    display: block;
+}
+
+
 
 /*******************************************contact*****************/
-.form2:nth-child(1) {
-    width: 300px;
+.form2 {
+    margin: auto;
+}
+h2 {
+    width: 298px;
     height: 40px;
     background-color: #938C97;
     margin: auto;
     border-radius: 5px;
+    font-size: 20px;
+    color: #FFFFFF;    
+    /* padding: 10px; */
+    /* margin-bottom: 0px; */
+    box-sizing: content-box;
+    
+    
 }
 
-h2 {
+/* h2 {
     font-size: 20px;
     padding: 10px;
     margin-bottom: 0px;
     color: #FFFFFF;
-}
+} */
 
 input[type="tel"],
 input[type="email"],
@@ -119,20 +154,36 @@ select[id="house"] {
     height: 30px;
     border-radius: 5px;
     border: 1px solid gray;
+    margin: auto;
 }
 
 .form2 label {
-    color: #4A4261;
     padding-bottom: 10px;
 }
 
-.phone, .e-mail, .face, .tweet, .question {
+.label-style {
     padding-top: 10px;
     font-weight: bold;
     font-size: 14px;
     line-height: 30px; 
-    color: #98919B;   
+    color: #4A4261;   
+    padding-left: 10px;
 } 
-
 /*******************************************content2****************/
+
 /*******************************************footer******************/
+input[type="submit"] {
+    padding: 10px 70px;
+    text-transform: uppercase;
+    background-color: #4F4667;
+    color: #DCD6CD;
+    border-radius: 5px;
+}
+
+input[type="button"] {
+    padding: 15px 24px;
+    text-transform: uppercase;
+    background-color: #FCFCFC;
+    color: #D1D0D6;
+    border-radius: 5px;    
+}

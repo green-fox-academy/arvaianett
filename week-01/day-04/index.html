@@ -16,17 +16,17 @@
           <div class="personal">
             <form class="form1">
               <h2>Személyes adatok</h2>              
-              <div class="name">
+              <div class="name label-style">
                 <label for="name">Név</label>
-                <input type="text" id="name"/>
+                <input type="text" id="name" required/>
               </div><!-- name -->
-              <div class="born+sex">
-                <div class="born">
+              <div class="born-sex">
+                <div class="born label-style">
                   <label for="born">Születési éved</label>
                   <input type="number" id="born" placeholder="pl. 1984"/>
                 </div> <!--born-->
                 <div class="sex">
-                  <label for for="woman">Nemed</label>
+                  <p class="label-sex label-style">Nemed</p>
                   <input type="radio" id="woman"/>
                   <label for="woman">nő</label>
                   <input type="radio" id="man"/>
@@ -34,7 +34,7 @@
                 </div> <!--sex-->
               </div> <!--born+sex-->
               <div class="brand">
-                <p>Milyen márkákat szeretsz?</p>
+                <p class="label-style">Milyen márkákat szeretsz?</p>
                 <input type="checkbox" id="adidas"/>
                 <label for="adidas">Adidas</label>
                 <input type="checkbox" id="apple"/>
@@ -56,7 +56,7 @@
                 <input type="checkbox" id="yahoo"/>
                 <label for="yahoo">Yahoo</label>
               </div> <!--brand-->
-              <h2>Többet is választhatsz!</h2>
+              <p>Többet is választhatsz!</p>
             </form>
           </div> <!--personal-->
           
@@ -64,23 +64,23 @@
             <form class="form2">
               <h2>Kapcsolat</h2>
               <div class="phone">
-                <label for="tel">Telefonszám</label>   
+                <label class="label-style" for="tel">Telefonszám</label>   
                 <input type="tel" id="tel" placeholder="+36 -- --- ----" required/>
               </div> <!--phone-->
               <div class="e-mail">
-                <label for="email">E-mail cím</label>                
+                <label class="label-style" for="email">E-mail cím</label>                
                 <input type="email" id="email" placeholder="nev@domain.hu" required/>
               </div> <!--e-mail-->
               <div class="face">
-                <label for="facebook">Facebook profilod</label>                
+                <label class="label-style" for="facebook">Facebook profilod</label>                
                 <input type="url" id="facebook" placeholder="http://facebook.com/..."/>
               </div> <!--face-->
               <div class="tweet">
-                <label for="twitter">Twitter profilod</label>                
+                <label class="label-style" for="twitter">Twitter profilod</label>                
                 <input type="url" id="twitter" placeholder="http://twitter.com/..."/>
               </div> <!--tweet-->
               <div class="question">
-                <label for="house">Milyen házban laksz?</label>                                                                                                
+                <label class="label-style" for="house">Milyen házban laksz?</label>                                                                                                
                 <select id="house" name="option"></select>
               </div> <!--question-->
             </form> <!--form2-->
@@ -90,7 +90,7 @@
         <div class="content2">
           <form class="form3">
             <div class="int">
-              <label for="intro">Bemutatkozás</label>
+              <label class="label-style" for="intro">Bemutatkozás</label>
               <input type="text" id="intro" placeholder="Írj magadról pár mondatot!"/>
             </div> <!--int-->
             <div class="cv">
