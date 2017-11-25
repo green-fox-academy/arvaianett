@@ -57,7 +57,6 @@ h1 {
     background-color: rebeccapurple;
     width: 625px;
     height: 187px;
-    margin-top: 17px; 
 } 
 
 /********************************************all*********************/
@@ -96,10 +95,15 @@ input[type="number"] {
     border: 1px solid gray;
 }
 
+.radio-button {
+    display: block;
+    padding-top: 10px;
+}
+
 .born-sex {
-    width: 312.5px;
+    width: 100%;
     height: 62px;
-    box-sizing: border-box;
+    margin: auto;
 }
 
 .born {
@@ -110,13 +114,35 @@ input[type="number"] {
 
 .sex {
     height: 62px;
-    float: right;    
-}
+    float: right; 
+    padding-right: 30px;   
+} 
 
 .label-sex {
-    display: block;
+    margin: 0px;
 }
 
+.checkbox {
+    display: block;
+    width: 100%;
+    height: 135px;
+}
+
+.checkbox-left {
+    width: 100px;
+    height: 135px;
+    float: left;
+}
+
+.checkbox-right {
+    width: 100px;
+    height: 135px;
+    float: right;
+}
+
+.checkbox-style {
+    font-size: 14px;
+}
 
 
 /*******************************************contact*****************/
@@ -131,19 +157,10 @@ h2 {
     border-radius: 5px;
     font-size: 20px;
     color: #FFFFFF;    
-    /* padding: 10px; */
-    /* margin-bottom: 0px; */
-    box-sizing: content-box;
-    
-    
-}
-
-/* h2 {
-    font-size: 20px;
     padding: 10px;
     margin-bottom: 0px;
-    color: #FFFFFF;
-} */
+    box-sizing: border-box;    
+}
 
 input[type="tel"],
 input[type="email"],
@@ -165,12 +182,25 @@ select[id="house"] {
     padding-top: 10px;
     font-weight: bold;
     font-size: 14px;
-    line-height: 30px; 
+    line-height: 40px; 
     color: #4A4261;   
     padding-left: 10px;
 } 
 /*******************************************content2****************/
+#intro {
+    width: 600px;
+    height: 100px;
+    margin: auto;
+}
 
+.cv > input[type="button"] {
+    padding: 6px 40px;
+    background-color: #EBEBEB;
+    color: #4A4261;
+    border-radius: 5px;
+    text-transform: uppercase;
+    display: block;
+}
 /*******************************************footer******************/
 input[type="submit"] {
     padding: 10px 70px;
@@ -180,7 +210,7 @@ input[type="submit"] {
     border-radius: 5px;
 }
 
-input[type="button"] {
+.save > input[type="button"] {
     padding: 15px 24px;
     text-transform: uppercase;
     background-color: #FCFCFC;

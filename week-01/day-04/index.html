@@ -27,34 +27,42 @@
                 </div> <!--born-->
                 <div class="sex">
                   <p class="label-sex label-style">Nemed</p>
-                  <input type="radio" id="woman"/>
-                  <label for="woman">nő</label>
-                  <input type="radio" id="man"/>
-                  <label for="man">férfi</label>
+                  <div class="radio-button">
+                    <input type="radio" id="woman"/>
+                    <label for="woman">nő</label>
+                    <input type="radio" id="man"/>
+                    <label for="man">férfi</label>
+                  </div> <!--radio-button-->
                 </div> <!--sex-->
               </div> <!--born+sex-->
               <div class="brand">
                 <p class="label-style">Milyen márkákat szeretsz?</p>
-                <input type="checkbox" id="adidas"/>
-                <label for="adidas">Adidas</label>
-                <input type="checkbox" id="apple"/>
-                <label for="apple">Apple</label>
-                <input type="checkbox" id="coca-cola"/>
-                <label for="coca-cola">Coca-Cola</label>
-                <input type="checkbox" id="mazda"/>
-                <label for="mazda">Mazda</label>
-                <input type="checkbox" id="nike"/>
-                <label for="nike">Nike</label>
-                <input type="checkbox" id="opel"/>
-                <label for="opel">Opel</label>
-                <input type="checkbox" id="ray-ban"/>
-                <label for="ray-ban">Ray-Ban</label>
-                <input type="checkbox" id="starbucks"/>
-                <label for="starbucks">Starbucks</label>
-                <input type="checkbox" id="tesla"/>
-                <label for="tesla">Tesla</label>
-                <input type="checkbox" id="yahoo"/>
-                <label for="yahoo">Yahoo</label>
+                <div class="checkbox">
+                  <div class="checkbox-left">
+                    <input type="checkbox" id="adidas"/>
+                    <label class="checkbox-style" for="adidas">Adidas</label><br>
+                    <input type="checkbox" id="apple"/>
+                    <label class="checkbox-style" for="apple">Apple</label><br>
+                    <input type="checkbox" id="coca-cola"/>
+                    <label class="checkbox-style" for="coca-cola">Coca-Cola</label><br>
+                    <input type="checkbox" id="mazda"/>
+                    <label class="checkbox-style" for="mazda">Mazda</label><br>
+                    <input type="checkbox" id="nike"/>
+                    <label class="checkbox-style" for="nike">Nike</label><br>          
+                  </div> <!--checkbox-left-->
+                  <div class="checkbox-right">
+                    <input type="checkbox" id="opel"/>
+                    <label class="checkbox-style" for="opel">Opel</label><br>
+                    <input type="checkbox" id="ray-ban"/>
+                    <label class="checkbox-style" for="ray-ban">Ray-Ban</label><br>
+                    <input type="checkbox" id="starbucks"/>
+                    <label class="checkbox-style" for="starbucks">Starbucks</label><br>
+                    <input type="checkbox" id="tesla"/>
+                    <label class="checkbox-style" for="tesla">Tesla</label><br>
+                    <input type="checkbox" id="yahoo"/>
+                    <label class="checkbox-style" for="yahoo">Yahoo</label><br>
+                  </div> <!--checkbox-right-->
+                </div> <!--checkbox-->
               </div> <!--brand-->
               <p>Többet is választhatsz!</p>
             </form>
@@ -94,8 +102,8 @@
               <input type="text" id="intro" placeholder="Írj magadról pár mondatot!"/>
             </div> <!--int-->
             <div class="cv">
-              <label for="upload">CV feltöltése</label>
-              <input type="button" id="upload"/>
+              <label class="label-style" for="upload">CV feltöltése</label>
+              <input type="button" id="upload" value="file kiválasztása"/>
             </div> <!--cv-->
             <div class="conditions">
               <input type="checkbox" id="terms">
