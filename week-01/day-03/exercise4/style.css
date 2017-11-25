@@ -4,11 +4,6 @@ h1 {
     font-weight: 400;
 }
 
-p, xmp {
-    line-height: 1px;
-}
-
-p {
-    margin-left: 15px;
-    letter-spacing: 1px;
+xmp {
+    white-space: pre-wrap;
 }

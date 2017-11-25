@@ -17,7 +17,7 @@ ol {
 ol > li:nth-child(1), ol > li:nth-child(2), ol >li:nth-child(3) {
     color: #FF32FF;
     text-decoration: underline;
-    text-decoration-color: #FF32FF;
+    text-decoration-style: #FF32FF;
 }
 
 ol > li:nth-child(4) {
