@@ -40,14 +40,14 @@ h1 {
 }
 
 .personal {
-    background-color: peru;
+    background-color: #DCD6CD;
     width: 312.5px;
     height: 437px;
     float: left;
 }
 
 .contact {
-    background-color: powderblue;
+    background-color: #DCD6CD;
     width: 312.5px;
     height: 437px;
     float: right;   
@@ -61,18 +61,20 @@ h1 {
 } 
 
 /********************************************all*********************/
-
 * {
     font-family: sans-serif;
 }
 /********************************************header******************/
-h1 {
+h1, h2 {
     font-weight: lighter;
 }
-
  /*******************************************personal****************/
-
-
+.form1:nth-child(1) {
+    width: 300px;
+    height: 40px;
+    background-color: darkblue;
+    margin: auto;
+}
  /* .born+sex {
     background-color: khaki;
     width: 312.5px;
@@ -93,5 +95,44 @@ input[type="name"] {
 } */
 
 /*******************************************contact*****************/
+.form2:nth-child(1) {
+    width: 300px;
+    height: 40px;
+    background-color: #938C97;
+    margin: auto;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 0px;
+    color: #FFFFFF;
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+select[id="house"] {
+    display: block;
+    width: 298px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.form2 label {
+    color: #4A4261;
+    padding-bottom: 10px;
+}
+
+.phone, .e-mail, .face, .tweet, .question {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 30px; 
+    color: #98919B;   
+} 
+
 /*******************************************content2****************/
 /*******************************************footer******************/

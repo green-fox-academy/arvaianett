@@ -62,36 +62,59 @@
           
           <div class="contact">
             <form class="form2">
-                <h2>Kapcsolat</h2>
-                <label for="tel">Telefonszám</label>                
-                <input type="tel" id="tel" placeholder="+36 -- --- ----"/>
+              <h2>Kapcsolat</h2>
+              <div class="phone">
+                <label for="tel">Telefonszám</label>   
+                <input type="tel" id="tel" placeholder="+36 -- --- ----" required/>
+              </div> <!--phone-->
+              <div class="e-mail">
                 <label for="email">E-mail cím</label>                
-                <input type="email" id="email" placeholder="nev@domain.hu"/>
+                <input type="email" id="email" placeholder="nev@domain.hu" required/>
+              </div> <!--e-mail-->
+              <div class="face">
                 <label for="facebook">Facebook profilod</label>                
                 <input type="url" id="facebook" placeholder="http://facebook.com/..."/>
+              </div> <!--face-->
+              <div class="tweet">
                 <label for="twitter">Twitter profilod</label>                
                 <input type="url" id="twitter" placeholder="http://twitter.com/..."/>
+              </div> <!--tweet-->
+              <div class="question">
                 <label for="house">Milyen házban laksz?</label>                                                                                                
                 <select id="house" name="option"></select>
-            </form>
+              </div> <!--question-->
+            </form> <!--form2-->
           </div> <!--contact-->
         </div> <!--content-->
 
         <div class="content2">
-            <form class="form3">
+          <form class="form3">
+            <div class="int">
               <label for="intro">Bemutatkozás</label>
               <input type="text" id="intro" placeholder="Írj magadról pár mondatot!"/>
+            </div> <!--int-->
+            <div class="cv">
               <label for="upload">CV feltöltése</label>
               <input type="button" id="upload"/>
+            </div> <!--cv-->
+            <div class="conditions">
               <input type="checkbox" id="terms">
               <label for="terms">Elfogadom a felhasználási feltételeket</label>
-            </form>
-        </div>
+            </div> <!--conditions-->
+          </form> <!--form3-->
+        </div> <!--content2-->
 
         <footer>
-          <input type="submit" value="mentés"/>
-          <input type="button" value="űrlap törlése"/> 
+          <form class="form4">
+            <div class="save">
+              <input type="submit" value="mentés"/>
+            </div> <!--save-->
+            <div class="delete">
+              <input type="button" value="űrlap törlése"/> 
+            </div> <!--delete-->
+          </form> <!--form4-->
         </footer>
+
       </div> <!--main-->
     </div> <!--back-->
   </body>
