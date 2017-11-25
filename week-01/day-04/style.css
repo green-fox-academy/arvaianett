@@ -6,7 +6,7 @@ body {
 .back {
     background-color: #DCD6CD;
     width: 820px;
-    height: 900px;
+    height: 1000px;
     box-sizing: border-box;
     margin: auto;
     padding-top: 10px;
@@ -58,7 +58,7 @@ h1 {
 .content2 {
     background-color: #DCD6CD;
     width: 625px;
-    height: 250px;
+    height: 350px;
     margin-top: 16px;
 }
 
@@ -200,12 +200,8 @@ select[id="house"] {
 /*******************************************content2****************/
 #intro {
     width: 600px;
-    height: 100px;
+    height: 180px;
     margin: auto;
-}
-
-.int > .placeholder {
-    
 }
 
 .cv > input[type="button"] {
@@ -232,7 +228,7 @@ a {
 }
 
 .conditions {
-    padding-top: 5px;
+    padding-top: 20px;
 }
 
 /*******************************************footer******************/
