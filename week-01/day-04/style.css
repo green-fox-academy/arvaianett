@@ -30,7 +30,7 @@ h1 {
     margin: 0;
 }
 
-.content {
+.content1 {
     background-color: blue;
     width: 100%;
     height: 437px;
@@ -53,13 +53,45 @@ h1 {
     float: right;   
 }
 
-footer {
+.content2 {
     background-color: rebeccapurple;
-    width: 100%;
+    width: 625px;
     height: 187px;
-    margin-top: 17px;    
+    margin-top: 17px; 
+} 
+
+/********************************************all*********************/
+
+* {
+    font-family: sans-serif;
+}
+/********************************************header******************/
+h1 {
+    font-weight: lighter;
 }
 
-input {
+ /*******************************************personal****************/
+
+
+ /* .born+sex {
+    background-color: khaki;
+    width: 312.5px;
+    height: 70px;
     box-sizing: border-box;
 }
+
+.born {
+    float: left;
+}
+
+.sex {
+    float: right;
+}
+
+input[type="name"] {
+    width: 80px;
+} */
+
+/*******************************************contact*****************/
+/*******************************************content2****************/
+/*******************************************footer******************/
