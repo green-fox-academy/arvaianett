@@ -1,0 +1,26 @@
+p {
+    font-size: 16px;
+    font-family: courier;
+    color: white;
+    /* background-image: url('img/duck.png'); */
+
+}
+
+p:nth-of-type(1) {
+    width: 265px;
+    height: 105px;
+    background-color: #D27C46;
+    background-image: url('img/duck.png');
+    /* background-size: contain; */
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+p:nth-of-type(2) {
+
+}
+
+p:nth-of-type(3) {
+
+}
