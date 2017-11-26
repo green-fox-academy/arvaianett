@@ -2,25 +2,30 @@ p {
     font-size: 16px;
     font-family: courier;
     color: white;
-    /* background-image: url('img/duck.png'); */
-
+    background-image: url('img/duck.png');
+    width: 265px;    
 }
 
 p:nth-of-type(1) {
-    width: 265px;
     height: 105px;
     background-color: #D27C46;
-    background-image: url('img/duck.png');
-    /* background-size: contain; */
     background-size: 25%;
     background-repeat: no-repeat;
     background-position: left;
 }
 
 p:nth-of-type(2) {
-
+    height: 176px;
+    background-color: #643579;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 p:nth-of-type(3) {
-
+    height: 248px;
+    background-color: #808080;
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
