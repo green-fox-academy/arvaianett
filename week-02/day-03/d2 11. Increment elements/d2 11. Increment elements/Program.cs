@@ -1,19 +1,19 @@
 ﻿using System;
 
-namespace d2_10._Change_elements
+namespace d2_11._Increment_elements
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] s = new int[6]
+            int[] t = new int[5]
             {
-                1, 2, 3, 8, 5, 6
+                1, 2, 3, 4, 5
             };
 
-            s[3] = 4;
+            t[2] = 3 + 1;
 
-            Console.WriteLine(s[3]);
+            Console.WriteLine(t[2]);
             Console.ReadLine();
         }
     }
