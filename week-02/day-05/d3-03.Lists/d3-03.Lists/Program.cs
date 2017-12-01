@@ -11,8 +11,9 @@ namespace d3_03.Lists
 
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine(far[i] + "a"); 
+                far[i] = far[i] + "a";
             }
+
             Console.ReadLine();
         }
     }
