@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-WriteMultipleLines", "05-WriteMultipleLines\05-WriteMultipleLines.csproj", "{52B316E4-0FE2-43BC-B0C7-1E9F0F336752}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52B316E4-0FE2-43BC-B0C7-1E9F0F336752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B316E4-0FE2-43BC-B0C7-1E9F0F336752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B316E4-0FE2-43BC-B0C7-1E9F0F336752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B316E4-0FE2-43BC-B0C7-1E9F0F336752}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {669D458F-0A96-41A5-9D00-3968A2396B4C}
+	EndGlobalSection
+EndGlobal
