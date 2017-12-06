@@ -30,11 +30,11 @@ namespace _10_RainbowBoxes
 
             int size = 500;
 
-            for (int i = 0; i < 115; i++)
+            for (int i = 0; i < 160; i++)
             {
                 Color randomColor = Color.FromRgb((byte)rnd.Next(256), (byte)rnd.Next(256), (byte)rnd.Next(256));
 
-                size = size - 4;
+                size = size - 3;
 
                 Square(foxDraw, size, randomColor);
             }
