@@ -45,7 +45,7 @@ namespace _20_Triangles
             int a1 = 250;
             int b1 = 0;
             int a2 = 150;
-            int b2 = 173;
+            int b2 = 172;
 
             for (int j = 0; j < 4; j++)
             {
@@ -59,7 +59,7 @@ namespace _20_Triangles
             int c1 = 250;
             int d1 = 0;
             int c2 = 350;
-            int d2 = 173;
+            int d2 = 172;
 
             for (int k = 0; k < 4; k++)
             {

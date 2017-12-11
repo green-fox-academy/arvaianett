@@ -12,9 +12,6 @@ namespace Animal
         {
             Animal animal1 = new Animal();
 
-            animal1.hunger = 50;
-            animal1.hunger = 50;
-
             animal1.Eat();
 
             Console.WriteLine(animal1.hunger);

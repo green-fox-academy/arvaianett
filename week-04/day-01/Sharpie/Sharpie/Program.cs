@@ -18,9 +18,7 @@ namespace Sharpie
             sharpie1.Use();
 
             Console.WriteLine(sharpie1.InkAmount);
-            Console.ReadLine();
-
-            
+            Console.ReadLine();           
         }
     }
 }

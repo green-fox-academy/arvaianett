@@ -11,6 +11,12 @@ namespace Animal
         public int hunger;
         public int thirst;
 
+        public Animal()
+        {
+            hunger = 50;
+            thirst = 50;
+        }
+
         public void Eat()
         {
             hunger -= 1;
