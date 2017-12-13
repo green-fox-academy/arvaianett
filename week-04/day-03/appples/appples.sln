@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appples", "appples\appples.csproj", "{19D51785-EB20-4AE4-ACDE-B42102A41956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{C8FC0080-2093-4905-9F33-0613D25EA338}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19D51785-EB20-4AE4-ACDE-B42102A41956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19D51785-EB20-4AE4-ACDE-B42102A41956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19D51785-EB20-4AE4-ACDE-B42102A41956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19D51785-EB20-4AE4-ACDE-B42102A41956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FC0080-2093-4905-9F33-0613D25EA338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FC0080-2093-4905-9F33-0613D25EA338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FC0080-2093-4905-9F33-0613D25EA338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FC0080-2093-4905-9F33-0613D25EA338}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA43B74F-DB82-4049-8FA0-ACBD120181F9}
+	EndGlobalSection
+EndGlobal
