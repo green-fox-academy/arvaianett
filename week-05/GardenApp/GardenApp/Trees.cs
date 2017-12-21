@@ -10,6 +10,9 @@ namespace GardenApp
         {
             this.color = color;
             this.currentWaterAmount = currentWaterAmount;
+            Type = "Tree";
+            WaterAbsorb = 0.4;
+            WhenItNeedsMore = 10;
         }
     }
 }
