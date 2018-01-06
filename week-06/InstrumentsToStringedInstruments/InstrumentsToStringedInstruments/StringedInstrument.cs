@@ -6,14 +6,13 @@ namespace InstrumentsToStringedInstruments
 {
     abstract class StringedInstrument : Instrument
     {
-        public int NumberOfStrings { get; set; }
+        public int NumberOfStrings;
 
-        public abstract void Sound();
+        public abstract string Sound();
 
         public override void Play()
         {
-            Console.Write("{0}, a {1} - stringed instrument that ", InstrumentName, NumberOfStrings);
-            Sound();
+            Console.WriteLine("{0}, a {1} - stringed instrument that " + Sound(), InstrumentName, NumberOfStrings);
         }
     }
 }

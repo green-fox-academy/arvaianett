@@ -8,19 +8,19 @@ namespace InstrumentsToStringedInstruments
     {
         public Violin()
         {
-            this.InstrumentName = "Violin";
-            this.NumberOfStrings = 4;
+            InstrumentName = "Violin";
+            NumberOfStrings = 4;
         }
 
         public Violin(int stringsViolin)
         {
-            this.InstrumentName = "Violin";
-            this.NumberOfStrings = stringsViolin;
+            InstrumentName = "Violin";
+            NumberOfStrings = stringsViolin;
         }
 
-        public override void Sound()
+        public override string Sound()
         {
-            Console.WriteLine("screech");
+            return "screech";
         }
     }
 }

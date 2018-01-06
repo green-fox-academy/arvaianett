@@ -9,18 +9,18 @@ namespace InstrumentsToStringedInstruments
         public ElectricGuitar()
         {
             InstrumentName = "Electric Guitar";
-            this.NumberOfStrings = 6;
+            NumberOfStrings = 6;
         }
 
         public ElectricGuitar(int stringsElectricGuitar)
         {
             InstrumentName = "Electric Guitar";
-            this.NumberOfStrings = stringsElectricGuitar;
+            NumberOfStrings = stringsElectricGuitar;
         }
 
-        public override void Sound()
+        public override string Sound()
         {
-            Console.WriteLine("twang");
+            return "twang";
         }
     }
 }
