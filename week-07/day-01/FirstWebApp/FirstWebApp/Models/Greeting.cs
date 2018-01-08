@@ -10,10 +10,10 @@ namespace FirstWebApp.Models
         public long Id { get; set; }
         public string Content { get; set; }
 
-        public Greeting()
+        public Greeting(long id, string name)
         {
-            //Id = 1;
-            //Content = "Hello World!";
+            Content = name;
+            Id = id;
         }
     }
 }

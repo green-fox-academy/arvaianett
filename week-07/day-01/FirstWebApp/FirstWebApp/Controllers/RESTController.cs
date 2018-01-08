@@ -9,19 +9,24 @@ using FirstWebApp.Models;
 
 namespace FirstWebApp.Controllers
 {
+    [Route("api")]
     public class RESTController : Controller
     {
+        private static long Id { get; set; }
+
         // GET: /<controller>/
-        [Route("api")]
         public IActionResult Index()
         {
             return View();
         }
 
         [Route("greeting")]
+        
         public IActionResult Greeting(string name)
         {
-            return new JsonResult(new { Id = 3, Name = name });
+            Id++;
+
+            return new JsonResult(new Greeting(Id, name));
         }
     }
 }
