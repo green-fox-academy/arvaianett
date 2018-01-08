@@ -19,9 +19,9 @@ namespace FirstWebApp.Controllers
         }
 
         [Route("greeting")]
-        public IActionResult Greeting()
+        public IActionResult Greeting(string name)
         {
-            return new JsonResult(new Greeting());
+            return new JsonResult(new { Id = 3, Name = name });
         }
     }
 }

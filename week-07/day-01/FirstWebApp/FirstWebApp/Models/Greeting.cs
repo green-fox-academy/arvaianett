@@ -12,8 +12,8 @@ namespace FirstWebApp.Models
 
         public Greeting()
         {
-            Id = 1;
-            Content = "Hello World!";
+            //Id = 1;
+            //Content = "Hello World!";
         }
     }
 }
