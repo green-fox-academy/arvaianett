@@ -14,11 +14,6 @@ namespace FirstWebApp.Models
         {
             Content = name;
             Id = id;
-        }
-
-        public Greeting()
-        {
-
-        }
+        }   
     }
 }
