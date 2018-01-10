@@ -1,0 +1,15 @@
+﻿@model BankOfSimba.ViewModels.BankAccountViewModel
+@{
+    <table style="width:100%">
+        @foreach (var animal in @Model.BankAccountList)
+        {
+                <tr>
+                    <td>@animal.Name</td>
+                    <td>@animal.Balance</td>
+                    <td>@animal.Currency</td>
+                    <td>@animal.AnimalType</td>
+                </tr>
+        }
+    </table>
+
+}
