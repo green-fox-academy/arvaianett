@@ -29,7 +29,7 @@ namespace BankOfSimba.ViewModels
 
             BankAccountList.Add(new BankAccount()
             {
-                Name = "Musafa",
+                Name = "Scar",
                 Balance = 1000.00,
                 Currency = "Zebra",
                 AnimalType = "Lion",
@@ -41,7 +41,7 @@ namespace BankOfSimba.ViewModels
                 Name = "Zazu",
                 Balance = 500.50,
                 Currency = "Zebra",
-                AnimalType = "Lion",
+                AnimalType = "Parrot",
                 Bad_Good = true
             });
 

@@ -31,5 +31,19 @@ namespace BankOfSimba.Controllers
         {
             return View(BankAccountViewModel);
         }
+
+        [HttpPost("add")]
+        public IActionResult AddAccount(BankAccount bankAccount)
+        {
+            BankAccountViewModel.BankAccountList.Add(bankAccount);
+
+            return RedirectToAction("Characters");
+        }
+
+        [HttpPost("addcurrency")]
+        public IActionResult RaiseCurrency()
+        {
+            return RedirectToAction("Characters");
+        }
     }
 }
