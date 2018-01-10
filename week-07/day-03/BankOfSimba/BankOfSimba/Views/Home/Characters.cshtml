@@ -11,15 +11,21 @@
                 </tr>
         }
     </table>
-    <table style="width:100%">
-        @for (int i = 0; i < Model.BankAccountList.Count; i++)
+    <table style = "width:100%">
+         @for(int i = 0; i < Model.BankAccountList.Count; i++)
         {
             <tr>
-                <td>@i</td>
-                <td>@Model.BankAccountList[i].Name</td>
-                <td>@Model.BankAccountList[i].Balance</td>
-                <td>@Model.BankAccountList[i].Currency</td>
-                <td>@Model.BankAccountList[i].AnimalType</td>
+                <td> @i </td>
+                <td> @Model.BankAccountList[i].Name </td>
+                <td> @Model.BankAccountList[i].Balance </td>
+                <td> @Model.BankAccountList[i].Currency </td>
+                <td> @Model.BankAccountList[i].AnimalType </td>
+
+                @if (Model.BankAccountList[i].Status == "King")
+                {
+                <td> <span>@Model.BankAccountList[i].Status </span></td>
+
+                }
             </tr>
         }
     </table>

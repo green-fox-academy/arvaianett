@@ -22,7 +22,8 @@ namespace BankOfSimba.ViewModels
                 Name = "Simba",
                 Balance = 2000.00,
                 Currency = "Zebra",
-                AnimalType = "Lion"
+                AnimalType = "Lion",
+                Status = "King",
             });
 
             BankAccountList.Add(new BankAccount()
