@@ -24,6 +24,7 @@ namespace BankOfSimba.ViewModels
                 Currency = "Zebra",
                 AnimalType = "Lion",
                 Status = "King",
+                Bad_Good = true
             });
 
             BankAccountList.Add(new BankAccount()
@@ -31,7 +32,8 @@ namespace BankOfSimba.ViewModels
                 Name = "Musafa",
                 Balance = 1000.00,
                 Currency = "Zebra",
-                AnimalType = "Lion"
+                AnimalType = "Lion",
+                Bad_Good = false
             });
 
             BankAccountList.Add(new BankAccount()
@@ -39,7 +41,8 @@ namespace BankOfSimba.ViewModels
                 Name = "Zazu",
                 Balance = 500.50,
                 Currency = "Zebra",
-                AnimalType = "Lion"
+                AnimalType = "Lion",
+                Bad_Good = true
             });
 
             BankAccountList.Add(new BankAccount()
@@ -47,7 +50,8 @@ namespace BankOfSimba.ViewModels
                 Name = "Nala",
                 Balance = 900.00,
                 Currency = "Zebra",
-                AnimalType = "Lion"
+                AnimalType = "Lion",
+                Bad_Good = true
             });
         }
     }

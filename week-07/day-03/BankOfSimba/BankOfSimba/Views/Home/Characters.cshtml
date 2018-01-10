@@ -23,8 +23,21 @@
 
                 @if (Model.BankAccountList[i].Status == "King")
                 {
-                <td> <span>@Model.BankAccountList[i].Status </span></td>
+                    <td> <span>@Model.BankAccountList[i].Status </span></td>
+                }
+                else
+                {
+                    <td></td>
 
+                }
+
+                @if(Model.BankAccountList[i].Bad_Good == true)
+                {
+                    <td>Good</td>
+                }
+                else
+                {
+                    <td>Bad</td>
                 }
             </tr>
         }

@@ -11,5 +11,7 @@ namespace BankOfSimba.Models
         public double Balance { get; set; }
         public string Currency { get; set; }
         public string AnimalType { get; set; }
+        public string Status { get; set; }
+        public bool Bad_Good { get; set; }
     }
 }
