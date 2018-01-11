@@ -1,0 +1,20 @@
+﻿body {
+    background-color: cornsilk;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table, tr, td {
+    border: 1px solid green;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    background-color: azure;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}

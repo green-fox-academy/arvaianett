@@ -1,22 +1,16 @@
 ﻿@model BankOfSimba.ViewModels.BankAccountViewModel
-@{
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Personal Info</title>
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+</head>
+<body>@{
     <table style="width:100%">
-        @foreach (var animal in @Model.BankAccountList)
+        @for (int i = 0; i < Model.BankAccountList.Count; i++)
         {
-                <tr>
-                    <td>@animal.Name</td>
-                    <td>@animal.Balance</td>
-                    <td>@animal.Currency</td>
-                    <td>@animal.AnimalType</td>
-                </tr>
-        }
-    </table>
-
-    <table style = "width:100%">
-         @for(int i = 0; i < Model.BankAccountList.Count; i++)
-        {
+            var counter = i + 1;
             <tr>
-                <td> @i </td>
+                <td> @counter</td>
                 <td> @Model.BankAccountList[i].Name </td>
                 <td> @Model.BankAccountList[i].Balance </td>
                 <td> @Model.BankAccountList[i].Currency </td>
@@ -32,7 +26,7 @@
 
                 }
 
-                @if(Model.BankAccountList[i].Bad_Good == true)
+                @if (Model.BankAccountList[i].Bad_Good == true)
                 {
                     <td>Good</td>
                 }
@@ -47,16 +41,12 @@
     <form action="/add" method="post">
         Name:
         <input type="text" name="Name">
-        <br />
         Balance:
         <input type="text" name="Balance">
-        <br />
         Currency:
         <input type="text" name="Currency">
-        <br />
         Type:
         <input type="text" name="AnimalType">
-        <br />
         <input type="submit" value="Submit">
     </form>
 
@@ -77,3 +67,5 @@
         <input type="submit" value="Raise currency">
     </form>
 }
+    </body>
+</html>
