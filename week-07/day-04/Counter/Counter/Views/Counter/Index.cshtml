@@ -1,0 +1,17 @@
+﻿@model Counter.Models.CounterModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Counter Page</title>
+        <link rel="stylesheet" type="text/css" href="~/style.css" />
+    </head>
+    <body>
+        @{
+            Model.Count++;
+        }
+        <p>@Model.Count</p>
+        <form action="" method="post">           
+            <input type="submit" value="Count">
+        </form>
+    </body>
+</html>
+
