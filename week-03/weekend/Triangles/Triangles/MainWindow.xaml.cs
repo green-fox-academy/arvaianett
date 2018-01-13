@@ -32,7 +32,7 @@ namespace Triangles
             int side = 50;
             int down = 43;
             int bottom = 25;
-            int row = 15;
+            int row = 17;
 
             //horizontal lines
             int horizontalStartX = startX - row * bottom;
