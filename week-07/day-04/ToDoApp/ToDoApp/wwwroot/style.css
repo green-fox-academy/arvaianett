@@ -1,0 +1,35 @@
+﻿* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    height: auto;
+}
+
+.checkbox {
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+.buttons {
+    padding-left: 20px;
+}
+
+.form1 {
+    float: left;
+    width: 50%;
+    margin: 0;
+}
+
+.form2 {
+    float: right;
+    width: 50%;
+}

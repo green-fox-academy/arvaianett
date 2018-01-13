@@ -1,0 +1,63 @@
+﻿@model ToDoApp.ViewModel.ToDoViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDoApp</title>
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+</head>
+<body>
+    <div class="buttons">
+        <form action="/add" method="post" class="form1">
+            <p>Add task</p>
+            <input type="text" name="task" />
+            <p>urgent</p>
+            <input type="checkbox" name="urgent" value="true" class="checkbox" />
+            <input type="submit" value="Add new task" />
+        </form>
+        <form action="remove" method="post" class="form2">
+            <p>Remove task</p>
+            <input type="text" name="number" />
+            <input type="submit" value="Remove task" />
+        </form>
+    </div>
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Task</th>
+            <th>Urgent</th>
+            <th>Done</th>
+        </tr>
+        @for (int i = 0; i < Model.todoList.Count; i++)
+        {
+            var counter = i + 1;
+            <tr>
+                <td> @counter</td>
+                <td> @Model.todoList[i].Task </td>
+                <td><form action="urgent" method="post" class="checkbox">
+                    @if (Model.todoList[i].Urgent == true)
+                    {
+                        <input type="checkbox" name="urgent" checked="checked"/>
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="urgent" /> 
+                    }
+                    </form>
+                </td>
+                <td>
+                    <form action="done" method="post" class="checkbox">
+                        @if (Model.todoList[i].Done == true)
+                        {
+                            <input type="checkbox" name="done" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="done" />
+                        }
+                    </form>
+                </td>
+            </tr>    
+        }
+    </table>
+</body>
+</html>
