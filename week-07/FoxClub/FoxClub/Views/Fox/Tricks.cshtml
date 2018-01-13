@@ -1,0 +1,26 @@
+﻿@model FoxClub.Models.Fox
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tricks</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/">Information</a></li>
+        <li><a href="/nutrition">Nutrition Store</a></li>
+        <li><a href="/tricks">Trick Center</a></li>
+        <li><a href="/">Action History</a></li>
+    </ul>
+    <form action="addtrick" method="post">
+        <p>Tricks</p>
+        <select type="text" name="listoftricks">
+            <option value="sit">Sit</option>
+            <option value="walk on two legs">Walk on two legs</option>
+            <option value="sing">Sing</option>
+            <option value="dance">Dance</option>
+            <option value="talk">Talk</option>
+        </select> 
+        <input type="submit" value="Learn" />
+    </form>
+</body>
+</html>
