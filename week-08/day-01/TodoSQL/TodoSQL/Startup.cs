@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using TODO.Context;
+using TodoSQL.Entities;
 using Microsoft.EntityFrameworkCore;
-using TODO.Repositories;
+using TodoSQL.Repositories;
 
-namespace TODO
+namespace TodoSQL
 {
     public class Startup
     {
@@ -19,9 +19,8 @@ namespace TODO
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddScoped<TodoContext>();
             services.AddScoped<TodoRepository>();
-            services.AddDbContext<TodoContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TODO;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TodoDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

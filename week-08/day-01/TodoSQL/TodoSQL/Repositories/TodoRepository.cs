@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TODO.Context;
-using TODO.Models;
+using TodoSQL.Entities;
+using TodoSQL.Models;
 
-namespace TODO.Repositories
+namespace TodoSQL.Repositories
 {
     public class TodoRepository
     {
@@ -19,6 +19,7 @@ namespace TODO.Repositories
         public void Add(Todo todo)
         {
             todoContext.Todos.Add(todo);
+            todoContext.SaveChanges();
         }
 
         public List<Todo> GetAll()
