@@ -19,33 +19,33 @@ namespace FoxClub.Controllers
             this.fox = fox;
         }
         // GET: /<controller>/
-        [HttpGet("nutrition")]
+        [HttpGet("nutrition/{name}")]
         public IActionResult Index()
         {
             return View(fox);
         }
 
-        [HttpPost("changenutrition")]
-        public IActionResult Nutrition(string food, string drink)
+        [HttpPost("changenutrition/{name}")]
+        public IActionResult Nutrition(string name, string food, string drink)
         {
             fox.Food = food;
             fox.Drink = drink;
 
-            return Redirect("/index");
+            return Redirect($"/index/{name}");
         }
 
-        [HttpGet("tricks")]
+        [HttpGet("tricks/{name}")]
         public IActionResult Tricks()
         {
             return View(fox);
         }
 
-        [HttpPost("addtrick")]
-        public IActionResult AddTricks(string trick)
+        [HttpPost("addtrick/{name}")]
+        public IActionResult AddTricks(string name, string trick)
         {
             fox.ListOfTricks.Add(trick);
 
-            return Redirect("/index");
+            return Redirect($"/index/{name}");
         }
     }
 }

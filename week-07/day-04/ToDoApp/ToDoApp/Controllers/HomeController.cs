@@ -37,8 +37,8 @@ namespace ToDoApp.Controllers
         [HttpPost("remove")]
         public IActionResult RemoveTask(int item)
         {
-            //item = toDoViewModel.todoList[item].Number;
-            //toDoViewModel.Remove(item);
+            //var delete = toDoViewModel.todoList[item];
+            //toDoViewModel.todoList.Remove(delete);
             return RedirectToAction("index");
         }
     }

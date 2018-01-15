@@ -10,6 +10,5 @@ namespace ToDoApp.Models
         public string Task { get; set; }
         public bool Done { get; set; }
         public bool Urgent { get; set; }
-        public int Number { get; set; }
     }
 }

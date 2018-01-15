@@ -21,8 +21,8 @@ namespace FoxClub.Controllers
         }
         // GET: /<controller>/
         
-        [Route("index")]
-        public IActionResult Index()
+        [Route("index/{name}")]
+        public IActionResult Index(string name)
         {
             return View(fox);
         }
