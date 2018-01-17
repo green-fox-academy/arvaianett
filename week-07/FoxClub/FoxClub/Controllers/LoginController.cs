@@ -34,7 +34,7 @@ namespace FoxClub.Controllers
         {
             fox.Name = name;
             foxViewModel.foxList.Add(new Fox() { Name = name });
-            return Redirect($"/index/{name}");
+            return Redirect("/index");
         }
     }
 }

@@ -14,14 +14,16 @@ namespace FoxClub.Controllers
     public class HomeController : Controller
     {
         public Fox fox;
+        public FoxViewModel foxViewModel;
 
-        public HomeController(Fox fox)
+        public HomeController(Fox fox, FoxViewModel foxViewModel)
         {
             this.fox = fox;
+            this.foxViewModel = foxViewModel;
         }
         // GET: /<controller>/
         
-        [Route("index/{name}")]
+        [Route("index")]
         public IActionResult Index(string name)
         {
             return View(fox);
