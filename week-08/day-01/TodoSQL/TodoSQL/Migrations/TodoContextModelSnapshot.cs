@@ -22,7 +22,7 @@ namespace TodoSQL.Migrations
 
             modelBuilder.Entity("TodoSQL.Models.Todo", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("TodoId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("IsDone");
@@ -31,9 +31,34 @@ namespace TodoSQL.Migrations
 
                     b.Property<string>("Title");
 
-                    b.HasKey("Id");
+                    b.Property<long?>("UserId");
+
+                    b.HasKey("TodoId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Todos");
+                });
+
+            modelBuilder.Entity("TodoSQL.Models.User", b =>
+                {
+                    b.Property<long>("UserId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("TodoSQL.Models.Todo", b =>
+                {
+                    b.HasOne("TodoSQL.Models.User", "User")
+                        .WithMany("Todos")
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

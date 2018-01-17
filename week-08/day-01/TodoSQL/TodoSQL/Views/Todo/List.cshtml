@@ -20,12 +20,12 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Id</td>
+                        <td>@item.TodoId</td>
                         <td>@item.Title</td>
                         <td>@item.IsUrgent</td>
                         <td>@item.IsDone</td>
-                        <td><a href="@item.Id/delete">Delete</a></td>
-                        <td><a href="@item.Id/edit">Edit</a></td>
+                        <td><a href="@item.TodoId/delete">Delete</a></td>
+                        <td><a href="@item.TodoId/edit">Edit</a></td>
                     </tr>
                 }
         </table>

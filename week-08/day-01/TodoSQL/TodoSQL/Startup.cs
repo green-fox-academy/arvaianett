@@ -21,7 +21,7 @@ namespace TodoSQL
         {
             services.AddMvc();
             services.AddScoped<TodoRepository>();
-            services.AddScoped<Todo>();
+            services.AddScoped<UserRepository>();
             services.AddDbContext<TodoContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TodoDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 

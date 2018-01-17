@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TodoSQL.Entities;
 using TodoSQL.Models;
 
@@ -29,34 +27,20 @@ namespace TodoSQL.Repositories
 
         public void Delete(long id)
         {
-            Todo todo = todoContext.Todos.FirstOrDefault(x => x.Id == id);
+            Todo todo = todoContext.Todos.FirstOrDefault(x => x.TodoId == id);
             todoContext.Todos.Remove(todo);
             todoContext.SaveChanges();
         }
 
         public Todo GetEditView(long id)
         {
-            return todoContext.Todos.FirstOrDefault(x => x.Id == id);
+            return todoContext.Todos.FirstOrDefault(x => x.TodoId == id);
         }
 
         public void Edit(Todo todo, long id)
         {
             todoContext.Todos.Update(todo);
             todoContext.SaveChanges();
-        }
-
-        public List<Todo> IsActive()
-        {
-            var activeTodo = new List<Todo>();
-
-            foreach (var item in todoContext.Todos.ToList())
-            {
-                if(item.IsDone == false)
-                {
-                    activeTodo.Add(item);
-                }
-            }
-            return activeTodo;
         }
     }
 }
