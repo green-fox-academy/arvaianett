@@ -1,0 +1,24 @@
+﻿@model TodoSQL.Models.Todo
+<html>
+<head>
+    <meta charset="UTF-8" lang="en">
+    <title>Todo</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Edit todo</h1>
+    <form class="form-inline" action="/@Model.Id/edit/update" method="post">
+        <h4>Todo Description</h4>
+        <input type="text" name="title" />
+        <h4>Urgent</h4>
+        <input type="checkbox" name="isurgent" />
+        <h4>Done</h4>
+        <input type="checkbox" name="isdone" />
+        <input type="submit" value="Submit" />
+        <a href="/list">Cancel</a>
+    </form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+

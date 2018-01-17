@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TodoSQL.Entities;
 using Microsoft.EntityFrameworkCore;
 using TodoSQL.Repositories;
+using TodoSQL.Models;
 
 namespace TodoSQL
 {
@@ -20,6 +21,7 @@ namespace TodoSQL
         {
             services.AddMvc();
             services.AddScoped<TodoRepository>();
+            services.AddScoped<Todo>();
             services.AddDbContext<TodoContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TodoDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
@@ -31,6 +33,7 @@ namespace TodoSQL
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }

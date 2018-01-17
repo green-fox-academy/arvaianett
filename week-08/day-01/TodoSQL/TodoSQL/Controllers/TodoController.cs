@@ -24,11 +24,11 @@ namespace TodoSQL.Controllers
         [Route("todo")]
         public IActionResult Index()
         {
-            return View(todoRepository);
+            return View();
         }
 
         [Route("/list")]
-        public IActionResult List()
+        public IActionResult List([FromQuery] Todo todo)
         {
             return View(todoRepository.GetAll());
         }
@@ -37,7 +37,28 @@ namespace TodoSQL.Controllers
         public IActionResult AddElement(Todo todo)
         {
             todoRepository.Add(todo);
-            
+
+            return Redirect("/list");
+        }
+
+        [HttpGet("/{id}/delete")]
+        public IActionResult Delete(long id)
+        {
+            todoRepository.Delete(id);
+            return Redirect("/list");
+        }
+
+        [HttpGet("/{id}/edit")]
+        public IActionResult Update(long id)
+        {
+            todoRepository.GetEditView(id);
+            return View(todoRepository.GetEditView(id));
+        }
+
+        [HttpPost("/{id}/edit/update")]
+        public IActionResult Edit(Todo todo, [FromQuery]long id)
+        {
+            todoRepository.Edit(todo, id);
             return Redirect("/list");
         }
     }

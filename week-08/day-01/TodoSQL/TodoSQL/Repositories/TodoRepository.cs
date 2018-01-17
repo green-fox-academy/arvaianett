@@ -26,5 +26,37 @@ namespace TodoSQL.Repositories
         {
             return todoContext.Todos.ToList();
         }
+
+        public void Delete(long id)
+        {
+            Todo todo = todoContext.Todos.FirstOrDefault(x => x.Id == id);
+            todoContext.Todos.Remove(todo);
+            todoContext.SaveChanges();
+        }
+
+        public Todo GetEditView(long id)
+        {
+            return todoContext.Todos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Edit(Todo todo, long id)
+        {
+            todoContext.Todos.Update(todo);
+            todoContext.SaveChanges();
+        }
+
+        public List<Todo> IsActive()
+        {
+            var activeTodo = new List<Todo>();
+
+            foreach (var item in todoContext.Todos.ToList())
+            {
+                if(item.IsDone == false)
+                {
+                    activeTodo.Add(item);
+                }
+            }
+            return activeTodo;
+        }
     }
 }
