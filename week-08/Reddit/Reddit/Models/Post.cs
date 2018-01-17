@@ -7,5 +7,10 @@ namespace Reddit.Models
 {
     public class Post
     {
+        public long PostId { get; set; }
+        public int Score { get; set; }
+        public string Content { get; set; }
+
+        public User User { get; set; }
     }
 }
