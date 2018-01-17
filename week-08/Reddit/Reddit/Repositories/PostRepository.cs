@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Reddit.Repositories
 {
-    public class UserContext
+    public class PostRepository
     {
     }
 }
