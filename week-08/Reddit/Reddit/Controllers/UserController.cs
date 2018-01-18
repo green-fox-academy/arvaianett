@@ -30,6 +30,7 @@ namespace Reddit.Controllers
         [HttpPost("name")]
         public IActionResult RedirectToPersonalPage(User user)
         {
+            userRepository.UserStatus(user);
             return Redirect("posts");
         }
     }
