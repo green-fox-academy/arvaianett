@@ -24,21 +24,21 @@ namespace Reddit.Controllers
         [HttpGet("home")]
         public IActionResult Index()
         {
-            return View(homeRepository);
+            return View();
         }
 
         [HttpPost("score_add")]
         public IActionResult AddScore(Post post)
         {
             homeRepository.AddScore(post);
-            return Redirect("posts");
+            return Redirect("home");
         }
 
         [HttpPost("score_decrease")]
         public IActionResult DecreaseScore(Post post)
         {
             homeRepository.DecreaseScore(post);
-            return Redirect("posts");
+            return Redirect("home");
         }
     }
 }

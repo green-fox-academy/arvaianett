@@ -15,5 +15,11 @@ namespace Reddit.Repositories
         {
             this.homeContext = homeContext;
         }
+
+        public void AddContent(Post post)
+        {
+            homeContext.RedditPosts.Add(post);
+            homeContext.SaveChanges();
+        }
     }
 }

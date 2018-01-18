@@ -21,6 +21,7 @@ namespace Reddit
             services.AddMvc();
             services.AddScoped<UserRepository>();
             services.AddScoped<PostRepository>();
+            services.AddScoped<HomeRepository>();
             services.AddDbContext<HomeContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TodoDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
