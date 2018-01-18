@@ -13,36 +13,32 @@ namespace Reddit.Controllers
     [Route("")]
     public class HomeController : Controller
     {
-        private PostRepository postRepository;
+        private HomeRepository homeRepository;
 
-        public HomeController(PostRepository postRepository)
+        public HomeController(HomeRepository homeRepository)
         {
-            this.postRepository = postRepository;
+            this.homeRepository = homeRepository;
         }
 
         // GET: /<controller>/
-        [HttpGet("posts")]
+        [HttpGet("home")]
         public IActionResult Index()
         {
-            return View(postRepository);
+            return View(homeRepository);
         }
 
         [HttpPost("score_add")]
         public IActionResult AddScore(Post post)
         {
-
+            homeRepository.AddScore(post);
+            return Redirect("posts");
         }
 
         [HttpPost("score_decrease")]
         public IActionResult DecreaseScore(Post post)
         {
-
+            homeRepository.DecreaseScore(post);
+            return Redirect("posts");
         }
-
-        //[HttpPost("createpost")]
-        //public IActionResult CreatePost()
-        //{
-        //    return Ok();
-        //}
     }
 }
