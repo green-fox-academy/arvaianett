@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Reddit.Repositories;
 using Reddit.Models;
+using Reddit.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,11 +14,11 @@ namespace Reddit.Controllers
     [Route("")]
     public class UserController : Controller
     {
-        private UserRepository userRepository;
+        private UserServices userServices;
 
-        public UserController(UserRepository userRepository)
+        public UserController(UserServices userServices)
         {
-            this.userRepository = userRepository;
+            this.userServices = userServices;
         }
 
         // GET: /<controller>/
@@ -28,10 +29,17 @@ namespace Reddit.Controllers
         }
 
         [HttpPost("username")]
-        public IActionResult RedirectToPersonalPage(string username, User user)
+        public IActionResult RedirectToPersonalPage(string username)
         {
-            userRepository.UserStatus(user);
-            return Redirect($"home/{username}");
+            if (userServices.UserStatus(username))
+            {
+                return Redirect($"home/{username}");
+            }
+            else
+            {
+                userServices.AddUser(username);
+                return Redirect($"home/{username}");
+            }
         }
     }
 }

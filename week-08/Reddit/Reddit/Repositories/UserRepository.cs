@@ -14,27 +14,19 @@ namespace Reddit.Repositories
             this.homeContext = homeContext;
         }
 
-        public void UserStatus(User user)
+        public bool UserStatus(string username)
         {
-            if (homeContext.RedditUsers.ToList().Contains(user))
-            {
-                GetUserData(user);
-            }
-            else
-            {
-                AddUser(user);
-            }
+            return homeContext.RedditUsers.Where(u => u.Username.Equals(username)).Count() > 0;
         }
 
-        public void AddUser(User user)
+        public void AddUser(string username)
         {
-            homeContext.RedditUsers.Add(user);
+            homeContext.RedditUsers.Add(new User()
+            {
+                Username = username
+            });
+
             homeContext.SaveChanges();
-        }
-
-        public User GetUserData(User user)
-        {
-            return homeContext.RedditUsers.FirstOrDefault(x => x.UserId == user.UserId);
         }
     }
 }
