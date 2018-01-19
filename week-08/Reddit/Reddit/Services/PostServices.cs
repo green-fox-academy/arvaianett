@@ -15,5 +15,10 @@ namespace Reddit.Services
         {
             this.postRepository = postRepository;
         }
+
+        public void AddPostToUser(User user, Post post)
+        {
+            postRepository.AddPostToUser(user, post);
+        }
     }
 }

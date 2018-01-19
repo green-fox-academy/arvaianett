@@ -1,23 +1,14 @@
-﻿using Reddit.Entities;
-using Reddit.Models;
-using Reddit.Repositories;
-using Reddit.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Reddit.Repositories;
 
 namespace Reddit.Services
 {
     public class UserServices
     {
         private UserRepository userRepository;
-        private HomeContext homeContext;
 
-        public UserServices(UserRepository userRepository, HomeContext homeContext)
+        public UserServices(UserRepository userRepository)
         {
             this.userRepository = userRepository;
-            this.homeContext = homeContext;
         }
 
         public bool UserStatus(string username)

@@ -10,14 +10,17 @@ namespace Reddit.Repositories
     public class PostRepository
     {
         private HomeContext homeContext;
+        private HomeRepository homeRepository;
 
-        public PostRepository(HomeContext homeContext)
+        public PostRepository(HomeContext homeContext, HomeRepository homeRepository)
         {
             this.homeContext = homeContext;
+            this.homeRepository = homeRepository;
         }
 
-        public void AddContent(Post post)
+        public void AddPostToUser(User user, Post post)
         {
+            post.User = homeRepository.GetCurrentUser(user);
             homeContext.RedditPosts.Add(post);
             homeContext.SaveChanges();
         }

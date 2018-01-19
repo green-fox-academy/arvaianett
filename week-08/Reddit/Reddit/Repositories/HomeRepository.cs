@@ -22,12 +22,5 @@ namespace Reddit.Repositories
             homeContext.RedditPosts.Load();
             return homeContext.RedditUsers.FirstOrDefault(u => u.UserId == user.UserId);
         }
-
-        public void AddPostToUser(User user, Post post)
-        {
-            post.User = GetCurrentUser(user);
-            homeContext.RedditPosts.Add(post);
-            homeContext.SaveChanges();
-        }
     }
 }

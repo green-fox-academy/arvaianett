@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Reddit.Repositories;
 using Reddit.Models;
+using Reddit.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,11 +14,11 @@ namespace Reddit.Controllers
     [Route("")]
     public class PostController : Controller
     {
-        private PostRepository postRepository;
+        private PostServices postService;
 
-        public PostController(PostRepository postRepository)
+        public PostController(PostServices postService)
         {
-            this.postRepository = postRepository;
+            this.postService = postService;
         }
 
         // GET: /<controller>/
@@ -28,9 +29,9 @@ namespace Reddit.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddContent(Post post, string username)
+        public IActionResult AddContent([FromQuery] Post post, User user, string username)
         {
-            postRepository.AddContent(post);
+            postService.AddPostToUser(user, post);
             return Redirect($"home/{username}");
         }
     }
