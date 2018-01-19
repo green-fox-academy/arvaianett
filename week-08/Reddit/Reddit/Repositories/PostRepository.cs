@@ -21,5 +21,10 @@ namespace Reddit.Repositories
             homeContext.RedditPosts.Add(post);
             homeContext.SaveChanges();
         }
+
+        public List<Post> GetListOfPosts(User user)
+        {
+            return homeContext.RedditPosts.ToList().Where(x => x.PostId == user.UserId).ToList();
+        }
     }
 }

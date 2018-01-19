@@ -16,6 +16,11 @@ namespace Reddit.Repositories
             this.homeContext = homeContext;
         }
 
+        public User GetCurrentUser(User user)
+        {
+            return homeContext.RedditUsers.FirstOrDefault(x => x.UserId == user.UserId);
+        }
+
         public void AddScore(Post post)
         {
             post.Score++;

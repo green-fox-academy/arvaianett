@@ -14,16 +14,20 @@ namespace Reddit.Controllers
     public class HomeController : Controller
     {
         private HomeRepository homeRepository;
+        private PostRepository postRepository;
 
-        public HomeController(HomeRepository homeRepository)
+        public HomeController(HomeRepository homeRepository, PostRepository postRepository)
         {
             this.homeRepository = homeRepository;
+            this.postRepository = postRepository;
         }
 
         // GET: /<controller>/
         [HttpGet("home")]
-        public IActionResult Index()
+        public IActionResult Index([FromQuery]User user)
         {
+            postRepository.GetListOfPosts(user);
+            homeRepository.GetCurrentUser(user);
             return View();
         }
 
