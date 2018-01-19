@@ -20,13 +20,18 @@ namespace Reddit.Services
             this.postRepository = postRepository;
         }
 
-        public HomeViewModel ViewDetails(User user)
+        public HomeViewModel ViewDetails(long id)
         {
             return new HomeViewModel()
             {
-                User = homeRepository.GetCurrentUser(user),
-                Post = postRepository.GetListOfPosts(user)
+                User = homeRepository.GetCurrentUser(id),
+                Post = postRepository.GetListOfPosts(id)
             };
+        }
+
+        public long GetId(string username)
+        {
+            return homeRepository.GetId(username);
         }
 
         //public void AddScore(Post post)

@@ -1,4 +1,4 @@
-﻿@model Reddit.Models.Post
+﻿@model Reddit.ViewModels.HomeViewModel
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +10,7 @@
     <form action="add" method="post">
         <p>Content:</p>
         <input type="text" name="content" />
+        <input type="hidden" name="username" value="@Model.User.Username" />
         <input type="submit" value="Submit" />
     </form>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

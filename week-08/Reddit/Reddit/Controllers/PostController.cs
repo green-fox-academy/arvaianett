@@ -29,9 +29,9 @@ namespace Reddit.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddContent([FromQuery] Post post, User user, string username)
+        public IActionResult AddContent([FromQuery] Post post, string username, long id)
         {
-            postService.AddPostToUser(user, post);
+            postService.AddPostToUser(id, post);
             return Redirect($"home/{username}");
         }
     }

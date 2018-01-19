@@ -18,16 +18,16 @@ namespace Reddit.Repositories
             this.homeRepository = homeRepository;
         }
 
-        public void AddPostToUser(User user, Post post)
+        public void AddPostToUser(long id, Post post)
         {
-            post.User = homeRepository.GetCurrentUser(user);
+            post.User = homeRepository.GetCurrentUser(id);
             homeContext.RedditPosts.Add(post);
             homeContext.SaveChanges();
         }
 
-        public List<Post> GetListOfPosts(User user)
+        public List<Post> GetListOfPosts(long id)
         {
-            return homeContext.RedditPosts.ToList().Where(x => x.PostId == user.UserId).ToList();
+            return homeContext.RedditPosts.Where(u => u.PostId == id).ToList();
         }
     }
 }

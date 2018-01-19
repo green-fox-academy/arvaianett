@@ -7,7 +7,12 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <a href="/createpost">Add new post</a>
+    <p>Hello @Model.User.Username</p>
+    <form action="/createpost" method="get">
+        <input type="submit" value="add new post" />
+        <input type="hidden" name="username" value="@Model.User.Username" />
+        <a href="/createpost">Add new post</a>
+        </form>
     <h1>Posts</h1>
     <form action="/score_add" method="post">
         <table>

@@ -17,10 +17,16 @@ namespace Reddit.Repositories
             this.homeContext = homeContext;
         }
 
-        public User GetCurrentUser(User user)
+        public User GetCurrentUser(long id)
         {
             homeContext.RedditPosts.Load();
-            return homeContext.RedditUsers.FirstOrDefault(u => u.UserId == user.UserId);
+            return homeContext.RedditUsers.FirstOrDefault(u => u.UserId.Equals(id));
+        }
+
+        public long GetId(string username)
+        {
+            User user = homeContext.RedditUsers.FirstOrDefault(u => u.Username.Equals(username));
+            return user.UserId;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Reddit.Services
         {
             return userRepository.UserStatus(username);
         }
+
         public void AddUser(string username)
         {
             userRepository.AddUser(username);
