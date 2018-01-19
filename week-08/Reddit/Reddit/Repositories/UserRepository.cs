@@ -1,5 +1,6 @@
 ﻿using Reddit.Entities;
 using Reddit.Models;
+using Reddit.ViewModels;
 using System.Linq;
 
 namespace Reddit.Repositories

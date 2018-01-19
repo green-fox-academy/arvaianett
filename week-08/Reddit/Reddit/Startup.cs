@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Reddit.Repositories;
 using Reddit.Entities;
 using Microsoft.EntityFrameworkCore;
+using Reddit.Services;
 
 namespace Reddit
 {
@@ -22,6 +23,9 @@ namespace Reddit
             services.AddScoped<UserRepository>();
             services.AddScoped<PostRepository>();
             services.AddScoped<HomeRepository>();
+            services.AddScoped<HomeServices>();
+            services.AddScoped<PostServices>();
+            services.AddScoped<UserServices>();
             services.AddDbContext<HomeContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TodoDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 

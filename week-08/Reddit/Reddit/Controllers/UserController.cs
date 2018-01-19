@@ -27,11 +27,11 @@ namespace Reddit.Controllers
             return View();
         }
 
-        [HttpPost("name")]
-        public IActionResult RedirectToPersonalPage(User user)
+        [HttpPost("username")]
+        public IActionResult RedirectToPersonalPage(string username, User user)
         {
             userRepository.UserStatus(user);
-            return Redirect("home");
+            return Redirect($"home/{username}");
         }
     }
 }

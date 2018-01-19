@@ -8,7 +8,7 @@ namespace Reddit.ViewModels
 {
     public class HomeViewModel
     {
-        public Post Post { get; set; }
-        public User user { get; set; }
+        public List<Post> Post { get; set; }
+        public User User { get; set; }
     }
 }

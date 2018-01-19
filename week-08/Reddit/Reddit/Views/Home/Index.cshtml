@@ -16,7 +16,7 @@
                 <th>Actions</th>
                 <th>Content</th>
             </tr>
-            @if (Model.Count == 0)
+            @if (Model.Post.Count == 0)
             {
                 <tr>
                     <td>No posts</td>
@@ -24,7 +24,7 @@
             }
             else
             {
-                @foreach (var element in Model)
+                @foreach (var element in Model.Post)
                 {
                     <tr>
                         <td>@element.Score</td>
