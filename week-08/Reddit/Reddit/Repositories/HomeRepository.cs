@@ -1,4 +1,5 @@
-﻿using Reddit.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Reddit.Entities;
 using Reddit.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,15 @@ namespace Reddit.Repositories
 
         public User GetCurrentUser(User user)
         {
-            return homeContext.RedditUsers.FirstOrDefault(x => x.UserId == user.UserId);
+            homeContext.RedditPosts.Load();
+            return homeContext.RedditUsers.FirstOrDefault(u => u.UserId == user.UserId);
+        }
+
+        public void AddPostToUser(User user, Post post)
+        {
+            post.User = GetCurrentUser(user);
+            homeContext.RedditPosts.Add(post);
+            homeContext.SaveChanges();
         }
     }
 }
