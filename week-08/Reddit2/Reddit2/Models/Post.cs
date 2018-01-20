@@ -13,5 +13,7 @@ namespace Reddit2.Models
         public int Score { get; set; }
         public string Content { get; set; }
         public DateTime DateTime { get; set; } = DateTime.Now;
+
+        public User User { get; set; }
     }
 }

@@ -15,5 +15,6 @@ namespace Reddit2.Entities
         }
 
         public DbSet<Post> Post { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
