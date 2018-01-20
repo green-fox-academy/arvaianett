@@ -19,6 +19,7 @@ namespace Reddit2.Repositories
         public void AddPost(Post post)
         {
             postContext.Post.Add(post);
+            postContext.SaveChanges();
         }
     }
 }

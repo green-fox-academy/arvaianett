@@ -23,13 +23,12 @@ namespace Reddit2.Services
 
         public void AddScore(long id)
         {
-            postRepository.GetItem(id).Score++;
-            
+            postRepository.AddScore(id);
         }
 
         public void DecreaseScore(long id)
         {
-            postRepository.GetItem(id).Score--;
+            postRepository.DecreaseScore(id);
         }
     }
 }

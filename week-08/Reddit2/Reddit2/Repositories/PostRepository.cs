@@ -23,7 +23,23 @@ namespace Reddit2.Repositories
 
         public Post GetItem(long id)
         {
-            return postContext.Post.FirstOrDefault(s=>s.PostId == id);
+            return postContext.Post.FirstOrDefault(p => p.PostId == id);
+        }
+
+        public void AddScore(long id)
+        {
+            Post update = GetItem(id);
+            update.Score++;
+            postContext.Post.Update(update);
+            postContext.SaveChanges();
+        }
+
+        public void DecreaseScore(long id)
+        {
+            Post update = GetItem(id);
+            update.Score--;
+            postContext.Post.Update(update);
+            postContext.SaveChanges();
         }
     }
 }

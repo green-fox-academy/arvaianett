@@ -20,6 +20,7 @@ namespace Reddit2.Controllers
         }
 
         // GET: /<controller>/
+        [HttpGet("addcontent")]
         public IActionResult Index()
         {
             return View();

@@ -26,18 +26,18 @@ namespace Reddit2.Controllers
             return View(postService.GetAll());
         }
 
-        [HttpGet("addscore")]
+        [HttpGet("addscore/{id}")]
         public IActionResult AddScore(long id)
         {
             postService.AddScore(id);
-            return Redirect("posts");
+            return RedirectToAction("index");
         }
 
-        [HttpGet("decreasescrore")]
+        [HttpGet("decreasescrore/{id}")]
         public IActionResult DecreaseScore(long id)
         {
             postService.DecreaseScore(id);
-            return Redirect("posts");
+            return RedirectToAction("index");
         }
     }
 }
