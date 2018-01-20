@@ -7,64 +7,70 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <a href="/addcontent">Add new post</a>
-    <h1>Best 10 posts</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>Rank</th>
-            <th>Score</th>
-            <th>Actions</th>
-            <th>Content</th>
-            <th>Date</th>
-        </tr>
-        @if (Model.BestTen.Count == 0)
-        {
-            <tr>No posts</tr>
-        }
-        else
-        {
-            var counter = 0;
-            @foreach (var item in Model.BestTen)
-            {
-                counter++;
-                <tr>
-                    <td>@counter</td>
-                    <td>@item.Score</td>
-                    <td><a href="/addscore/@item.PostId">+</a><a href="/decreasescrore/@item.PostId">-</a></td>
-                    <td>@item.Content</td>
-                    <td>@item.DateTime</td>
-                </tr>
-            }
-        }
-    </table>
-    <h1>Posts</h1>
-    <form action="" method="post">
+    <div class="row">
+        <div class="col-xs-6 col-md-1"></div>
+        <div class="col-xs-6 col-md-10">
+        <a href="/addcontent"><h2 class="text-right"><small><mark>Add new post</mark></small></h2></a>
+        <h2>Best Ten Posts</h2>
         <table class="table table-striped">
             <tr>
+                <th>Rank</th>
                 <th>Score</th>
                 <th>Actions</th>
                 <th>Content</th>
                 <th>Date</th>
             </tr>
-            @if (Model.AllPosts.Count == 0)
+            @if (Model.BestTen.Count == 0)
             {
                 <tr>No posts</tr>
             }
             else
             {
-            @foreach (var item in Model.AllPosts)
-            {
-                <tr>
-                    <td>@item.Score</td>
-                    <td><a href="/addscore/@item.PostId">+</a><a href="/decreasescrore/@item.PostId">-</a></td>
-                    <td>@item.Content</td>
-                    <td>@item.DateTime</td>
-                </tr>
-            }
+                var counter = 0;
+                @foreach (var item in Model.BestTen)
+                {
+                    counter++;
+                    <tr>
+                        <td>@counter</td>
+                        <td>@item.Score</td>
+                        <td><a href="/addscore/@item.PostId">+</a><a href="/decreasescrore/@item.PostId">-</a></td>
+                        <td>@item.Content</td>
+                        <td>@item.DateTime</td>
+                    </tr>
+                }
             }
         </table>
-    </form>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <h2>All Posts</h2>
+        <form action="" method="post">
+            <table class="table table-striped">
+                <tr>
+                    <th>Score</th>
+                    <th>Actions</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                </tr>
+                @if (Model.AllPosts.Count == 0)
+            {
+                    <tr>No posts</tr>
+                }
+                else
+                {
+                    @foreach (var item in Model.AllPosts)
+                    {
+                        <tr>
+                            <td>@item.Score</td>
+                            <td><a href="/addscore/@item.PostId">+</a><a href="/decreasescrore/@item.PostId">-</a></td>
+                            <td>@item.Content</td>
+                            <td>@item.DateTime</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </form>
+        </div>
+        <div class="col-xs-6 col-md-1"></div>
+</div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

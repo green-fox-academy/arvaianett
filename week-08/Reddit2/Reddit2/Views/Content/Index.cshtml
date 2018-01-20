@@ -5,12 +5,18 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <p>Content</p>
-    <form action="add" method="post">
-        <input type="text" name="Content" />
-        <input type="submit" value="Submit" />
-    </form>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <h2 class="text-center">Content</h2>
+    <br />
+    <div class="col-xs-6 col-md-2"></div>
+        <div class="col-xs-6 col-md-8">
+            <form action="add" method="post">
+                <textarea class="form-control" rows="15" name="Content"></textarea>
+                <br />
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <div class="col-xs-6 col-md-2"></div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
