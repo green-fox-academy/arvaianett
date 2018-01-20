@@ -1,5 +1,6 @@
 ﻿using Reddit2.Models;
 using Reddit2.Repositories;
+using Reddit2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,28 @@ namespace Reddit2.Services
         public void DecreaseScore(long id)
         {
             postRepository.DecreaseScore(id);
+        }
+
+        public List<Post> BestTen()
+        {
+            return postRepository.BestTen();
+        }
+
+        //public List<List<Post>> Lists()
+        //{
+        //    List<List<Post>> list = new List<List<Post>>();
+        //    list.Add(postRepository.GetAll());
+        //    list.Add(postRepository.BestTen());
+        //    return list;
+        //}
+
+        public PostViewModel GetListForView()
+        {
+            return new PostViewModel()
+            {
+                AllPosts = GetAll(),
+                BestTen = BestTen()
+            };
         }
     }
 }

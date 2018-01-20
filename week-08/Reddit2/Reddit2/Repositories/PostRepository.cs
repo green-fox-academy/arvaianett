@@ -41,5 +41,19 @@ namespace Reddit2.Repositories
             postContext.Post.Update(update);
             postContext.SaveChanges();
         }
+
+        public List<Post> BestTen()
+        {
+            List<Post> bestTenOrLess = postContext.Post.OrderByDescending(p => p.Score).ToList();
+
+            if(GetAll().Count < 10)
+            {
+                return bestTenOrLess;
+            }
+            else
+            {
+                return bestTenOrLess.Take(10).ToList();
+            }
+        }
     }
 }
