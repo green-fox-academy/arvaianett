@@ -7,10 +7,14 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+    <p>Hi @Model.User.UserName!</p>
     <div class="row">
         <div class="col-xs-6 col-md-1"></div>
         <div class="col-xs-6 col-md-10">
-        <a href="/addcontent"><h2 class="text-right"><small><mark>Add new post</mark></small></h2></a>
+        <form method="get">
+            <a href="/addcontent/@Model.User.UserName"><h2 class="text-right"><small><mark>Add new post</mark></small></h2></a>
+            <input type="hidden" name="UserName" value="@Model.User.UserName" />
+        </form>
         <h2>Best Ten Posts</h2>
         <table class="table table-striped">
             <tr>

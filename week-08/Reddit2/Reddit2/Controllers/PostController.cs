@@ -24,30 +24,24 @@ namespace Reddit2.Controllers
         }
 
         // GET: /<controller>/
-        [HttpGet("posts")]
-        public IActionResult Index()
+        [HttpGet("posts/{username}")]
+        public IActionResult Post([FromRoute]string username)
         {
-            return View(postService.GetListForView());
+            return View(postService.GetListForView(postService.GetId(username)));
         }
 
         [HttpGet("addscore/{id}")]
         public IActionResult AddScore(long id)
         {
             postService.AddScore(id);
-            return RedirectToAction("index");
+            return RedirectToAction("post");
         }
 
         [HttpGet("decreasescrore/{id}")]
         public IActionResult DecreaseScore(long id)
         {
             postService.DecreaseScore(id);
-            return RedirectToAction("index");
+            return RedirectToAction("post");
         }
-
-        //[HttpGet("bestten")]
-        //public IActionResult BestTen()
-        //{
-        //    return View(postService.BestTen());
-        //}
     }
 }

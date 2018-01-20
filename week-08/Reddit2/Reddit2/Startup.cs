@@ -21,10 +21,12 @@ namespace Reddit2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddScoped<PostService>();
-            services.AddScoped<ContentService>();
             services.AddScoped<PostRepository>();
+            services.AddScoped<PostService>();
             services.AddScoped<ContentRepository>();
+            services.AddScoped<ContentService>();
+            services.AddScoped<LoginRepository>();
+            services.AddScoped<LoginService>();
             services.AddScoped<PostViewModel>();
             services.AddDbContext<PostContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Reddit2Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }

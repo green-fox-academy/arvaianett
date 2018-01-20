@@ -37,21 +37,19 @@ namespace Reddit2.Services
             return postRepository.BestTen();
         }
 
-        //public List<List<Post>> Lists()
-        //{
-        //    List<List<Post>> list = new List<List<Post>>();
-        //    list.Add(postRepository.GetAll());
-        //    list.Add(postRepository.BestTen());
-        //    return list;
-        //}
-
-        public PostViewModel GetListForView()
+        public PostViewModel GetListForView(long id)
         {
             return new PostViewModel()
             {
                 AllPosts = GetAll(),
-                BestTen = BestTen()
+                BestTen = BestTen(),
+                User = postRepository.GetCurrentUser(id)
             };
+        }
+
+        public long GetId(string username)
+        {
+            return postRepository.GetId(username);
         }
     }
 }

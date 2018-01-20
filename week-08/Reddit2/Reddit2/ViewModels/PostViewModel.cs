@@ -10,5 +10,6 @@ namespace Reddit2.ViewModels
     {
         public List<Post> AllPosts { get; set; }
         public List<Post> BestTen { get; set; }
+        public User User { get; set; }
     }
 }

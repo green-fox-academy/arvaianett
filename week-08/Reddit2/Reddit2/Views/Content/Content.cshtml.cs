@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Reddit2.Views.Post
 {
-    public class IndexModel : PageModel
+    public class ContentModel : PageModel
     {
         public void OnGet()
         {

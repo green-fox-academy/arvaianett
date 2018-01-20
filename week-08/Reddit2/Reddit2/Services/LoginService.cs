@@ -14,5 +14,15 @@ namespace Reddit2.Services
         {
             this.loginRepository = loginRepository;
         }
+
+        public bool UserStatus(string username)
+        {
+            return loginRepository.UserStatus(username);
+        }
+
+        public void AddUser(string username)
+        {
+            loginRepository.AddUser(username);
+        }
     }
 }

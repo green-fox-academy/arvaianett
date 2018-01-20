@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Reddit2.Views.Login
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         public void OnGet()
         {

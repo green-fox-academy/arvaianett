@@ -20,17 +20,17 @@ namespace Reddit2.Controllers
         }
 
         // GET: /<controller>/
-        [HttpGet("addcontent")]
-        public IActionResult Index()
+        [HttpGet("addcontent/{username}")]
+        public IActionResult Content()
         {
             return View();
         }
 
-        [HttpPost("add")]
-        public IActionResult AddPost(Post post)
+        [HttpGet("add")]
+        public IActionResult AddPost(Post post, [FromBody]string username)
         {
             contentService.AddPost(post);
-            return Redirect("posts");
+            return Redirect($"posts/{username}");
         }
     }
 }

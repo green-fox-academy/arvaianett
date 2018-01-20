@@ -55,5 +55,16 @@ namespace Reddit2.Repositories
                 return bestTenOrLess.Take(10).ToList();
             }
         }
+
+        public User GetCurrentUser(long id)
+        {
+            return postContext.Users.FirstOrDefault(u => u.UserId.Equals(id));
+        }
+
+        public long GetId(string username)
+        {
+            User user = postContext.Users.FirstOrDefault(u => u.UserName.Equals(username));
+            return user.UserId;
+        }
     }
 }

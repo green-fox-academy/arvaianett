@@ -1,0 +1,27 @@
+﻿@model Reddit2.Models.User
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="utf-8" lang="en" />
+</head>
+<body>
+    <div class="col-xs-4"></div>
+        <form action="login" method="post">
+            <div class="col-xs-4">
+                <h4>Username:</h4>
+                <input type="text" name="username" class="form-control">
+                <br />
+                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                <h4>Are you new here? Type your username here:</h4>
+                <input type="text" name="username" class="form-control">
+                <br />
+                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+            </div>
+        </form>
+    <div class="col-xs-4"></div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

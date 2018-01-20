@@ -20,9 +20,23 @@ namespace Reddit2.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost("login")]
+        public IActionResult RedirectToPersonalPage(string username)
+        {
+            if (loginService.UserStatus(username))
+            {
+                return Redirect($"posts/{username}");
+            }
+            else
+            {
+                loginService.AddUser(username);
+                return Redirect($"posts/{username}");
+            }
         }
     }
 }
