@@ -4,24 +4,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Reddit2.Services;
+using Reddit2.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Reddit2.Controllers
 {
-    public class LoginController : Controller
+    public class ContentController : Controller
     {
-        private UserService userService;
+        private ContentService contentService;
 
-        public LoginController(UserService userService)
+        public ContentController(ContentService contentService)
         {
-            this.userService = userService;
+            this.contentService = contentService;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost("add")]
+        public IActionResult AddPost(Post post)
+        {
+            contentService.AddPost(post);
+            return Redirect("posts");
         }
     }
 }

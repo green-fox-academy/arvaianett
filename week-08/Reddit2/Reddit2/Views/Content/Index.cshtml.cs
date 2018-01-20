@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Reddit2.Views.Login
+namespace Reddit2.Views.Post
 {
     public class IndexModel : PageModel
     {

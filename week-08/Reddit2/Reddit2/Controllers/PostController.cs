@@ -9,6 +9,7 @@ using Reddit2.Services;
 
 namespace Reddit2.Controllers
 {
+    [Route("")]
     public class PostController : Controller
     {
         private PostService postService;
@@ -19,9 +20,24 @@ namespace Reddit2.Controllers
         }
 
         // GET: /<controller>/
+        [HttpGet("posts")]
         public IActionResult Index()
         {
-            return View();
+            return View(postService.GetAll());
+        }
+
+        [HttpGet("addscore")]
+        public IActionResult AddScore(long id)
+        {
+            postService.AddScore(id);
+            return Redirect("posts");
+        }
+
+        [HttpGet("decreasescrore")]
+        public IActionResult DecreaseScore(long id)
+        {
+            postService.DecreaseScore(id);
+            return Redirect("posts");
         }
     }
 }

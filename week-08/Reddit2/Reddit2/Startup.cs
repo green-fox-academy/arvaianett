@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Reddit2.Entities;
+using Reddit2.Services;
+using Reddit2.Repositories;
 
 namespace Reddit2
 {
@@ -18,6 +20,10 @@ namespace Reddit2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<PostService>();
+            services.AddScoped<ContentService>();
+            services.AddScoped<PostRepository>();
+            services.AddScoped<ContentRepository>();
             services.AddDbContext<PostContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Reddit2Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
