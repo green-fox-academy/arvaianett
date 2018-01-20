@@ -1,11 +1,19 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
+using Reddit2.Models;
 
 namespace Reddit2.Entities
 {
-    public class PostContext
+    public class PostContext : DbContext
     {
+        public PostContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        public DbSet<Post> Post { get; set; }
     }
 }
