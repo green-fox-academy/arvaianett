@@ -6,11 +6,12 @@
     <meta charset="utf-8" lang="en" />
 </head>
 <body>
+    <p>Hi @Model.User.UserName</p>
     <h2 class="text-center">Content</h2>
     <br />
     <div class="col-xs-6 col-md-2"></div>
         <div class="col-xs-6 col-md-8">
-            <form action="add" method="post">
+            <form action="add/@Model.User.UserName" method="post">
                 <textarea class="form-control" rows="15" name="Content"></textarea>
                 <br />
                 <button type="submit" class="btn btn-success">Submit</button>

@@ -30,18 +30,18 @@ namespace Reddit2.Controllers
             return View(postService.GetListForView(postService.GetId(username)));
         }
 
-        [HttpGet("addscore/{id}")]
-        public IActionResult AddScore(long id)
+        [HttpGet("addscore/{id}/{username}")]
+        public IActionResult AddScore(long id, string username)
         {
             postService.AddScore(id);
-            return RedirectToAction("post");
+            return RedirectToAction($"posts/{username}");
         }
 
-        [HttpGet("decreasescrore/{id}")]
-        public IActionResult DecreaseScore(long id)
+        [HttpGet("decreasescrore/{id}/{username}")]
+        public IActionResult DecreaseScore(long id, string username)
         {
             postService.DecreaseScore(id);
-            return RedirectToAction("post");
+            return RedirectToAction($"post/{username}");
         }
     }
 }

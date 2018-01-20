@@ -1,5 +1,6 @@
 ﻿using Reddit2.Models;
 using Reddit2.Repositories;
+using Reddit2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

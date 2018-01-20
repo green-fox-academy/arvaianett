@@ -10,24 +10,27 @@ using Reddit2.Models;
 
 namespace Reddit2.Controllers
 {
+    [Route("addcontent")]
     public class ContentController : Controller
     {
         private ContentService contentService;
+        private PostService postService;
 
-        public ContentController(ContentService contentService)
+        public ContentController(ContentService contentService, PostService postService)
         {
             this.contentService = contentService;
+            this.postService = postService;
         }
 
         // GET: /<controller>/
-        [HttpGet("addcontent/{username}")]
-        public IActionResult Content()
+        [HttpGet("{username}")]
+        public IActionResult ContentIndex([FromRoute]string username)
         {
-            return View();
+            return View(postService.GetListForView(postService.GetId(username)));
         }
 
-        [HttpGet("add")]
-        public IActionResult AddPost(Post post, [FromBody]string username)
+        [HttpPost("add/{username}")]
+        public IActionResult AddPost(Post post, string username)
         {
             contentService.AddPost(post);
             return Redirect($"posts/{username}");

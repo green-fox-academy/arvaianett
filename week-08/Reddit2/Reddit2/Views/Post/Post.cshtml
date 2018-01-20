@@ -7,7 +7,13 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <p>Hi @Model.User.UserName!</p>
+    <h3>Hi @Model.User.UserName!</h3>
+    <button type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+    </button>
     <div class="row">
         <div class="col-xs-6 col-md-1"></div>
         <div class="col-xs-6 col-md-10">
