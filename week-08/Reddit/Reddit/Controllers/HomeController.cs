@@ -20,8 +20,7 @@ namespace Reddit.Controllers
         [HttpGet("{username}")]
         public IActionResult Index([FromRoute]string username)
         {
-            long currentId = homeServices.GetId(username);
-            return View(homeServices.ViewDetails(currentId));
+            return View(homeServices.ViewDetails(homeServices.GetId(username)));
         }
 
         //[HttpPost("score_add")]

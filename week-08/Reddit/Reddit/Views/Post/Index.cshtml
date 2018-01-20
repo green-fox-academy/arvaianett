@@ -7,10 +7,10 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <form action="add" method="post">
+    <p>Hi @Model.User.Username</p>
+    <form action="add?username=@Model.User.Username" method="post">
         <p>Content:</p>
         <input type="text" name="content" />
-        <input type="hidden" name="username" value="@Model.User.Username" />
         <input type="submit" value="Submit" />
     </form>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
