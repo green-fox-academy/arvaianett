@@ -14,9 +14,21 @@ namespace TodoSQL.Repositories
             this.todoContext = todoContext;
         }
 
-        public void Add(Todo todo)
+        public void Add(Todo todo, User user)
         {
-            todoContext.Todos.Add(todo);
+            var addTodoWithUser = new Todo
+            {
+                Title = todo.Title,
+                Content = todo.Content,
+                DateTime = todo.DateTime,
+                Description = todo.Description,
+                IsDone = todo.IsDone,
+                IsUrgent = todo.IsUrgent,
+                TodoId = todo.TodoId,
+                User = user
+            };
+
+            todoContext.Todos.Add(addTodoWithUser);
             todoContext.SaveChanges();
         }
 

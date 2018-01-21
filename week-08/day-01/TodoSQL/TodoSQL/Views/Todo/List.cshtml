@@ -1,4 +1,4 @@
-﻿@model List<TodoSQL.Models.Todo>
+﻿@model TodoSQL.ViewModels.TodoViewModel
 <html>
 <head>
     <meta charset="UTF-8" lang="en">
@@ -39,7 +39,7 @@
                 <th>Email</th>
                 <th>Date</th>
             </tr>
-                @foreach (var item in Model)
+                @foreach (var item in Model.AllTodos)
                 {
                     <tr>
                         <td>@item.TodoId</td>
@@ -50,8 +50,8 @@
                         <td>@item.IsDone</td>
                         <td><a href="@item.TodoId/delete">Delete</a></td>
                         <td><a href="@item.TodoId/edit">Edit</a></td>
-                        @*<td>@item.User.Name</td>
-                        <td>@item.User.Email</td>*@
+                        <td>@item.User.Name</td>
+                        <td>@item.User.Email</td>
                         <td>@item.DateTime</td>
                     </tr>
                 }

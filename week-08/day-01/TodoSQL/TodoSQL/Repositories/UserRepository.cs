@@ -23,11 +23,17 @@ namespace TodoSQL.Repositories
             return todoContext.Users.ToList();
         }
 
+        public List<Todo> GetAllTodos()
+        {
+            return todoContext.Todos.ToList();
+        }
+
         public TodoViewModel GetView()
         {
             return new TodoViewModel()
             {
-                Users = GetAll()
+                Users = GetAll(),
+                AllTodos = GetAllTodos()
             };
         }
 

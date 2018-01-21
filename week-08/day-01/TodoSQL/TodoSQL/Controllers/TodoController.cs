@@ -10,10 +10,12 @@ namespace TodoSQL.Controllers
     public class TodoController : Controller
     {
         TodoRepository todoRepository;
+        UserRepository userRepository;
 
-        public TodoController(TodoRepository todoRepository)
+        public TodoController(TodoRepository todoRepository, UserRepository userRepository)
         {
             this.todoRepository = todoRepository;
+            this.userRepository = userRepository;
         }
 
         // GET: /<controller>/
@@ -24,15 +26,15 @@ namespace TodoSQL.Controllers
         }
 
         [Route("/list")]
-        public IActionResult List([FromQuery] Todo todo)
+        public IActionResult List()
         {
-            return View(todoRepository.GetAll());
+            return View(userRepository.GetView());
         }
 
         [HttpPost("add")]
-        public IActionResult AddElement(Todo todo)
+        public IActionResult AddElement(Todo todo, User user)
         {
-            todoRepository.Add(todo);
+            todoRepository.Add(todo, user);
             return Redirect("/list");
         }
 
