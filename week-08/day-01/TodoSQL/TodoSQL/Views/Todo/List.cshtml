@@ -6,9 +6,24 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h4>Search</h4>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <h1>Todos</h1>
+    <div class="row">
+        <div class="col-xs-6 col-md-1"></div>
+            <div class="col-xs-6 col-md-4">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <h4>Search</h4>
+                        <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for title, description or content..." title="Type in a name">
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <h1>Todos</h1>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <a href="/todo">Add New Todo</a>
+                <a href="/assignees">List of Assignees</a>
+            </div>
+    </div>
     <form class="form-inline" action="/delete" method="post">
         <table id="myTable" class="table table-striped">
             <tr>
@@ -20,6 +35,9 @@
                 <th>Done</th>
                 <th>Delete</th>
                 <th>Edit</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Date</th>
             </tr>
                 @foreach (var item in Model)
                 {
@@ -32,6 +50,9 @@
                         <td>@item.IsDone</td>
                         <td><a href="@item.TodoId/delete">Delete</a></td>
                         <td><a href="@item.TodoId/edit">Edit</a></td>
+                        @*<td>@item.User.Name</td>
+                        <td>@item.User.Email</td>*@
+                        <td>@item.DateTime</td>
                     </tr>
                 }
         </table>

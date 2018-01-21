@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TodoSQL.Entities;
 using TodoSQL.Models;
+using TodoSQL.ViewModels;
 
 namespace TodoSQL.Repositories
 {
@@ -19,6 +20,14 @@ namespace TodoSQL.Repositories
         public List<User> GetAll()
         {
             return todoContext.Users.ToList();
+        }
+
+        public TodoViewModel GetView()
+        {
+            return new TodoViewModel()
+            {
+                Users = GetAll()
+            };
         }
     }
 }

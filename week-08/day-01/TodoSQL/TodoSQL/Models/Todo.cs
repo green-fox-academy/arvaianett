@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TodoSQL.Models
 {
@@ -11,6 +12,7 @@ namespace TodoSQL.Models
         public string Content { get; set; }
         public bool IsUrgent { get; set; } = false;
         public bool IsDone { get; set; } = false;
+        public DateTime DateTime { get; set; } = DateTime.Now;
 
         public User User { get; set; }
     }

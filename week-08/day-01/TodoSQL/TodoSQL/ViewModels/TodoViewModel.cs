@@ -10,5 +10,6 @@ namespace TodoSQL.ViewModels
     {
         public List<Todo> AllTodos { get; set; }
         public List<Todo> SearchedTodos { get; set; }
+        public List<User> Users { get; set; }
     }
 }

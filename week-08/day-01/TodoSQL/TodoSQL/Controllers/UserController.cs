@@ -10,7 +10,7 @@ using TodoSQL.Repositories;
 
 namespace TodoSQL.Controllers
 {
-    [Route("user")]
+    [Route("")]
     public class UserController : Controller
     {
         private UserRepository userRepository;
@@ -21,10 +21,12 @@ namespace TodoSQL.Controllers
         }
 
         // GET: /<controller>/
-        [HttpGet("users")]
-        public IActionResult Index()
+        [HttpGet("assignees")]
+        public IActionResult Assignees()
         {
-            return View(userRepository.GetAll());
+            return View(userRepository.GetView());
         }
+
+
     }
 }

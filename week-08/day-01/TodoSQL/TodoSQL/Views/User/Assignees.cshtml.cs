@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace TodoSQL.Views.User
 {
-    public class IndexModel : PageModel
+    public class AssigneesModel : PageModel
     {
         public void OnGet()
         {
