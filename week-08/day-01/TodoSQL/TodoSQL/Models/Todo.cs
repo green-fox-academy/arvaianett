@@ -7,6 +7,8 @@ namespace TodoSQL.Models
         [Key]
         public long TodoId { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
+        public string Content { get; set; }
         public bool IsUrgent { get; set; } = false;
         public bool IsDone { get; set; } = false;
 

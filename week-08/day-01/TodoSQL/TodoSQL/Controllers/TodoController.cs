@@ -33,7 +33,6 @@ namespace TodoSQL.Controllers
         public IActionResult AddElement(Todo todo)
         {
             todoRepository.Add(todo);
-
             return Redirect("/list");
         }
 
@@ -47,14 +46,20 @@ namespace TodoSQL.Controllers
         [HttpGet("/{id}/edit")]
         public IActionResult Update(long id)
         {
-            todoRepository.GetEditView(id);
             return View(todoRepository.GetEditView(id));
         }
 
         [HttpPost("/{id}/edit/update")]
-        public IActionResult Edit(Todo todo, [FromQuery]long id)
+        public IActionResult Edit(Todo todo)
         {
-            todoRepository.Edit(todo, id);
+            todoRepository.Edit(todo);
+            return Redirect("/list");
+        }
+
+        [HttpPost("search")]
+        public IActionResult Search(string searchTerm)
+        {
+            todoRepository.Search(searchTerm);
             return Redirect("/list");
         }
     }
