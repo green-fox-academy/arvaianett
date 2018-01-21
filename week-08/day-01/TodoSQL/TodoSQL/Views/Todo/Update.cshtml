@@ -6,18 +6,26 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Edit todo</h1>
-    <form class="form-inline" action="/@Model.TodoId/edit/update" method="post">
-        <h4>Todo Description</h4>
-        <input type="text" name="title" />
-        <h4>Urgent</h4>
-        <input type="checkbox" name="isurgent" />
-        <h4>Done</h4>
-        <input type="checkbox" name="isdone" />
-        <input type="hidden" name="todoid" value="@Model.TodoId" />
-        <input type="submit" value="Submit" />
-        <a href="/list">Cancel</a>
-    </form>
+    <div class="row">
+        <div class="col-xs-6 col-md-4"></div>
+        <div class="col-xs-6 col-md-4">
+            <h1>Edit todo</h1>
+            <form class="form-horizontal" action="/@Model.TodoId/edit/update" method="post">
+                <h4>Todo Description</h4>
+                <input class="form-control" type="text" name="title" />
+                <br />
+                <div class="checkbox">
+                    <label><input type="checkbox" name="isurgent" />Is it urgent?</label>
+                    <label><input type="checkbox" name="isdone" />Is it done?</label>
+                    <input type="hidden" name="todoid" value="@Model.TodoId" />
+                </div>
+                <br />
+                <button class="btn btn-default" type="submit" >Submit</button>
+                <a href="/list">Cancel</a>
+            </form>
+        </div>
+        <div class="col-xs-6 col-md-4"></div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

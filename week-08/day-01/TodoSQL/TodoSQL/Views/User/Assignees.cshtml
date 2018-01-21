@@ -7,18 +7,29 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h2>Assignees</h2>
-    <form class="form-inline" action="adduser" method="post">
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" name="name">
+    <div class="row">
+        <div class="col-xs-6 col-md-1"></div>
+        <div class="col-xs-6 col-md-5">
+            <br />
+            <h2>Assignees</h2>
         </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email">
+        <div class="col-xs-6 col-md-6">
+            <form class="form-inline" action="adduser" method="post">
+                <br />
+                <br />
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <button type="submit" class="btn btn-default">Add User</button>
+            </form>
+            </div>
+            <div class="col-xs-6 col-md-1"></div>
         </div>
-        <button type="submit" class="btn btn-default">Add User</button>
-    </form>
     <br />
     <form class="form-inline">
         <table id="myTable" class="table table-striped">

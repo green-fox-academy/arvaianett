@@ -6,51 +6,51 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <form class="form-inline" action="/add" method="post">
-        <div class="form-group">
-            <h4>Name</h4>
-            <label class="sr-only">Name</label>
-            <input type="text" name="name" class="form-control">
+    <div class="row">
+        <div class="col-xs-6 col-md-4"></div>
+        <div class="col-xs-6 col-md-4">
+            <form class="form-horizontal" action="/add" method="post">
+                <div class="form-group">
+                    <br />
+                    <label>Name</label>
+                    <label class="sr-only">Name</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <label class="sr-only">Email</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <label class="sr-only">Title</label>
+                    <input type="text" name="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <label class="sr-only">Description</label>
+                    <input type="text" name="description" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <label class="sr-only">Content</label>
+                    <input type="text" name="content" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Urgent</label>
+                    <label class="sr-only">Urgent</label>
+                    <input type="text" name="isurgent" class="form-control" placeholder="True/False">
+                </div>
+                <div class="form-group">
+                    <label>Done</label>
+                    <label class="sr-only">Done</label>
+                    <input type="text" name="isdone" class="form-control" placeholder="True/False">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            </div>
+        <div class="col-xs-6 col-md-4"></div>
         </div>
-        <br />
-        <div class="form-group">
-            <h4>Email</h4>
-            <label class="sr-only">Email</label>
-            <input type="text" name="email" class="form-control">
-        </div>
-        <br />
-        <div class="form-group">
-            <h4>Title</h4>
-            <label class="sr-only">Title</label>
-            <input type="text" name="title" class="form-control" >
-        </div>
-        <br />
-        <div class="form-group">
-            <h4>Description</h4>
-            <label class="sr-only">Description</label>
-            <input type="text" name="description" class="form-control">
-        </div>
-        <br /><div class="form-group">
-            <h4>Content</h4>
-            <label class="sr-only">Content</label>
-            <input type="text" name="content" class="form-control">
-        </div>
-        <br />
-        <div class="form-group">
-            <h4>Urgent</h4>
-            <label class="sr-only">Urgent</label>
-            <input type="text" name="isurgent" class="form-control" placeholder="True/False">
-        </div>
-        <br />
-        <div class="form-group">
-            <h4>Done</h4>
-            <label class="sr-only">Done</label>
-            <input type="text" name="isdone" class="form-control" placeholder="True/False">
-        </div>
-        <br />
-        <br />
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
