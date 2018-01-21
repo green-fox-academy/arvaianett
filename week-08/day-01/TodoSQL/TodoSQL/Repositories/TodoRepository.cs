@@ -37,15 +37,10 @@ namespace TodoSQL.Repositories
             return todoContext.Todos.FirstOrDefault(x => x.TodoId == id);
         }
 
-        public void Edit(Todo todo)
+        public void Edit(Todo todo, long id)
         {
             todoContext.Todos.Update(todo);
             todoContext.SaveChanges();
-        }
-
-        public List<Todo> Search(string searchTerm)
-        {
-            return todoContext.Todos.Where(t => t.Content == searchTerm || t.Description == searchTerm || t.Title == searchTerm).ToList();
         }
     }
 }

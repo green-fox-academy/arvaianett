@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,6 +35,57 @@ namespace TodoSQL.Repositories
         {
             todoContext.Users.Add(user);
             todoContext.SaveChanges();
+        }
+
+        public void DeleteUser(long id)
+        {
+            User user = todoContext.Users.FirstOrDefault(u => u.UserId == id);
+            todoContext.Users.Remove(user);
+            todoContext.SaveChanges();
+        }
+
+        public List<User> GetUserView()
+        {
+            return todoContext.Users.ToList();
+        }
+
+        public User GetCurrentUser(long id)
+        {
+            return todoContext.Users.FirstOrDefault(u => u.UserId == id);
+        }
+
+        public EditUserViewModel EditUserView(long id)
+        {
+            return new EditUserViewModel()
+            {
+                AllUser = GetUserView(),
+                CurrentUser = GetCurrentUser(id)
+            };
+        }
+
+        public void UpdateUser(User user, long id)
+        {
+            todoContext.Users.Update(user);
+            todoContext.SaveChanges();
+        }
+
+        public User GetAssignee(string name)
+        {
+            return todoContext.Users.FirstOrDefault(a => a.Name == name);
+        }
+
+        public List<Todo> GetAssigneeTodos(string name)
+        {
+            return todoContext.Todos.Where(t => t.User.Name == name).ToList();
+        }
+
+        public AssigneesTodoListViewModel GetAssigneesTodoView(string name)
+        {
+            return new AssigneesTodoListViewModel()
+            {
+                AssigneesTodoList = GetAssigneeTodos(name),
+                CurrentUser = GetAssignee(name)
+            };
         }
     }
 }

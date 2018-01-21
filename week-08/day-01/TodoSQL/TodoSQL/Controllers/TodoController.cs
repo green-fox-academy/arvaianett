@@ -50,16 +50,9 @@ namespace TodoSQL.Controllers
         }
 
         [HttpPost("/{id}/edit/update")]
-        public IActionResult Edit(Todo todo)
+        public IActionResult Edit(Todo todo, [FromRoute]long id)
         {
-            todoRepository.Edit(todo);
-            return Redirect("/list");
-        }
-
-        [HttpPost("search")]
-        public IActionResult Search(string searchTerm)
-        {
-            todoRepository.Search(searchTerm);
+            todoRepository.Edit(todo, id);
             return Redirect("/list");
         }
     }

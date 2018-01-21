@@ -19,7 +19,8 @@
         </div>
         <button type="submit" class="btn btn-default">Add User</button>
     </form>
-    <form class="form-inline" action="/delete" method="post">
+    <br />
+    <form class="form-inline">
         <table id="myTable" class="table table-striped">
             <tr>
                 <th>Id</th>
@@ -32,10 +33,10 @@
             {
                 <tr>
                     <td>@item.UserId</td>
-                    <td>@item.Name</td>
+                    <td><a href="@item.Name/getassigneestodos" >@item.Name</a></td>
                     <td>@item.Email</td>
-                    <td><a href="@item.UserId/delete">Delete</a></td>
-                    <td><a href="@item.UserId/edit">Edit</a></td>
+                    <td><a href="@item.UserId/deleteuser">Delete</a></td>
+                    <td><a href="@item.UserId/edituser">Edit</a></td>
                 </tr>
             }
         </table>

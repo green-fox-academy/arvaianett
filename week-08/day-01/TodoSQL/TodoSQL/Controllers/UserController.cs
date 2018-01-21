@@ -33,5 +33,31 @@ namespace TodoSQL.Controllers
             userRepository.AddUser(user);
             return RedirectToAction("assignees");
         }
+
+        [HttpGet("{id}/deleteuser")]
+        public IActionResult DeleteUser(long id)
+        {
+            userRepository.DeleteUser(id);
+            return RedirectToAction("assignees");
+        }
+
+        [HttpGet("{id}/edituser")]
+        public IActionResult EditUser(long id)
+        {
+            return View(userRepository.EditUserView(id));
+        }
+
+        [HttpPost("{id}/edituser/updateuser")]
+        public IActionResult UpdateUser(User user, [FromRoute]long id)
+        {
+            userRepository.UpdateUser(user, id);
+            return RedirectToAction("assignees");
+        }
+
+        [HttpGet("{name}/getassigneestodos")]
+        public IActionResult AssigneeTodos([FromRoute]string name)
+        {
+            return View(userRepository.GetAssigneesTodoView(name));
+        }
     }
 }
