@@ -29,5 +29,11 @@ namespace TodoSQL.Repositories
                 Users = GetAll()
             };
         }
+
+        public void AddUser(User user)
+        {
+            todoContext.Users.Add(user);
+            todoContext.SaveChanges();
+        }
     }
 }

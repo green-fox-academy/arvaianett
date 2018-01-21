@@ -27,6 +27,11 @@ namespace TodoSQL.Controllers
             return View(userRepository.GetView());
         }
 
-
+        [HttpPost("adduser")]
+        public IActionResult AddUser(User user)
+        {
+            userRepository.AddUser(user);
+            return RedirectToAction("assignees");
+        }
     }
 }
