@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using Frontend.Models;
 
 namespace Frontend.Controllers
 {
@@ -17,7 +18,7 @@ namespace Frontend.Controllers
             return File("index.html", "text/html");
         }
 
-        [HttpGet("/doubling")]
+        [HttpGet("doubling")]
         public IActionResult Index(int? input)
         {
             if (input == null)
@@ -30,7 +31,7 @@ namespace Frontend.Controllers
             }
         }
 
-        [HttpGet("/greeter")]
+        [HttpGet("greeter")]
         public IActionResult Greeter([FromQuery]string name, [FromQuery]string title)
         {
             if(string.IsNullOrEmpty(name))
@@ -47,16 +48,77 @@ namespace Frontend.Controllers
             }
         }
 
-        [HttpGet("/appenda/{appendable}")]
+        [HttpGet("appenda/{appendable}")]
         public IActionResult AppendA(string appendable)
         {
             return Json(new { appended = appendable + "a"});
         }
 
-        [HttpGet("/appenda")]
+        [HttpGet("appenda")]
         public IActionResult AppendAWithoutAppendable()
         {
             return NotFound();
+        }
+
+        [HttpPost("dountil/{what}")]
+        public IActionResult DoUntil(string what, [FromBody]DoUntil until)
+        {
+            int? input = until.Until;
+
+            if (input == null)
+            {
+                return Json(new { error = "Please provide a number!" });
+            }
+            else if (what.Equals("sum"))
+            {
+                int number = 0;
+                for (int i = 1; i <= input; i++)
+                {
+                    number += i;
+                }
+                return Json(new { until = input, result = number});
+            }
+            else if (what.Equals("factor"))
+            {
+                int number = 1;
+
+                for (int i = 1; i <= input; i++)
+                {
+                    number *= i;
+                }
+                return Json(new { until = input, result = number });
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost("arrays")]
+        public IActionResult ArrayHandler([FromBody]ArrayHandler array)
+        {
+            if(array.What.Equals("sum"))
+            {
+                int number = 0;
+
+                return Json(new { result = number });
+            }
+            else if(array.What.Equals("multiply"))
+            {
+                int number = 1;
+                
+                return Json(new { result = number });
+            }
+            else if(array.What.Equals("double"))
+            {
+                int[] doubledArray = new int[] { 1,2,3,4,5,6,7};
+
+                return Json(new { result = doubledArray });
+            }
+            else
+            {
+                return Json(new { error = "Please provide what to do with the numbers!" });
+            }
         }
     }
 }
