@@ -27,15 +27,23 @@ namespace Frontend.Controllers
             {
                 return Json(new { received = input, result = input * 2 });
             }
-            //try
-            //{
-            //    int doubled = input * 2;
-            //    return Json(new { result = doubled });
-            //}
-            //catch (Exception)
-            //{
-            //    return Json(new { error = "Please provide an input!" });
-            //}
+        }
+
+        [HttpGet("/greeter")]
+        public IActionResult Greeter([FromQuery]string name, [FromQuery]string title)
+        {
+            if(string.IsNullOrEmpty(name))
+            {
+                return Json(new { error = "Please provide a name!" });
+            }
+            else if(string.IsNullOrEmpty(title))
+            {
+                return Json(new { error = "Please provide a title!" });
+            }
+            else
+            {
+                return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!" });
+            }
         }
     }
 }
