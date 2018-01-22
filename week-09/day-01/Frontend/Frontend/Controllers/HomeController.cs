@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace Frontend.Controllers
 {
@@ -44,6 +45,18 @@ namespace Frontend.Controllers
             {
                 return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!" });
             }
+        }
+
+        [HttpGet("/appenda/{appendable}")]
+        public IActionResult AppendA(string appendable)
+        {
+            return Json(new { appended = appendable + "a"});
+        }
+
+        [HttpGet("/appenda")]
+        public IActionResult AppendAWithoutAppendable()
+        {
+            return NotFound();
         }
     }
 }
