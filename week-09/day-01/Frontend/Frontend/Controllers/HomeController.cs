@@ -19,7 +19,7 @@ namespace Frontend.Controllers
         }
 
         [HttpGet("doubling")]
-        public IActionResult Index(int? input)
+        public IActionResult Index([FromQuery]int? input)
         {
             if (input == null)
             {
@@ -49,7 +49,7 @@ namespace Frontend.Controllers
         }
 
         [HttpGet("appenda/{appendable}")]
-        public IActionResult AppendA(string appendable)
+        public IActionResult AppendA([FromRoute]string appendable)
         {
             return Json(new { appended = appendable + "a"});
         }
