@@ -26,15 +26,20 @@ namespace RedditBackend.Services
             return postRepository.GetPost(id);
         }
 
-        public void Add(Post post)
+        public void Add(Post post, User user)
         {
-            postRepository.Add(post);
+            postRepository.Add(post, user);
         }
 
-        public void Vote(long id)
-        {
-            postRepository.Vote(id);
-        }
+        //public void Upvote(long id)
+        //{
+        //    postRepository.Vote(id);
+        //}
+
+        //public void Downvote(long id)
+        //{
+        //    postRepository.Vote(id);
+        //}
 
         public void Delete(long id)
         {

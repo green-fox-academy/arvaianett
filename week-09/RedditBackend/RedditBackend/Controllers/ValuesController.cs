@@ -27,25 +27,26 @@ namespace RedditBackend.Controllers
         }
 
         [HttpPost("posts")]
-        public IActionResult Add([FromBody]Post post)
+        public IActionResult Add([FromBody]Post post, [FromBody]User user)
         {
-            postService.Add(post);
+            postService.Add(post, user);
+            Request.HttpContext.Response.Headers.Add("header-name", "header-value");
             return Json(new { status = "Post added" });
         }
 
-        [HttpPut("posts/{id}/upvote")]
-        public IActionResult Upvote([FromRoute]long id)
-        {
-            postService.Vote(id);
-            return Json(new { status = "Post upvoted" });
-        }
+        //[HttpPut("posts/{id}/upvote")]
+        //public IActionResult Upvote([FromRoute]long id)
+        //{
+        //    postService.Upvote(id);
+        //    return Json(new { status = "Post upvoted" });
+        //}
 
-        [HttpPut("posts/{id}/downvote")]
-        public IActionResult Downvote([FromRoute]long id)
-        {
-            postService.Vote(id);
-            return Json(new { status = "Post downvoted" });
-        }
+        //[HttpPut("posts/{id}/downvote")]
+        //public IActionResult Downvote([FromRoute]long id)
+        //{
+        //    postService.Downvote(id);
+        //    return Json(new { status = "Post downvoted" });
+        //}
 
         [HttpDelete("posts/{id}")]
         public IActionResult Delete([FromRoute]long id)

@@ -26,18 +26,27 @@ namespace RedditBackend.Repositories
             return redditContext.Posts.FirstOrDefault(p => p.Id == id);
         }
 
-        public void Add(Post post)
+        public void Add(Post post, User user)
         {
-            redditContext.Posts.Add(post);
+            redditContext.Users.Add(user);
+
+            redditContext.Posts.Add(post); //continue
             redditContext.SaveChanges();
         }
 
-        public void Vote(long id)
-        {
-            Post post = GetPost(id);
-            post.Score += post.Vote;
-            redditContext.SaveChanges();
-        }
+        //public void Upvote(long id)
+        //{
+        //    Post post = GetPost(id);
+        //    post.Score++;
+        //    redditContext.SaveChanges();
+        //}
+
+        //public void Downvote(long id)
+        //{
+        //    Post post = GetPost(id);
+        //    post.Score--;
+        //    redditContext.SaveChanges();
+        //}
 
         public void Delete(long id)
         {
