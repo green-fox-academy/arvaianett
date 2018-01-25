@@ -16,6 +16,11 @@ namespace RedditBackend.Repositories
             this.redditContext = redditContext;
         }
 
+        public List<Post> GetAll()
+        {
+            return redditContext.Posts.ToList();
+        }
+
         public Post GetPost(long id)
         {
             return redditContext.Posts.FirstOrDefault(p => p.Id == id);
@@ -27,17 +32,10 @@ namespace RedditBackend.Repositories
             redditContext.SaveChanges();
         }
 
-        public void Upvote(long id)
+        public void Vote(long id)
         {
             Post post = GetPost(id);
-            post.Score += 1;
-            redditContext.SaveChanges();
-        }
-
-        public void Downvote(long id)
-        {
-            Post post = GetPost(id);
-            post.Score -= 1;
+            post.Score += post.Vote;
             redditContext.SaveChanges();
         }
 

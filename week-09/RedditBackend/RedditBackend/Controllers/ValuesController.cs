@@ -21,16 +21,9 @@ namespace RedditBackend.Controllers
         }
 
         [HttpGet("posts")]
-        public IActionResult GetPost([FromQuery]long id)
+        public IActionResult GetPost()
         {
-            postService.GetPost(id);
-            return Json(new { id = id,
-                title = postService.GetPost(id).Title,
-                url = postService.GetPost(id).Url,
-                timestamp = postService.GetPost(id).Timestamp,
-                score = postService.GetPost(id).Score,
-                owner = postService.GetPost(id).Owner,
-                vote = postService.GetPost(id).Vote});
+            return Json(new { post = postService.GetAll() });
         }
 
         [HttpPost("posts")]
@@ -43,14 +36,14 @@ namespace RedditBackend.Controllers
         [HttpPut("posts/{id}/upvote")]
         public IActionResult Upvote([FromRoute]long id)
         {
-            postService.Upvote(id);
+            postService.Vote(id);
             return Json(new { status = "Post upvoted" });
         }
 
         [HttpPut("posts/{id}/downvote")]
         public IActionResult Downvote([FromRoute]long id)
         {
-            postService.Downvote(id);
+            postService.Vote(id);
             return Json(new { status = "Post downvoted" });
         }
 

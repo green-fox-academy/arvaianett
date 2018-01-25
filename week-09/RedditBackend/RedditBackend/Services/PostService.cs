@@ -16,6 +16,11 @@ namespace RedditBackend.Services
             this.postRepository = postRepository;
         }
 
+        public List<Post> GetAll()
+        {
+            return postRepository.GetAll();
+        }
+
         public Post GetPost(long id)
         {
             return postRepository.GetPost(id);
@@ -26,14 +31,9 @@ namespace RedditBackend.Services
             postRepository.Add(post);
         }
 
-        public void Upvote(long id)
+        public void Vote(long id)
         {
-            postRepository.Upvote(id);
-        }
-
-        public void Downvote(long id)
-        {
-            postRepository.Downvote(id);
+            postRepository.Vote(id);
         }
 
         public void Delete(long id)
