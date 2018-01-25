@@ -97,10 +97,10 @@ namespace XUnitTestProject
         [Fact]
         public async Task DoUntilNull()
         {
-            var dountil = new DoUntil();            
-            dountil.Until = null;
+            var dountil = new DoUntil();
+            int? number = dountil.Until;
 
-            var stringcontent = new StringContent(JsonConvert.SerializeObject(dountil),Encoding.UTF8, "application/json");
+            var stringcontent = new StringContent(JsonConvert.SerializeObject(number),Encoding.UTF8, "application/json");
 
             var response = await client.PostAsync("api/dountil", stringcontent);
             string json = await response.Content.ReadAsStringAsync();
