@@ -32,7 +32,6 @@ namespace RedditBackend
             services.AddScoped<PostRepository>();
             services.AddScoped<PostService>();
             services.AddScoped<ValuesController>();
-            services.AddScoped<StatusClass>();
             services.AddDbContext<RedditContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RedditBackendDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddMvc();
         }

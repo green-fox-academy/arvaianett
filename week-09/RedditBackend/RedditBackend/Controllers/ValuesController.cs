@@ -12,12 +12,10 @@ namespace RedditBackend.Controllers
     public class ValuesController : Controller
     {
         private PostService postService;
-        private StatusClass status;
 
-        public ValuesController(PostService postService, StatusClass status)
+        public ValuesController(PostService postService)
         {
             this.postService = postService;
-            this.status = status;
         }
 
         [HttpGet("posts")]
@@ -27,26 +25,25 @@ namespace RedditBackend.Controllers
         }
 
         [HttpPost("posts")]
-        public IActionResult Add([FromBody]Post post, [FromBody]User user)
+        public IActionResult Add([FromBody]Post post)
         {
-            postService.Add(post, user);
-            Request.HttpContext.Response.Headers.Add("header-name", "header-value");
+            postService.Add(post);
             return Json(new { status = "Post added" });
         }
 
-        //[HttpPut("posts/{id}/upvote")]
-        //public IActionResult Upvote([FromRoute]long id)
-        //{
-        //    postService.Upvote(id);
-        //    return Json(new { status = "Post upvoted" });
-        //}
+        [HttpPut("posts/{id}/upvote")]
+        public IActionResult Upvote([FromRoute]long id, [FromBody]VoteClass vote)
+        {
+            postService.Upvote(id, vote);
+            return Json(new { status = "Post upvoted" });
+        }
 
-        //[HttpPut("posts/{id}/downvote")]
-        //public IActionResult Downvote([FromRoute]long id)
-        //{
-        //    postService.Downvote(id);
-        //    return Json(new { status = "Post downvoted" });
-        //}
+        [HttpPut("posts/{id}/downvote")]
+        public IActionResult Downvote([FromRoute]long id, [FromBody]VoteClass vote)
+        {
+            postService.Downvote(id, vote);
+            return Json(new { status = "Post downvoted" });
+        }
 
         [HttpDelete("posts/{id}")]
         public IActionResult Delete([FromRoute]long id)

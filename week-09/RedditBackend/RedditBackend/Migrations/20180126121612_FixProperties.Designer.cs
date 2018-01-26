@@ -11,9 +11,10 @@ using System;
 namespace RedditBackend.Migrations
 {
     [DbContext(typeof(RedditContext))]
-    partial class RedditContextModelSnapshot : ModelSnapshot
+    [Migration("20180126121612_FixProperties")]
+    partial class FixProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,9 +36,13 @@ namespace RedditBackend.Migrations
 
                     b.Property<long?>("UserId");
 
+                    b.Property<long?>("VotesVoteId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("VotesVoteId");
 
                     b.ToTable("Posts");
                 });
@@ -75,6 +80,10 @@ namespace RedditBackend.Migrations
                     b.HasOne("RedditBackend.Models.User", "User")
                         .WithMany("Posts")
                         .HasForeignKey("UserId");
+
+                    b.HasOne("RedditBackend.Models.VoteClass", "Votes")
+                        .WithMany("Posts")
+                        .HasForeignKey("VotesVoteId");
                 });
 
             modelBuilder.Entity("RedditBackend.Models.VoteClass", b =>

@@ -11,9 +11,10 @@ using System;
 namespace RedditBackend.Migrations
 {
     [DbContext(typeof(RedditContext))]
-    partial class RedditContextModelSnapshot : ModelSnapshot
+    [Migration("20180126125143_FixConnections")]
+    partial class FixConnections
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

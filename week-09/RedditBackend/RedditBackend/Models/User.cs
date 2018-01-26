@@ -11,6 +11,6 @@ namespace RedditBackend.Models
         public string Username { get; set; }
 
         public List<Post> Posts { get; set; }
-        public List<Vote> Votes { get; set; }
+        public List<VoteClass> Votes { get; set; }
     }
 }
