@@ -9,14 +9,11 @@ namespace FoxManager.Models
     public class Student
     {
         public long Id { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
         public string Name { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Password is required")]
         public string Password { get; set; }
 
-        public long TeamId { get; set; }
-        public long ClassId { get; set; }
+        public Team Team { get; set; }
+        //public Class Class { get; set; }
+        public List<TaskClass> Tasks { get; set; }
     }
 }

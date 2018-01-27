@@ -9,6 +9,9 @@ namespace FoxManager.Models
     {
         public long Id { get; set; }
         public string TeamName { get; set; }
-        public long ClassId { get; set; }
+
+        public List<Student> Students { get; set; }
+        public List<TaskClass> Tasks { get; set; }
+        //public List<Class> Classes { get; set; }
     }
 }

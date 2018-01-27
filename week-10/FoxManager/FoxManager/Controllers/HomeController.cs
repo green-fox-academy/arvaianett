@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FoxManager.Services;
+using FoxManager.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,10 +21,17 @@ namespace FoxManager.Controllers
         }
 
         // GET: /<controller>/
-        [HttpGet("home")]
-        public IActionResult Home()
+        [HttpGet("home/{name}")]
+        public IActionResult Home([FromRoute]string name)
         {
-            return View("home", "_layout");
+            return View(homeService.GetHomeView(name));
+        }
+
+        [HttpPost("add/{name}")]
+        public IActionResult AddTask([FromRoute]string name, [FromForm]TaskClass task)
+        {
+            homeService.AddTask(name, task);
+            return RedirectToAction("home");
         }
     }
 }

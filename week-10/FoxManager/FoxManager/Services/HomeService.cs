@@ -1,8 +1,6 @@
-﻿using FoxManager.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FoxManager.Models;
+using FoxManager.Repositories;
+using FoxManager.ViewModels;
 
 namespace FoxManager.Services
 {
@@ -13,6 +11,21 @@ namespace FoxManager.Services
         public HomeService(HomeRepository homeRepository)
         {
             this.homeRepository = homeRepository;
+        }
+
+        public HomeViewModel GetHomeView(string name)
+        {
+            return new HomeViewModel()
+            {
+                CurrentStudentTasks = homeRepository.GetCurrentStudentsTasks(name),
+                CurrentStudentsTeamsTasks = homeRepository.CurrentStudentsTeamsTasks(name),
+                CurrentStudent = homeRepository.GetCurrentStudent(name)
+            };
+        }
+
+        public void AddTask(string name, TaskClass task)
+        {
+            homeRepository.AddTask(name, task);
         }
     }
 }

@@ -11,8 +11,8 @@ using System;
 namespace FoxManager.Migrations
 {
     [DbContext(typeof(FoxContext))]
-    [Migration("20180127100356_AddPasswordColumn")]
-    partial class AddPasswordColumn
+    [Migration("20180127182058_AddTaskName")]
+    partial class AddTaskName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,22 +40,20 @@ namespace FoxManager.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<long>("ClassId");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Password");
 
-                    b.Property<string>("Password")
-                        .IsRequired();
-
-                    b.Property<long>("TeamId");
+                    b.Property<long?>("TeamId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("FoxManager.Models.Task", b =>
+            modelBuilder.Entity("FoxManager.Models.TaskClass", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
@@ -64,11 +62,17 @@ namespace FoxManager.Migrations
 
                     b.Property<string>("PriorityLevel");
 
-                    b.Property<long>("StudentId");
+                    b.Property<long?>("StudentId");
 
-                    b.Property<long>("TeamId");
+                    b.Property<string>("TaskName");
+
+                    b.Property<long?>("TeamId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
+
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Tasks");
                 });
@@ -78,13 +82,29 @@ namespace FoxManager.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<long>("ClassId");
-
                     b.Property<string>("TeamName");
 
                     b.HasKey("Id");
 
                     b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("FoxManager.Models.Student", b =>
+                {
+                    b.HasOne("FoxManager.Models.Team", "Team")
+                        .WithMany("Students")
+                        .HasForeignKey("TeamId");
+                });
+
+            modelBuilder.Entity("FoxManager.Models.TaskClass", b =>
+                {
+                    b.HasOne("FoxManager.Models.Student", "Student")
+                        .WithMany("Tasks")
+                        .HasForeignKey("StudentId");
+
+                    b.HasOne("FoxManager.Models.Team", "Team")
+                        .WithMany("Tasks")
+                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }

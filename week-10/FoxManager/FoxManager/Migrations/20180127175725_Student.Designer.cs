@@ -11,9 +11,10 @@ using System;
 namespace FoxManager.Migrations
 {
     [DbContext(typeof(FoxContext))]
-    partial class FoxContextModelSnapshot : ModelSnapshot
+    [Migration("20180127175725_Student")]
+    partial class Student
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,18 +53,16 @@ namespace FoxManager.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("FoxManager.Models.TaskClass", b =>
+            modelBuilder.Entity("FoxManager.Models.Task", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("DueDate");
+                    b.Property<int>("DueDate");
 
                     b.Property<string>("PriorityLevel");
 
                     b.Property<long?>("StudentId");
-
-                    b.Property<string>("TaskName");
 
                     b.Property<long?>("TeamId");
 
@@ -95,7 +94,7 @@ namespace FoxManager.Migrations
                         .HasForeignKey("TeamId");
                 });
 
-            modelBuilder.Entity("FoxManager.Models.TaskClass", b =>
+            modelBuilder.Entity("FoxManager.Models.Task", b =>
                 {
                     b.HasOne("FoxManager.Models.Student", "Student")
                         .WithMany("Tasks")

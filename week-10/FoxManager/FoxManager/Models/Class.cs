@@ -10,5 +10,8 @@ namespace FoxManager.Models
         public long Id { get; set; }
         public string ClassName { get; set; }
         public string Technology { get; set; }
+
+        //public List<Student> Students { get; set; }
+        //public List<Team> Teams { get; set; }
     }
 }

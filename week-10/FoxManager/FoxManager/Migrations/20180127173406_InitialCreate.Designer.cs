@@ -11,7 +11,7 @@ using System;
 namespace FoxManager.Migrations
 {
     [DbContext(typeof(FoxContext))]
-    [Migration("20180127091950_InitialCreate")]
+    [Migration("20180127173406_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,11 +40,11 @@ namespace FoxManager.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<long>("ClassId");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
-
-                    b.Property<long>("TeamId");
+                    b.Property<string>("Password")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -60,10 +60,6 @@ namespace FoxManager.Migrations
 
                     b.Property<string>("PriorityLevel");
 
-                    b.Property<long>("StudentId");
-
-                    b.Property<long>("TeamId");
-
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
@@ -73,8 +69,6 @@ namespace FoxManager.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<long>("ClassId");
 
                     b.Property<string>("TeamName");
 

@@ -29,9 +29,8 @@ namespace FoxManager.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClassId = table.Column<long>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    TeamId = table.Column<long>(nullable: false)
+                    Name = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,9 +44,7 @@ namespace FoxManager.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DueDate = table.Column<int>(nullable: false),
-                    PriorityLevel = table.Column<string>(nullable: true),
-                    StudentId = table.Column<long>(nullable: false),
-                    TeamId = table.Column<long>(nullable: false)
+                    PriorityLevel = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,7 +57,6 @@ namespace FoxManager.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClassId = table.Column<long>(nullable: false),
                     TeamName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
