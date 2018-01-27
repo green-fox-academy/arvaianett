@@ -10,7 +10,7 @@ namespace FoxManager.Entities
 {
     public class FoxContext : DbContext
     {
-        public FoxContext(DbContextOptions options) : base(options)
+        public FoxContext(DbContextOptions<FoxContext> options) : base(options)
         {
         }
 
