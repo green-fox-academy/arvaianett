@@ -33,7 +33,40 @@ namespace FoxManagerTest
                 repository.AddStudent("Laci", "fox");
 
                 var studentCount = await context.Students.CountAsync();
-                Assert.Equal(1, studentCount);
+                Assert.Equal(2, studentCount);
+            }
+        }
+
+        [Fact]
+        public async Task GetStudent()
+        {
+            var options = new DbContextOptionsBuilder<FoxContext>().UseInMemoryDatabase("database").Options;
+
+            using (var context = new FoxContext(options))
+            {
+                var repository = new LoginRepository(context);
+                repository.AddStudent("Laci", "fox");
+                repository.GetStudentByName("Laci");
+
+                var student = await context.Students.FirstOrDefaultAsync(s => s.Password == "fox");
+                Assert.Equal("Laci", student.Name);
+            }
+        }
+
+        [Fact]
+        public async Task GetListOfStudents()
+        {
+            var options = new DbContextOptionsBuilder<FoxContext>().UseInMemoryDatabase("database").Options;
+
+            using (var context = new FoxContext(options))
+            {
+                var repository = new LoginRepository(context);
+                repository.GetStudentList();
+
+                int contextListCount = await context.Students.CountAsync();
+                var studentList = await context.Students.ToListAsync();
+                
+                Assert.Equal(contextListCount, studentList.Count);
             }
         }
     }
