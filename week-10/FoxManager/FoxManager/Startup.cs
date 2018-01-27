@@ -22,6 +22,8 @@ namespace FoxManager
             services.AddMvc();
             services.AddScoped<LoginRepository>();
             services.AddScoped<LoginService>();
+            services.AddScoped<HomeRepository>();
+            services.AddScoped<HomeService>();
             services.AddDbContext<FoxContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=FoxManager;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;"));
         }
 
