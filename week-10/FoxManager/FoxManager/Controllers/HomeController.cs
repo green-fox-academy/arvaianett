@@ -33,5 +33,19 @@ namespace FoxManager.Controllers
             homeService.AddTask(name, task);
             return RedirectToAction("home");
         }
+
+        [HttpGet("delete/{name}/{id}")]
+        public IActionResult DeleteStudentsTask([FromRoute]string name, [FromRoute]long id)
+        {
+            homeService.DeleteStudentsTask(name, id);
+            return RedirectToAction("home");
+        }
+
+        [HttpPost("update/{name}")]
+        public IActionResult UpdateTask([FromRoute]string name, [FromForm]TaskClass task)
+        {
+            homeService.UpdateTask(name, task);
+            return RedirectToAction("home");
+        }
     }
 }

@@ -31,6 +31,12 @@ namespace FoxManager.Repositories
             return foxContext.Students.FirstOrDefault(s => s.Name == name);
         }
 
+        ////can't get team, relations??
+        //public Team GetCurrentStudentsTeam(string name)
+        //{
+        //    return foxContext.Teams.FirstOrDefault(t=>t.Students.Contains(GetCurrentStudent(name)));
+        //}
+
         public void AddTask(string name, TaskClass task)
         {
             foxContext.Tasks.Add(new TaskClass()
@@ -41,6 +47,25 @@ namespace FoxManager.Repositories
                 Student = GetCurrentStudent(name),
                 Team = GetCurrentStudent(name).Team
             });
+
+            foxContext.SaveChanges();
+        }
+
+        public void DeleteStudentsTask(string name, long id)
+        {
+            foxContext.Tasks.Remove(GetTask(id));
+            foxContext.SaveChanges();
+        }
+
+        public TaskClass GetTask(long id)
+        {
+            return foxContext.Tasks.FirstOrDefault(t => t.Id == id);
+        }
+
+        public void UpdateTask(string name, TaskClass task)
+        {
+            foxContext.Tasks.Update(task);
+            foxContext.SaveChanges();
         }
     }
 }

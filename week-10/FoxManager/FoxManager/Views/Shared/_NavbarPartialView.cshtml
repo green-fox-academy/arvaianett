@@ -1,11 +1,14 @@
-﻿<div>
+﻿@model FoxManager.ViewModels.HomeViewModel
+<div>
     <nav class="navbar navbar-default navbar-static-top">
+        <div class="bg-warning text-white">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/teams">Teams</a></li>
-                <li><a href="/classes">Classes</a></li>
+                <li><a class="navbar-brand" href="/home/@Model.CurrentStudent.Name">Home</a></li>
+                <li><a class="navbar-brand" href="/teams/@Model.CurrentStudent.Name">Teams</a></li>
+                <li><a class="navbar-brand" href="/classes/@Model.CurrentStudent.Name">Classes</a></li>
             </ul>
+            </div>
         </div>
     </nav>
 </div>

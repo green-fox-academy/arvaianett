@@ -3,48 +3,115 @@
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
-<form action="/add/@Model.CurrentStudent.Name" method="post">
-    <div class="form-group">
-        <label>Task</label>
-        <input type="text" class="form-control" name="taskname">
-    </div>
-    <div class="form-group">
-        <label>Due date</label>
-        <input type="text" class="form-control" name="duedate">
-    </div>
-    <div class="form-group">
-        <label>Priority level</label>
-        <input type="text" class="form-control" name="prioritylevel">
-    </div>
-    <button type="submit" class="btn btn-default">Add</button>
-</form>
-<div class="row">
-    <div class="col-md-6">
-        <h3>@Model.CurrentStudent.Name's Tasks:</h3>
-        <table class="table table-condensed">
-            <tr>
-                <th>Task</th>
-                <th>Due Date</th>
-                <th>Priority Level</th>
-            </tr>
-            @foreach (var tasks in Model.CurrentStudentTasks)
-            {
-                @Html.Partial("_TaskPartialView")
-            }
-        </table>
-    </div>
-    <div class="col-md-6">
-        <h3>@Model.CurrentStudent.Team's Tasks:</h3>
-        <table class="table table-condensed">
-            <tr>
-                <th>Task</th>
-                <th>Due Date</th>
-                <th>Priority Level</th>
-            </tr>
-            @foreach (var tasks in Model.CurrentStudentTasks)
-            {
-                @Html.Partial("_TaskPartialView")
-            }
-        </table>
-    </div>
+<div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="bg-warning text-white">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="/home/@Model.CurrentStudent.Name">Home</a></li>
+                    <li><a class="navbar-brand" href="/teams/@Model.CurrentStudent.Name">Teams</a></li>
+                    <li><a class="navbar-brand" href="/classes/@Model.CurrentStudent.Name">Classes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+            <h4>Add Tasks</h4>
+            <form action="/add/@Model.CurrentStudent.Name" method="post">
+                <div class="form-group">
+                    <label>Task</label>
+                    <input type="text" class="form-control" name="taskname">
+                </div>
+                <div class="form-group">
+                    <label>Due date</label>
+                    <input type="text" class="form-control" name="duedate">
+                </div>
+                <div class="form-group">
+                    <label>Priority level</label>
+                    <input type="text" class="form-control" name="prioritylevel">
+                </div>
+                <button type="submit" class="btn btn-default">Add</button>
+            </form>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <br />
+                <h4>Edit Tasks</h4>
+                <form action="/update/@Model.CurrentStudent.Name" method="post">
+                    <div class="form-group">
+                        <select name="id" class="form-control">
+                            @foreach (var task in Model.CurrentStudentsTeamsTasks)
+                            {
+                                <option>@task.Id</option>
+                            }
+                        </select>
+                        <label>Edit Task</label>
+                        <input type="text" class="form-control" name="taskname">
+                    </div>
+                    <div class="form-group">
+                        <label>Edit Due Date</label>
+                        <input type="text" class="form-control" name="duedate">
+                    </div>
+                    <div class="form-group">
+                        <label>Edit Priority Level</label>
+                        <input type="text" class="form-control" name="prioritylevel">
+                    </div>
+                    <button type="submit" class="btn btn-default">Update</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h3>@Model.CurrentStudent.Name's Tasks:</h3>
+            <table class="table table-condensed">
+                <tr>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Priority Level</th>
+                    <th></th>
+                </tr>
+                @foreach (var tasks in Model.CurrentStudentTasks)
+                {
+                    <tr>
+                        <td>@tasks.TaskName</td>
+                        <td>@tasks.DueDate</td>
+                        <td>@tasks.PriorityLevel</td>
+                        <td>
+                            <a class="btn btn-default" href="/delete/@Model.CurrentStudent.Name/@tasks.Id" role="button">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-5">
+            <h3>Your Team's Tasks:</h3>
+            <table class="table table-condensed">
+                <tr>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Priority Level</th>
+                    <th></th>
+                </tr>
+                @foreach (var tasks in Model.CurrentStudentTasks)
+                {
+                    <tr>
+                        <td>@tasks.TaskName</td>
+                        <td>@tasks.DueDate</td>
+                        <td>@tasks.PriorityLevel</td>
+                        <td>
+                            <a class="btn btn-default" href="/delete/@Model.CurrentStudent.Name/@tasks.Id" role="button">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>

@@ -1,0 +1,77 @@
+﻿@model FoxManager.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Teams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="p-3 mb-2 bg-success text-white">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="/home/@Model.CurrentStudent.Name">Home</a></li>
+                    <li><a class="navbar-brand" href="/teams/@Model.CurrentStudent.Name">Teams</a></li>
+                    <li><a class="navbar-brand" href="/classes/@Model.CurrentStudent.Name">Classes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <form class="form-inline" action="/addteam/@Model.CurrentStudent.Name" method="post">
+                <div class="form-group">
+                    <label class="sr-only">Add New Team</label>
+                    <input type="text" class="form-control" placeholder="Team" name="teamname">
+                </div>
+                <button type="submit" class="btn btn-default">Add</button>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <form class="form-inline" action="/updateteam/@Model.CurrentStudent.Name" method="post">
+                <div class="form-group">
+                    <select name="id" class="form-control">
+                        @foreach (var team in Model.AllTeams)
+                        {
+                            <option>@team.Id</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Update team" name="teamname">
+                </div>
+                <button type="submit" class="btn btn-default">Update</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h3>Project Teams:</h3>
+            <table class="table table-condensed">
+                <tr>
+                    <th>Team</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @foreach (var team in Model.AllTeams)
+                {
+                    <tr>
+                        <td>@team.TeamName</td>
+                        <td>
+                            <a class="btn btn-default" href="/info/@Model.CurrentStudent.Name/@team.Id" role="button">
+                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-default" href="/deleteteam/@Model.CurrentStudent.Name/@team.Id" role="button">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+
