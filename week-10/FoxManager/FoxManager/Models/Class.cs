@@ -11,7 +11,6 @@ namespace FoxManager.Models
         public string ClassName { get; set; }
         public string Technology { get; set; }
 
-        //public List<Student> Students { get; set; }
-        //public List<Team> Teams { get; set; }
+        public List<Student> Students { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace FoxManagerTest
 
             using (var context = new FoxContext(options))
             {
-                var repository = new LoginRepository(context);
+                var repository = new StudentRepository(context);
                 repository.AddStudent("Laci", "fox");
 
                 var studentCount = await context.Students.CountAsync();
@@ -44,7 +44,7 @@ namespace FoxManagerTest
 
             using (var context = new FoxContext(options))
             {
-                var repository = new LoginRepository(context);
+                var repository = new StudentRepository(context);
                 repository.AddStudent("Laci", "fox");
                 repository.GetStudentByName("Laci");
 
@@ -60,7 +60,7 @@ namespace FoxManagerTest
 
             using (var context = new FoxContext(options))
             {
-                var repository = new LoginRepository(context);
+                var repository = new StudentRepository(context);
                 repository.GetStudentList();
 
                 int contextListCount = await context.Students.CountAsync();

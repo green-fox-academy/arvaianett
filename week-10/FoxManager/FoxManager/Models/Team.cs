@@ -12,6 +12,5 @@ namespace FoxManager.Models
 
         public List<Student> Students { get; set; }
         public List<TaskClass> Tasks { get; set; }
-        //public List<Class> Classes { get; set; }
     }
 }

@@ -11,6 +11,5 @@ namespace FoxManager.ViewModels
         public List<TaskClass> CurrentStudentsTeamsTasks { get; set; }
         public Student CurrentStudent { get; set; }
         public Team StudentsTeam { get; set; }
-        public List<Team> AllTeams { get; set; }
     }
 }

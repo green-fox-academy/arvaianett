@@ -9,21 +9,21 @@ namespace FoxManager.Services
 {
     public class LoginService
     {
-        private LoginRepository loginRepository;
+        private StudentRepository studentRepository;
 
-        public LoginService(LoginRepository loginRepository)
+        public LoginService(StudentRepository studentRepository)
         {
-            this.loginRepository = loginRepository;
+            this.studentRepository = studentRepository;
         }
 
         public bool CheckInputs(string name, string password)
         {
-            if(!loginRepository.GetStudentList().Contains(loginRepository.GetStudentByName(name)))
+            if(!studentRepository.GetStudentList().Contains(studentRepository.GetCurrentStudent(name)))
             {
                 RegisterStudent(name, password);
             }
             
-            if(loginRepository.GetStudentByName(name).Password == password)
+            if(studentRepository.GetCurrentStudent(name).Password == password)
             {
                 return true;
             }
@@ -35,7 +35,7 @@ namespace FoxManager.Services
 
         public void RegisterStudent(string name, string password)
         {
-            loginRepository.AddStudent(name, password);
+            studentRepository.AddStudent(name, password);
         }
     }
 }

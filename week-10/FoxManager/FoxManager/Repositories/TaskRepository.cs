@@ -1,18 +1,21 @@
 ﻿using FoxManager.Entities;
 using FoxManager.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace FoxManager.Repositories
 {
-    public class HomeRepository
+    public class TaskRepository
     {
         private FoxContext foxContext;
+        private StudentRepository studentRepository;
 
-        public HomeRepository(FoxContext foxContext)
+        public TaskRepository(FoxContext foxContext, StudentRepository studentRepository)
         {
             this.foxContext = foxContext;
+            this.studentRepository = studentRepository;
         }
 
         public List<TaskClass> GetCurrentStudentsTasks(string name)
@@ -23,19 +26,8 @@ namespace FoxManager.Repositories
 
         public List<TaskClass> CurrentStudentsTeamsTasks(string name)
         {
-            return foxContext.Tasks.Where(t => t.Student == GetCurrentStudent(name)).ToList();
+            return foxContext.Tasks.Where(t => t.Student == studentRepository.GetCurrentStudent(name)).ToList();
         }
-
-        public Student GetCurrentStudent(string name)
-        {
-            return foxContext.Students.FirstOrDefault(s => s.Name == name);
-        }
-
-        ////can't get team, relations??
-        //public Team GetCurrentStudentsTeam(string name)
-        //{
-        //    return foxContext.Teams.FirstOrDefault(t=>t.Students.Contains(GetCurrentStudent(name)));
-        //}
 
         public void AddTask(string name, TaskClass task)
         {
@@ -44,8 +36,8 @@ namespace FoxManager.Repositories
                 TaskName = task.TaskName,
                 DueDate = task.DueDate,
                 PriorityLevel = task.PriorityLevel,
-                Student = GetCurrentStudent(name),
-                Team = GetCurrentStudent(name).Team
+                Student = studentRepository.GetCurrentStudent(name),
+                Team = studentRepository.GetCurrentStudent(name).Team
             });
 
             foxContext.SaveChanges();

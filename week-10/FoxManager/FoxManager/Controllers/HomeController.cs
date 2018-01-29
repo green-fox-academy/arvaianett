@@ -27,21 +27,21 @@ namespace FoxManager.Controllers
             return View(homeService.GetHomeView(name));
         }
 
-        [HttpPost("add/{name}")]
+        [HttpPost("addtask/{name}")]
         public IActionResult AddTask([FromRoute]string name, [FromForm]TaskClass task)
         {
             homeService.AddTask(name, task);
             return RedirectToAction("home");
         }
 
-        [HttpGet("delete/{name}/{id}")]
+        [HttpGet("deletetask/{name}/{id}")]
         public IActionResult DeleteStudentsTask([FromRoute]string name, [FromRoute]long id)
         {
             homeService.DeleteStudentsTask(name, id);
             return RedirectToAction("home");
         }
 
-        [HttpPost("update/{name}")]
+        [HttpPost("updatetask/{name}")]
         public IActionResult UpdateTask([FromRoute]string name, [FromForm]TaskClass task)
         {
             homeService.UpdateTask(name, task);

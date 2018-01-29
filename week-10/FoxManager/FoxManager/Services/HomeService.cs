@@ -6,37 +6,38 @@ namespace FoxManager.Services
 {
     public class HomeService
     {
-        private HomeRepository homeRepository;
+        private TaskRepository taskRepository;
+        private StudentRepository studentRepository;
 
-        public HomeService(HomeRepository homeRepository)
+        public HomeService(TaskRepository taskRepository, StudentRepository studentRepository)
         {
-            this.homeRepository = homeRepository;
+            this.taskRepository = taskRepository;
+            this.studentRepository = studentRepository;
         }
 
         public HomeViewModel GetHomeView(string name)
         {
             return new HomeViewModel()
             {
-                CurrentStudentTasks = homeRepository.GetCurrentStudentsTasks(name),
-                CurrentStudentsTeamsTasks = homeRepository.CurrentStudentsTeamsTasks(name),
-                CurrentStudent = homeRepository.GetCurrentStudent(name)
-                //StudentsTeam = homeRepository.GetCurrentStudentsTeam(name)
+                CurrentStudentTasks = taskRepository.GetCurrentStudentsTasks(name),
+                CurrentStudentsTeamsTasks = taskRepository.CurrentStudentsTeamsTasks(name),
+                CurrentStudent = studentRepository.GetCurrentStudent(name),
             };
         }
 
         public void AddTask(string name, TaskClass task)
         {
-            homeRepository.AddTask(name, task);
+            taskRepository.AddTask(name, task);
         }
 
         public void DeleteStudentsTask(string name, long id)
         {
-            homeRepository.DeleteStudentsTask(name, id);
+            taskRepository.DeleteStudentsTask(name, id);
         }
 
         public void UpdateTask(string name, TaskClass task)
         {
-            homeRepository.UpdateTask(name, task);
+            taskRepository.UpdateTask(name, task);
         }
     }
 }

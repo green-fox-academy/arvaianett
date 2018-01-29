@@ -1,5 +1,6 @@
 ﻿using FoxManager.Entities;
 using FoxManager.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace FoxManager.Repositories
 {
-    public class LoginRepository
+    public class StudentRepository
     {
         private FoxContext foxContext;
 
-        public LoginRepository(FoxContext foxContext)
+        public StudentRepository(FoxContext foxContext)
         {
             this.foxContext = foxContext;
         }
@@ -32,9 +33,15 @@ namespace FoxManager.Repositories
             foxContext.SaveChanges();
         }
 
-        public Student GetStudentByName(string name)
+        public Student GetCurrentStudent(string name)
         {
+            foxContext.Teams.Load();
             return foxContext.Students.FirstOrDefault(s => s.Name == name);
+        }
+
+        public List<Student> GetAllStudent()
+        {
+            return foxContext.Students.ToList();
         }
     }
 }

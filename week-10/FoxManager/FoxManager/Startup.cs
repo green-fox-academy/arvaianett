@@ -20,12 +20,14 @@ namespace FoxManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddScoped<LoginRepository>();
+            services.AddScoped<StudentRepository>();
             services.AddScoped<LoginService>();
-            services.AddScoped<HomeRepository>();
+            services.AddScoped<TaskRepository>();
             services.AddScoped<HomeService>();
             services.AddScoped<TeamRepository>();
             services.AddScoped<TeamService>();
+            services.AddScoped<ClassRepository>();
+            services.AddScoped<ClassService>();
             services.AddDbContext<FoxContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=FoxManager;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;"));
         }
 

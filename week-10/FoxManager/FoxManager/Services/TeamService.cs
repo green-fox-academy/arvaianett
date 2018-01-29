@@ -11,20 +11,22 @@ namespace FoxManager.Services
     public class TeamService
     {
         private TeamRepository teamRepository;
-        private HomeRepository homeRepository;
+        private TaskRepository homeRepository;
+        private StudentRepository studentRepository;
 
-        public TeamService(TeamRepository teamRepository, HomeRepository homeRepository)
+        public TeamService(TeamRepository teamRepository, TaskRepository homeRepository, StudentRepository studentRepository)
         {
             this.teamRepository = teamRepository;
             this.homeRepository = homeRepository;
+            this.studentRepository = studentRepository;
         }
 
-        public HomeViewModel GetTeamView(string name)
+        public TeamViewModel GetTeamView(string name)
         {
-            return new HomeViewModel()
+            return new TeamViewModel()
             {
                 AllTeams = teamRepository.GetAllTeams(),
-                CurrentStudent = homeRepository.GetCurrentStudent(name)
+                CurrentStudent = studentRepository.GetCurrentStudent(name)
             };
         }
 

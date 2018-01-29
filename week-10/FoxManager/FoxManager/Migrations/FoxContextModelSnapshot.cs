@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace FoxManager.Migrations
@@ -37,6 +39,8 @@ namespace FoxManager.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<long?>("ClassId");
+
                     b.Property<string>("Name");
 
                     b.Property<string>("Password");
@@ -44,6 +48,8 @@ namespace FoxManager.Migrations
                     b.Property<long?>("TeamId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClassId");
 
                     b.HasIndex("TeamId");
 
@@ -88,6 +94,10 @@ namespace FoxManager.Migrations
 
             modelBuilder.Entity("FoxManager.Models.Student", b =>
                 {
+                    b.HasOne("FoxManager.Models.Class", "Class")
+                        .WithMany("Students")
+                        .HasForeignKey("ClassId");
+
                     b.HasOne("FoxManager.Models.Team", "Team")
                         .WithMany("Students")
                         .HasForeignKey("TeamId");
