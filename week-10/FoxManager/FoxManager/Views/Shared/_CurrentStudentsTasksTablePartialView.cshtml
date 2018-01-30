@@ -1,0 +1,25 @@
+﻿@model FoxManager.ViewModels.BaseViewModel
+
+<h3>@Model.HomeViewModel.CurrentStudent.Name's Tasks:</h3>
+<table class="table table-condensed">
+    <tr>
+        <th>Task</th>
+        <th>Due Date</th>
+        <th>Priority Level</th>
+        <th></th>
+    </tr>
+    @foreach (var tasks in Model.HomeViewModel.CurrentStudentTasks)
+    {
+        <tr>
+            <td>@tasks.TaskName</td>
+            <td>@tasks.DueDate</td>
+            <td>@tasks.PriorityLevel</td>
+            <td>
+                <a class="btn btn-default" href="/deletetask/@Model.HomeViewModel.CurrentStudent.Name/@tasks.Id" role="button">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+

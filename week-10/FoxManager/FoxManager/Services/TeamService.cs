@@ -21,11 +21,17 @@ namespace FoxManager.Services
             this.studentRepository = studentRepository;
         }
 
-        public TeamViewModel GetTeamView(string name)
+        public BaseViewModel GetTeamView(string name)
         {
-            return new TeamViewModel()
+            var teamViewModel = new TeamViewModel()
             {
                 AllTeams = teamRepository.GetAllTeams(),
+                CurrentStudent = studentRepository.GetCurrentStudent(name)
+            };
+
+            return new BaseViewModel()
+            {
+                TeamViewModel = teamViewModel,
                 CurrentStudent = studentRepository.GetCurrentStudent(name)
             };
         }

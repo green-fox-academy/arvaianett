@@ -1,0 +1,30 @@
+﻿@model FoxManager.ViewModels.BaseViewModel
+
+<h4>Classes</h4>
+<table class="table table-condensed">
+    @foreach (var classes in Model.ClassViewModel.AllClass)
+            {
+        <tr>
+            <th class="info">@classes.ClassName</th>
+            <th class="info">
+                <a class="btn btn-default" href="/classinfo/@Model.ClassViewModel.CurrentStudent.Name/@classes.Id" role="button">
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                </a>
+            </th>
+            <th class="info">
+                <a class="btn btn-default" href="/deleteteam/@Model.ClassViewModel.CurrentStudent.Name/@*@team.Id*@" role="button">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </th>
+        </tr>
+            @foreach (var student in Model.ClassViewModel.AllStudent.Where(c => c.Class.ClassName == classes.ClassName).ToList())
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+    }
+</table>
+

@@ -1,0 +1,14 @@
+﻿@model FoxManager.ViewModels.BaseViewModel
+
+<h4>Add Class</h4>
+<form action="/addclass/@Model.CurrentStudent.Name" method="post">
+    <div class="form-group">
+        <label>Task</label>
+        <input type="text" class="form-control" name="classname">
+    </div>
+    <div class="form-group">
+        <label>Technology</label>
+        <input type="text" class="form-control" name="technology">
+    </div>
+    <button type="submit" class="btn btn-default">Add</button>
+</form>

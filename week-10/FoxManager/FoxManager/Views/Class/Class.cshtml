@@ -1,53 +1,23 @@
-﻿@model FoxManager.ViewModels.ClassViewModel
+﻿@model FoxManager.ViewModels.BaseViewModel
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div>
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="bg-info text-white">
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li><a class="navbar-brand" href="/home/@Model.CurrentStudent.Name">Home</a></li>
-                    <li><a class="navbar-brand" href="/teams/@Model.CurrentStudent.Name">Teams</a></li>
-                    <li><a class="navbar-brand" href="/classes/@Model.CurrentStudent.Name">Classes</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+@Html.Partial("_NavbarPartialView", Model)
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        @Html.Partial("_AddClassPartialView", Model)
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+
+    </div>
 </div>
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading"><h4>Classes</h4></div>
-            <table class="table table-condensed">
-                @foreach (var classes in Model.AllClass)
-            {
-                    <tr>
-                        <th class="info">@classes.ClassName</th>
-                        <th class="info">
-                            <a class="btn btn-default" href="/classinfo/@Model.CurrentStudent.Name/@classes.Id" role="button">
-                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                            </a>
-                        </th>
-                        <th class="info">
-                            <a class="btn btn-default" href="/deleteteam/@Model.CurrentStudent.Name/@*@team.Id*@" role="button">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            </a>
-                        </th>
-                    </tr>
-                    @foreach (var student in Model.AllStudent.Where(c => c.Class.ClassName == classes.ClassName).ToList())
-                    {
-                        <tr>
-                            <td>@student.Name</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    }
-                }
-            </table>
-            </div>
-        </div>
+        @Html.Partial("_ClassesAndStudentsTablePartialView", Model)
+    </div>
 </div>
 <div class="col-md-2"></div>

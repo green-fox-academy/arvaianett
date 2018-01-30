@@ -46,7 +46,7 @@ namespace FoxManagerTest
             {
                 var repository = new StudentRepository(context);
                 repository.AddStudent("Laci", "fox");
-                repository.GetStudentByName("Laci");
+                repository.GetCurrentStudent("Laci");
 
                 var student = await context.Students.FirstOrDefaultAsync(s => s.Password == "fox");
                 Assert.Equal("Laci", student.Name);

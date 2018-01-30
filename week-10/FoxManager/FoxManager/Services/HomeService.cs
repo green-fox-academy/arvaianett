@@ -15,13 +15,19 @@ namespace FoxManager.Services
             this.studentRepository = studentRepository;
         }
 
-        public HomeViewModel GetHomeView(string name)
+        public BaseViewModel GetHomeView(string name)
         {
-            return new HomeViewModel()
+            var homeViewModel = new HomeViewModel()
             {
                 CurrentStudentTasks = taskRepository.GetCurrentStudentsTasks(name),
                 CurrentStudentsTeamsTasks = taskRepository.CurrentStudentsTeamsTasks(name),
                 CurrentStudent = studentRepository.GetCurrentStudent(name),
+            };
+
+            return new BaseViewModel()
+            {
+                HomeViewModel = homeViewModel,
+                CurrentStudent = studentRepository.GetCurrentStudent(name)
             };
         }
 

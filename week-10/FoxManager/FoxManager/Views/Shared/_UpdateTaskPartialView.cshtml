@@ -1,0 +1,25 @@
+﻿@model FoxManager.ViewModels.BaseViewModel
+
+<h4>Edit Tasks</h4>
+<form action="/updatetask/@Model.HomeViewModel.CurrentStudent.Name" method="post">
+    <div class="form-group">
+        <select name="id" class="form-control">
+            @foreach (var task in Model.HomeViewModel.CurrentStudentsTeamsTasks)
+            {
+                <option>@task.Id</option>
+            }
+        </select>
+        <label>Edit Task</label>
+        <input type="text" class="form-control" name="taskname">
+    </div>
+    <div class="form-group">
+        <label>Edit Due Date</label>
+        <input type="text" class="form-control" name="duedate">
+    </div>
+    <div class="form-group">
+        <label>Edit Priority Level</label>
+        <input type="text" class="form-control" name="prioritylevel">
+    </div>
+    <button type="submit" class="btn btn-default">Update</button>
+</form>
+
