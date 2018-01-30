@@ -26,7 +26,9 @@ namespace FoxManager.Repositories
 
         public List<TaskClass> CurrentStudentsTeamsTasks(string name)
         {
-            return foxContext.Tasks.Where(t => t.Student == studentRepository.GetCurrentStudent(name)).ToList();
+            foxContext.Students.Load();
+            return foxContext.Tasks.Where(t => t.Team.TeamName.Equals(studentRepository.GetCurrentStudent(name).Team.TeamName))
+                .ToList();
         }
 
         public void AddTask(string name, TaskClass task)

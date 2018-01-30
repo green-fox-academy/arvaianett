@@ -31,21 +31,21 @@ namespace FoxManager.Controllers
         public IActionResult AddClass([FromRoute]string name, [FromForm]Class foxClass)
         {
             classService.AddClass(name, foxClass);
-            return RedirectToAction("home");
+            return RedirectToAction("class");
         }
 
         [HttpGet("deleteclass/{name}/{id}")]
         public IActionResult DeleteClass([FromRoute]string name, [FromRoute]long id)
         {
             classService.DeleteClass(name, id);
-            return RedirectToAction("home");
+            return RedirectToAction("class");
         }
 
         [HttpPost("updateclass/{name}")]
         public IActionResult UpdateClass([FromRoute]string name, [FromForm]Class foxClass)
         {
             classService.UpdateClass(name, foxClass);
-            return RedirectToAction("home");
+            return RedirectToAction("class");
         }
     }
 }

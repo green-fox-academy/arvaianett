@@ -5,7 +5,7 @@
         <select name="id" class="form-control">
             @foreach (var team in Model.TeamViewModel.AllTeams)
             {
-                <option>@team.Id</option>
+                <option value="@team.Id">@team.TeamName</option>
             }
         </select>
     </div>
