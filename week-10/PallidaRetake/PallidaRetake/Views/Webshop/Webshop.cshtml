@@ -1,0 +1,44 @@
+﻿@model PallidaRetake.ViewModels.WebshopViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shoppingplanner</title>
+</head>
+<body>
+    <h1>Green Fox Fashion Web Store</h1>
+    <form action="/warehouse/summary" method="post">
+        <select name="ItemName">
+            @foreach (var clothes in Model.FilteredByName)
+            {
+                <option>@clothes</option>
+            }
+        </select>
+        <select name="Size">
+            @foreach (var clothes in Model.FilteredBySize)
+            {
+                <option>@clothes</option>
+            }
+        </select>
+        <input type="text" name="Quantity" />
+        <input type="submit" value="GET TOTAL" />
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Category</th>
+            <th>Size</th>
+            <th>Unit price</th>
+        </tr>
+        @foreach (var item in Model.AllClothes)
+        {
+            <tr>
+                <td>@item.ItemName</td>
+                <td>@item.Manufacturer</td>
+                <td>@item.Catergory</td>
+                <td>@item.Size</td>
+                <td>@item.UnitPrice</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
