@@ -1,0 +1,14 @@
+﻿@model Quiz.ViewModel.QuizViewModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <p>@Model.Question.Question</p>
+    <a href="/quiz/@Model.Question.Id/1/@Model.Score">@Model.Question.FirstAnswer</a>
+    <a href="/quiz/@Model.Question.Id/2/@Model.Score">@Model.Question.SecondAnswer</a>
+    <a href="/quiz/@Model.Question.Id/3/@Model.Score">@Model.Question.ThirdAnswer</a>
+    <a href="/quiz/@Model.Question.Id/4/@Model.Score">@Model.Question.FourthAnswer</a>
+</body>
+</html>

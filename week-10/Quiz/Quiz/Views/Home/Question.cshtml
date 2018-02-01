@@ -1,0 +1,32 @@
+﻿@model Quiz.Models.QuizModel
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Question</title>
+</head>
+<body>
+    <form action="/question" method="post">
+        <p>Question</p>
+        <input type="text" name="Question" />
+        <p>1. Answer</p>
+        <input type="text" name="FirstAnswer" />
+        <p>2. Answer</p>
+        <input type="text" name="SecondAnswer" />
+        <p>3. Answer</p>
+        <input type="text" name="ThirdAnswer" />
+        <p>4. Answer</p>
+        <input type="text" name="FourthAnswer" />
+        <p>Correct Answer</p>
+        <p>1.</p>
+        <input type="radio" name="CorrectAnswer" value= "1"/>
+        <p>2.</p>
+        <input type="radio" name="CorrectAnswer" value= "2"/>
+        <p>3.</p>
+        <input type="radio" name="CorrectAnswer" value= "3"/>
+        <p>4.</p>
+        <input type="radio" name="CorrectAnswer" value= "4"/>
+        <input type="submit" value="Add" />
+    </form>
+</body>
+</html>
