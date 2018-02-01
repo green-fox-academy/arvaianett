@@ -3,21 +3,12 @@
     ViewBag.Title = "Teams";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.Partial("_NavbarPartialView", Model)
+@Html.Partial("_NavbarTeamPartialView", Model)
 <div class="row">
-    <div class="col-md-1"></div>
-        <div class="col-md-6">
-            @Html.Partial("_AddTeamPartialView", Model)
-        </div>
-        <div class="col-md-5">
-            @Html.Partial("_UpdateTeamPartialView", Model)
-        </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        @Html.Partial("_ProjectTeamsTablePartialView", Model)
     </div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            @Html.Partial("_ProjectTeamsTablePartialView", Model)
-        </div>
-    </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
+</div>
 

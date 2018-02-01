@@ -1,16 +1,16 @@
 ﻿@model FoxManager.ViewModels.BaseViewModel
-<h4>Classes</h4>
+<h3>Classes</h3>
 <table class="table table-condensed">
     @foreach (var classes in Model.ClassViewModel.AllClass)
             {
         <tr>
-            <th class="info">@classes.ClassName<br /><p>@classes.Technology</p></th>
-            <th class="info">
+            <th>@classes.ClassName<br /><p>@classes.Technology</p></th>
+            <th>
                 <a class="btn btn-default" href="/classinfo/@Model.ClassViewModel.CurrentStudent.Name/@classes.Id" role="button">
                     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                 </a>
             </th>
-            <th class="info">
+            <th>
                 <a class="btn btn-default" href="/deleteclass/@Model.ClassViewModel.CurrentStudent.Name/@classes.Id" role="button">
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>

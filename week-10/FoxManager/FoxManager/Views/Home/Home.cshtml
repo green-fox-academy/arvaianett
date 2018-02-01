@@ -3,25 +3,14 @@
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
-@Html.Partial("_NavbarPartialView", Model)
+@Html.Partial("_NavbarHomePartialView", Model)
 <div class="row">
-    <div class="col-md-2">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                @Html.Partial("_AddTaskPartialView", Model)
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <br />
-                @Html.Partial("_UpdateTaskPartialView", Model)
-            </div>
-        </div>
-    </div>
+    <div class="col-md-1"></div>
     <div class="col-md-5">
         @Html.Partial("_CurrentStudentsTasksTablePartialView", Model)
     </div>
     <div class="col-md-5">
         @Html.Partial("_CurrentStudentsTeamsTasksPartialView", Model)
     </div>
+    <div class="col-md-1"></div>
 </div>

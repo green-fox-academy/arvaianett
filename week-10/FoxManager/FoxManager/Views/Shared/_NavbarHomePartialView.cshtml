@@ -1,0 +1,82 @@
+﻿@model FoxManager.ViewModels.BaseViewModel
+<nav class="navbar navbar-default">
+    <div class="bg-success text-white">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="/home/@Model.CurrentStudent.Name">Home</a></li>
+                <li><a class="navbar-brand" href="/teams/@Model.CurrentStudent.Name">Teams</a></li>
+                <li><a class="navbar-brand" href="/classes/@Model.CurrentStudent.Name">Classes</a></li>
+            </ul>
+            <div class="navbar-btn navbar-right">
+                <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#exampleModal">Add New Task </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">New Task</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/addtask/@Model.HomeViewModel.CurrentStudent.Name" method="post">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Task:</label>
+                                        <input type="text" class="form-control" name="taskname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Due date:</label>
+                                        <input class="form-control" name="duedate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Priority level:</label>
+                                        <input class="form-control" name="prioritylevel">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" value="submit" class="btn btn-success">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#updateModal">Edit Task</button>
+                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">Update Task</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/updatetask/@Model.HomeViewModel.CurrentStudent.Name" method="post">
+                                    <div class="form-group">
+                                        <select name="id" class="form-control">
+                                            @foreach (var task in Model.HomeViewModel.CurrentStudentsTeamsTasks)
+                                            {
+                                                <option value="@task.Id">@task.TaskName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Task:</label>
+                                        <input type="text" class="form-control" name="taskname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Due date:</label>
+                                        <input class="form-control" name="duedate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Priority level:</label>
+                                        <input class="form-control" name="prioritylevel">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" value="submit" class="btn btn-success">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
