@@ -21,17 +21,20 @@ namespace FoxManager.Services
 
         public BaseViewModel GetClassView(string name)
         {
-            var classViewModel = new ClassViewModel()
+            return new BaseViewModel()
+            {
+                ClassViewModel = GetClassViewModel(name),
+                CurrentStudent = studentRepository.GetCurrentStudent(name)
+            };
+        }
+
+        public ClassViewModel GetClassViewModel(string name)
+        {
+            return new ClassViewModel()
             {
                 AllClass = classRepository.GetAllClass(),
                 CurrentStudent = studentRepository.GetCurrentStudent(name),
                 AllStudent = studentRepository.GetAllStudent()
-            };
-
-            return new BaseViewModel()
-            {
-                ClassViewModel = classViewModel,
-                CurrentStudent = studentRepository.GetCurrentStudent(name)
             };
         }
 
