@@ -35,18 +35,33 @@ const listOfPictures = [
     'text': '8th.text'}
 ]
 
+//create main view
+listOfPictures.forEach(function(images) {
 
-let picture = document.getElementsByTagName('img');
-picture[0].src = listOfPictures[0].picture;
+    let mainPicture = document.createElement('img');
+    mainPicture.className = "img-fluid";
+    mainPicture.src = images.picture;
 
-let title = document.getElementsByTagName('h2');
-title[0].innerHTML = "first";
+    let title = document.createElement('h2');
+    title.innerHTML = images.title;
 
-let text = document.getElementsByTagName('p');
-text[0].innerHTML = "hello";
+    let text = document.createElement('p');
+    text.innerHTML = images.text;
+
+    if(images.id !== 1) {
+        mainPicture.className = "hide";
+        title.className = "hide";
+        text.className ="hide";
+    }
+
+    let mainPictureView = document.getElementById("main-image");
+
+    mainPictureView.appendChild(mainPicture);
+    mainPictureView.appendChild(title);
+    mainPictureView.appendChild(text);
+});
 
 //create thumbnail
-
 listOfPictures.forEach(function(images) {
 
     let gridDiv = document.createElement('div');
@@ -56,10 +71,15 @@ listOfPictures.forEach(function(images) {
     thumbPicture.className = "img-thumbnail";
     thumbPicture.src = images.picture;
 
-    let getParent = document.getElementById("thumbnail-images");
+    let thumbnail = document.getElementById("thumbnail-images");
 
-    getParent.appendChild(gridDiv);
+    thumbnail.appendChild(gridDiv);
     gridDiv.appendChild(thumbPicture);
-})
+});
 
+//buttons
+let button = document.getElementsByTagName('button');
+
+button[0].addEventListener('click', goLeft);
+button[1].addEventListener('click', goRight);
 
