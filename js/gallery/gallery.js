@@ -36,10 +36,9 @@ const listOfPictures = [
 ]
 
 //create main view
-listOfPictures.forEach(function(images) {
+let mainView = listOfPictures.forEach(function(images) {
 
     let mainPicture = document.createElement('img');
-    mainPicture.className = "img-fluid";
     mainPicture.src = images.picture;
 
     let title = document.createElement('h2');
@@ -53,6 +52,11 @@ listOfPictures.forEach(function(images) {
         title.className = "hide";
         text.className ="hide";
     }
+    else {
+        mainPicture.className = "main";
+        title.className = "main";
+        text.className = "main";
+    }
 
     let mainPictureView = document.getElementById("main-image");
 
@@ -62,13 +66,11 @@ listOfPictures.forEach(function(images) {
 });
 
 //create thumbnail
-listOfPictures.forEach(function(images) {
+let thumbnailView = listOfPictures.forEach(function(images) {
 
     let gridDiv = document.createElement('div');
-    gridDiv.className = "col-2";
 
     let thumbPicture = document.createElement('img');
-    thumbPicture.className = "img-thumbnail";
     thumbPicture.src = images.picture;
 
     let thumbnail = document.getElementById("thumbnail-images");
@@ -80,6 +82,38 @@ listOfPictures.forEach(function(images) {
 //buttons
 let button = document.getElementsByTagName('button');
 
-button[0].addEventListener('click', goLeft);
+// button[0].addEventListener('click', goLeft);
 button[1].addEventListener('click', goRight);
 
+let counter = 0;
+
+function goRight() {
+
+    let currentPicCollection = document.getElementsByClassName("main");
+    let currentPicArray = [].slice.call(currentPicCollection);
+    currentPicArray[0].className = "hide";
+    currentPicArray[1].className = "hide";
+    currentPicArray[2].className = "hide";
+
+    counter++;
+
+    let nextPicture = document.createElement('img');
+    
+    let nextTitle = document.createElement('h2');
+    let nextText = document.createElement('p');   
+
+    nextPicture.src = listOfPictures[counter].picture;
+    nextPicture.title = listOfPictures[counter].title;
+    nextPicture.text = listOfPictures[counter].text; 
+
+    nextPicture.setAttribute("class", "main");
+    nextTitle.setAttribute("class", "main");
+    nextText.setAttribute("class", "main");
+
+    let nextPictureView = document.getElementById("main-image");
+
+    nextPictureView.appendChild(nextPicture);
+    nextPictureView.appendChild(nextTitle);
+    nextPictureView.appendChild(nextText);
+    
+}
