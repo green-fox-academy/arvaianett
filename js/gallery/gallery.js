@@ -50,6 +50,11 @@ let createp = function() {
      return document.createElement('p');   
 }
 
+let createButton = function() {
+
+    return document.createElement("button");
+}
+
 let hideMainPicture = function() {
 
     let currentPicCollection = document.getElementsByClassName("main");
@@ -59,42 +64,48 @@ let hideMainPicture = function() {
     })
 }
 
-let setClassAttributeToMain = function(htmlElement) {
-    return htmlElement.setAttribute("class", "main");
+let setClassNameToHide = function(htmlArray) {
+    htmlArray.forEach(function(element) {
+        element.className = "hide";
+    })
 }
 
-let appendChildElement = function(htmlElement) {
-    return appendChild(htmlElement);
+let setClassNameToMain = function(htmlArray) {
+    htmlArray.forEach(function(element) {
+        element.className = "main";
+    })
+}
+
+let setClassAttributeToMain = function(htmlArray) {
+    htmlArray.forEach(function(element) {
+        element.setAttribute("class", "main");
+    })
+}
+
+let appendChildElement = function(htmlArray, parentElement) {
+    htmlArray.forEach(function(element) {
+        parentElement.appendChild(element);
+    })
 }
 
 //create main view
 let mainView = listOfPictures.forEach(function(images) {
 
-    let mainPicture = createImg();
-    mainPicture.src = images.picture;
-
-    let title = createh2();
-    title.innerHTML = images.title;
-
-    let text = createp();
-    text.innerHTML = images.text;
-
-    if(images.id !== 1) {
-        mainPicture.className = "hide";
-        title.className = "hide";
-        text.className ="hide";
-    }
-    else {
-        mainPicture.className = "main";
-        title.className = "main";
-        text.className = "main";
-    }
-
+    let mainElements = [createImg(), createh2(), createp()];
     let mainPictureView = document.getElementById("main-image");
 
-    mainPictureView.appendChild(mainPicture);
-    mainPictureView.appendChild(title);
-    mainPictureView.appendChild(text);
+    mainElements[0].src = images.picture;
+    mainElements[1].innerHTML = images.title;
+    mainElements[2].innerHTML = images.text;
+
+    if(images.id !== 1) {
+        setClassNameToHide(mainElements);
+    }
+    else {
+        setClassNameToMain(mainElements);
+    }
+
+    appendChildElement(mainElements, mainPictureView);
 });
 
 //create thumbnail
@@ -108,35 +119,34 @@ let thumbnailView = listOfPictures.forEach(function(images) {
     thumbnail.appendChild(thumbPicture);
 });
 
-//buttons
-let buttonCollection = document.getElementsByClassName("button");
+//arrows
+let arrowCollection = document.getElementsByClassName("arrow");
 
-let createButton = function() {
-    return document.createElement("button");
+let appendForwardArrow = function() {
+
+    let arrow = createImg();
+    arrow.src = 'pictures/if_icon-ios7-arrow-forward_211688.png';
+    let arrowArray = [].slice.call(arrowCollection);
+    arrowArray[0].appendChild(arrow);
+    return arrow;
 }
 
-let appendRightButton = function() {
-    let button = createButton();
-    button.innerHTML = "left";
-    let buttonArray = [].slice.call(buttonCollection);
-    buttonArray[0].appendChild(button);
-    return button;
+let appendBackArrow = function() {
+
+    let arrow = createImg();
+    arrow.src = 'pictures/if_icon-ios7-arrow-back_211686.png';
+    let arrowArray = [].slice.call(arrowCollection);
+    arrowArray[1].appendChild(arrow);
+    return arrow;
 }
 
-let appendLeftButton = function() {
-    let button = createButton();
-    button.innerHTML = "right";
-    let buttonArray = [].slice.call(buttonCollection);
-    buttonArray[1].appendChild(button);
-    return button;
-}
-
-appendLeftButton().addEventListener('click', goLeft);
-appendRightButton().addEventListener('click', goRight);
+appendBackArrow().addEventListener('click', goLeft);
+appendForwardArrow().addEventListener('click', goRight);
 
 let counter = 0;
 
 let checkCounter = function(counter) {
+
     if(counter === -1) {
         return counter = listOfPictures.length - 1;
     }
@@ -167,14 +177,9 @@ function slide(counter) {
     hideMainPicture();
 
     nextImage[0].src = listOfPictures[checkCounter(counter)].picture;
-    nextImage[1].title = listOfPictures[checkCounter(counter)].title;
-    nextImage[2].text = listOfPictures[checkCounter(counter)].text; 
+    nextImage[1].innerHTML = listOfPictures[checkCounter(counter)].title;
+    nextImage[2].innerHTML = listOfPictures[checkCounter(counter)].text; 
     
-    nextImage.forEach(function(img) {
-        setClassAttributeToMain(img);
-    })
-
-    nextImage.forEach(function(img) {
-        nextPictureView.appendChild(img);
-    })
+    setClassAttributeToMain(nextImage);
+    appendChildElement(nextImage, nextPictureView);
 }
