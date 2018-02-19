@@ -12,10 +12,11 @@ const listOfPictures = [
 ]
 
 class Element {
-    constructor(src, title, text) {
+    constructor(src, title, text, className) {
         this.src = src;
         this.title = title;
         this.text = text;
+        this.className = className;
     }
 
     createImg() {
@@ -26,47 +27,44 @@ class Element {
 
     createMainImg() {
         let img = document.createElement('img');
-        this.setAttributeToSelected(img);
+        this.setClassAttribute(img, this.className);
         this.setAttributeSrc(img);
         return img;
     }
 
-    createh2() {
+    createMainh2() {
         let h2 = document.createElement('h2');
-        this.setAttributeToSelected(h2);
+        this.setClassAttribute(h2, this.className);
         h2.innerHTML = this.title;
         return h2;
     }
 
-    createp() {
+    createMainp() {
         let p = document.createElement('p');
-        this.setAttributeToSelected(p);
+        this.setClassAttribute(p, this.className);
         p.innerHTML = this.text;
         return p;
     }
 
-    setAttributeToSelected(element) {
-        element.setAttribute('class', 'selected');
+    setClassAttribute(element, className) {
+        element.setAttribute('class', className);
     }
 
     setAttributeSrc(element) {
         element.setAttribute('src', this.src);
     }
-
-    appendChildMethod(parent, child) {
-        parent.appendChild(child);
-    }
 }
-let mainImgDiv = document.querySelector('.main-image');
-let main = new Element(listOfPictures[0].src, listOfPictures[0].title, listOfPictures[0].text);
-main.appendChildMethod(mainImgDiv, main.createMainImg());
-main.appendChildMethod(mainImgDiv, main.createh2());
-main.appendChildMethod(mainImgDiv, main.createp());
+let mainImgDiv = document.querySelector('.main');
+let main = new Element(listOfPictures[0].src, listOfPictures[0].title, listOfPictures[0].text, 'selected');
+mainImgDiv.appendChild(main.createMainImg());
+mainImgDiv.appendChild(main.createMainh2());
+mainImgDiv.appendChild(main.createMainp());
 
 let getBackArrow = document.querySelector('.back-arrow');
 let backArrow = new Element('pictures/if_icon-ios7-arrow-back_211686.png');
-backArrow.appendChildMethod(getBackArrow, backArrow.createImg());
+getBackArrow.appendChild(backArrow.createImg());
 
 let getForwardArrow = document.querySelector('.forward-arrow');
 let forwardArrow = new Element('pictures/if_icon-ios7-arrow-forward_211688.png');
-forwardArrow.appendChildMethod(getForwardArrow, forwardArrow.createImg());
+getBackArrow.appendChild(forwardArrow.createImg());
+
