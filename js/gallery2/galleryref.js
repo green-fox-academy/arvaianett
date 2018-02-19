@@ -20,6 +20,12 @@ class Element {
 
     createImg() {
         let img = document.createElement('img');
+        this.setAttributeSrc(img);
+        return img;
+    }
+
+    createMainImg() {
+        let img = document.createElement('img');
         this.setAttributeToSelected(img);
         this.setAttributeSrc(img);
         return img;
@@ -53,6 +59,14 @@ class Element {
 }
 let mainImgDiv = document.querySelector('.main-image');
 let main = new Element(listOfPictures[0].src, listOfPictures[0].title, listOfPictures[0].text);
-main.appendChildMethod(mainImgDiv, main.createImg());
+main.appendChildMethod(mainImgDiv, main.createMainImg());
 main.appendChildMethod(mainImgDiv, main.createh2());
 main.appendChildMethod(mainImgDiv, main.createp());
+
+let getBackArrow = document.querySelector('.back-arrow');
+let backArrow = new Element('pictures/if_icon-ios7-arrow-back_211686.png');
+backArrow.appendChildMethod(getBackArrow, backArrow.createImg());
+
+let getForwardArrow = document.querySelector('.forward-arrow');
+let forwardArrow = new Element('pictures/if_icon-ios7-arrow-forward_211688.png');
+forwardArrow.appendChildMethod(getForwardArrow, forwardArrow.createImg());
