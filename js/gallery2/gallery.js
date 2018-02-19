@@ -10,8 +10,8 @@ const listOfPictures = [
     {'id': 7, 'src': 'pictures/07.jpg', 'title': '7th title', 'text': '7th text'},
     {'id': 8, 'src': 'pictures/08.jpg', 'title': '8th title', 'text': '8th text'}
 ]
-
-let mainImgDiv = document.querySelector('.main-image')
+const slideHelper = 1;
+let mainImgDiv = document.querySelector('.main-image');
 let mainImg = document.createElement('img');
 let mainTitle = document.createElement('h2');
 let mainText = document.createElement('p');
@@ -70,8 +70,7 @@ forwardArrow.addEventListener('click', function() {
     currentImgTitleText.forEach(function(element) {
         element.classList.remove('selected');
     });
-    let i = getIndex() + 1;
-    let index = checkIndex(i);
+    let index = checkIndex(getIndex() + slideHelper);
 
     mainImg.setAttribute('src', listOfPictures[index].src);
     mainImg.setAttribute('class', 'selected');
@@ -86,8 +85,7 @@ backArrow.addEventListener('click', function() {
     currentImgTitleText.forEach(function(element) {
         element.classList.remove('selected');
     });
-    let i = getIndex() - 1;
-    let index = checkIndex(i);
+    let index = checkIndex(getIndex() - slideHelper);
 
     mainImg.setAttribute('src', listOfPictures[index].src);
     mainImg.setAttribute('class', 'selected');
