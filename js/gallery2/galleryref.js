@@ -21,6 +21,7 @@ class Element {
 
     createImg() {
         let img = document.createElement('img');
+        this.setClassAttribute(img, this.className);
         this.setAttributeSrc(img);
         return img;
     }
@@ -68,3 +69,8 @@ let getForwardArrow = document.querySelector('.forward-arrow');
 let forwardArrow = new Element('pictures/if_icon-ios7-arrow-forward_211688.png');
 getBackArrow.appendChild(forwardArrow.createImg());
 
+let getThumbnail = document.querySelector('.thumbnail');
+listOfPictures.forEach(function(img) {
+    let thumbImg = new Element(img.src, 0, 0, 'thumbnailImg');
+    getThumbnail.appendChild(thumbImg.createImg());
+});
