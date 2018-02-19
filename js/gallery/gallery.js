@@ -36,27 +36,18 @@ const listOfPictures = [
 ]
 
 let createImg = function() {
-
     return document.createElement('img');
 }
 
 let createh2 = function() {
-
     return document.createElement('h2');
 }
 
 let createp = function() {
-
-     return document.createElement('p');   
-}
-
-let createButton = function() {
-
-    return document.createElement("button");
+    return document.createElement('p');   
 }
 
 let hideMainPicture = function() {
-
     let currentPicCollection = document.getElementsByClassName("main");
     let currentPicArray = [].slice.call(currentPicCollection);
     currentPicArray.forEach(function(element) {
@@ -145,8 +136,7 @@ appendForwardArrow().addEventListener('click', goRight);
 
 let counter = 0;
 
-let checkCounter = function(counter) {
-
+function checkCounter(counter) {
     if(counter === -1) {
         return counter = listOfPictures.length - 1;
     }
@@ -158,13 +148,11 @@ let checkCounter = function(counter) {
 }
 
 function goRight() {
-
     counter++;
     slide(counter);
 }
 
 function goLeft() {
-
     counter--;
     slide(counter);
 }
@@ -173,13 +161,29 @@ function slide(counter) {
 
     let nextImage = [createImg(), createh2(), createp()];
     let nextPictureView = document.getElementById("main-image");
+    let i = checkCounter(counter);
     
     hideMainPicture();
 
-    nextImage[0].src = listOfPictures[checkCounter(counter)].picture;
-    nextImage[1].innerHTML = listOfPictures[checkCounter(counter)].title;
-    nextImage[2].innerHTML = listOfPictures[checkCounter(counter)].text; 
+    nextImage[0].src = listOfPictures[i].picture;
+    nextImage[1].innerHTML = listOfPictures[i].title;
+    nextImage[2].innerHTML = listOfPictures[i].text; 
     
     setClassAttributeToMain(nextImage);
     appendChildElement(nextImage, nextPictureView);
 }
+
+//addeventlistener to thumbnail images
+
+// let thumbnailPictures = document.getElementsByClassName("thumbnail-images");
+// let thumbnailPicturesArray = [].slice.call(thumbnailPictures);
+
+// thumbnailPicturesArray.forEach(function(element, index) {
+//     element.addEventListener('click', function() {
+//         p(index);
+//     })
+// })
+
+// let p = function(index) {
+//     return slide(index);
+// }
