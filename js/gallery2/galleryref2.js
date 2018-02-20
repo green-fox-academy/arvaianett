@@ -15,27 +15,94 @@ class Data {
 
 class UI {
     constructor() {
-        this.gallery = new Gallery(this.createMainImg);
+        this.backArrowSrc = 'pictures/if_icon-ios7-arrow-back_211686.png';
+        this.forwardArrow = 'pictures/if_icon-ios7-arrow-forward_211688.png';
+        this.gallery = new Gallery(this.createMainImg, this.createTitle, this.createText, this.createThumbnail);
     }
+
     createMainImg(src) {
-        let mainDiv = document.querySelector('.main');
+        let photoViewContainer = document.querySelector('.main');
         let img = document.createElement('img');
         img.setAttribute('src', src);
-        mainDiv.appendChild(img);
+        photoViewContainer.appendChild(img);
+    }
+
+    createTitle(title) {
+        let photoViewContainer = document.querySelector('.main');
+        let titleOfImg = document.createElement('h2');
+        titleOfImg.innerHTML = title;
+        photoViewContainer.appendChild(titleOfImg);
+    }
+
+    createText(text) {
+        let photoViewContainer = document.querySelector('.main');
+        let textOfImg = document.createElement('p');
+        textOfImg.innerHTML = text;
+        photoViewContainer.appendChild(textOfImg);
+    }
+
+    createBackArrow(src) {
+        let photoViewContainer = document.querySelector('.main');
+        let backArrow = document.createElement('img');
+        backArrow.setAttribute('src', this.backArrowSrc);
+        photoViewContainer.appendChild(backArrow);
+    }
+
+    createForwardArrow(src) {
+        let photoViewContainer = document.querySelector('.main');
+        let forwardArrow = document.createElement('img');
+        forwardArrow.setAttribute('src', this.forwardArrow);
+        photoViewContainer.appendChild(forwardArrow);
+    }
+
+    createThumbnail(thumbnailImagesSrc) {
+        let thumbnailContainer = document.querySelector('.thumbnail');
+        thumbnailImagesSrc.forEach(function(src) {
+            let thumbnailImg = document.createElement('img');
+            thumbnailImg.setAttribute('src', src);
+            thumbnailContainer.appendChild(thumbnailImg);
+        });
     }
 }
 
 class Gallery {
-    constructor(createMainImg) {
+    constructor(createMainImg, createTitle, createText, createThumbnail) {
         this.data = new Data();
-        this.create = createMainImg;
+        this.createMainImg = createMainImg;
+        this.createTitle = createTitle;
+        this.createText = createText;
+        this.createThumbnail = createThumbnail;
     }
+
     currentMainImg() {
         let src = this.data.listOfPictures[0].src;
-        this.create(src);
+        this.createMainImg(src);
     }
+
+    currentTitle() {
+        let title = this.data.listOfPictures[0].title;
+        this.createTitle(title);
+    }
+
+    currentText() {
+        let text = this.data.listOfPictures[0].text;
+        this.createText(text);
+    }
+
+    thumbnailImages() {
+        let thumbnailImagesSrc = [];
+        this.data.listOfPictures.forEach(function(img) {
+            thumbnailImagesSrc.push(img.src);
+        });
+        this.createThumbnail(thumbnailImagesSrc);
+    }
+
 }
 
-let m = new UI;
-m.gallery.currentMainImg();
-console.log(m)
+let view = new UI;
+view.gallery.currentMainImg();
+view.gallery.currentTitle();
+view.gallery.currentText();
+view.createBackArrow();
+view.createForwardArrow();
+view.gallery.thumbnailImages();
