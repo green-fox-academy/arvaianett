@@ -1,24 +1,22 @@
 class Data {
-    constructor() {
-    this.listOfPictures = [
-        {'id': 0, 'src': 'pictures/01.jpg', 'title': '1st title', 'text': '1st text'},
-        {'id': 1, 'src': 'pictures/02.jpg', 'title': '2nd title', 'text': '2nd text'},
-        {'id': 2, 'src': 'pictures/03.jpg', 'title': '3th title', 'text': '3th text'},
-        {'id': 3, 'src': 'pictures/04.jpg', 'title': '4th title', 'text': '4th text'},
-        {'id': 4, 'src': 'pictures/05.jpg', 'title': '5th title', 'text': '5th text'},
-        {'id': 5, 'src': 'pictures/06.jpg', 'title': '6th title', 'text': '6th text'},
-        {'id': 6, 'src': 'pictures/07.jpg', 'title': '7th title', 'text': '7th text'},
-        {'id': 7, 'src': 'pictures/08.jpg', 'title': '8th title', 'text': '8th text'}
-    ]
-    }
+    // constructor() {
+    // this.listOfPictures = [
+    //     {'id': 0, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/01.jpg', 'title': '1st title', 'text': '1st text'},
+    //     {'id': 1, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/02.jpg', 'title': '2nd title', 'text': '2nd text'},
+    //     {'id': 2, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/03.jpg', 'title': '3th title', 'text': '3th text'},
+    //     {'id': 3, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/04.jpg', 'title': '4th title', 'text': '4th text'},
+    //     {'id': 4, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/05.jpg', 'title': '5th title', 'text': '5th text'},
+    //     {'id': 5, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/06.jpg', 'title': '6th title', 'text': '6th text'},
+    //     {'id': 6, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/07.jpg', 'title': '7th title', 'text': '7th text'},
+    //     {'id': 7, 'src': 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/08.jpg', 'title': '8th title', 'text': '8th text'}
+    // ]
+    // }
 }
-// let photoViewContainer = document.querySelector('.main');
-// let thumbnailContainer = document.querySelector('.thumbnail');
 
 class UI {
     constructor() {
-        this.backArrowSrc = 'pictures/if_icon-ios7-arrow-back_211686.png';
-        this.forwardArrow = 'pictures/if_icon-ios7-arrow-forward_211688.png';
+        this.backArrowSrc = 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/if_icon-ios7-arrow-back_211686.png';
+        this.forwardArrow = 'file:///D:/greenfox/arvaianett/js/gallery2/pictures/if_icon-ios7-arrow-forward_211688.png';
         this.gallery = new Gallery(this.createMainImg, this.createTitle, this.createText, this.createThumbnail);
     }
 
@@ -70,7 +68,8 @@ class UI {
             thumbnailImg.setAttribute('src', src);
             thumbnailImg.setAttribute('class', 'thumbnailImg');
             thumbnailContainer.appendChild(thumbnailImg);
-        });
+            thumbnailImg.addEventListener('click', this.thumbnailClick);
+        }.bind(this));
     }
 }
 
@@ -97,7 +96,6 @@ class Gallery {
 
     firstMainImg() {
         let src = this.data.listOfPictures[this.index].src;
-        console.log(this)
         this.createMainImg(src);
     }
 
@@ -170,6 +168,14 @@ class Gallery {
         this.createText(text);
     }
 
+    // thumbnailClick() {
+    //     let src = this.src;
+    //     console.log(src)
+    //     this.createMainImg(src).bind(this);
+    //     this.createTitle(src);
+    //     this.createText(src);
+    // }
+
 }
 
 let view = new UI;
@@ -179,3 +185,14 @@ view.gallery.firstText();
 view.createBackArrow();
 view.createForwardArrow();
 view.gallery.thumbnailImages();
+
+window.addEventListener('load', function() {
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function(event) {
+        if(httpRequest.readyState === XMLHttpRequest.DONE) {
+            this.getResponse(JSON.parse(httpRequest.responseText));
+        }
+    }
+    httpRequest.open('GET', '/gallery');
+    httpRequest.send();
+});
