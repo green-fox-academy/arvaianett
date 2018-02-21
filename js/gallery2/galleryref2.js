@@ -1,17 +1,19 @@
 class Data {
     constructor() {
     this.listOfPictures = [
-        {'id': 1, 'src': 'pictures/01.jpg', 'title': '1st title', 'text': '1st text'},
-        {'id': 2, 'src': 'pictures/02.jpg', 'title': '2nd title', 'text': '2nd text'},
-        {'id': 3, 'src': 'pictures/03.jpg', 'title': '3th title', 'text': '3th text'},
-        {'id': 4, 'src': 'pictures/04.jpg', 'title': '4th title', 'text': '4th text'},
-        {'id': 5, 'src': 'pictures/05.jpg', 'title': '5th title', 'text': '5th text'},
-        {'id': 6, 'src': 'pictures/06.jpg', 'title': '6th title', 'text': '6th text'},
-        {'id': 7, 'src': 'pictures/07.jpg', 'title': '7th title', 'text': '7th text'},
-        {'id': 8, 'src': 'pictures/08.jpg', 'title': '8th title', 'text': '8th text'}
+        {'id': 0, 'src': 'pictures/01.jpg', 'title': '1st title', 'text': '1st text'},
+        {'id': 1, 'src': 'pictures/02.jpg', 'title': '2nd title', 'text': '2nd text'},
+        {'id': 2, 'src': 'pictures/03.jpg', 'title': '3th title', 'text': '3th text'},
+        {'id': 3, 'src': 'pictures/04.jpg', 'title': '4th title', 'text': '4th text'},
+        {'id': 4, 'src': 'pictures/05.jpg', 'title': '5th title', 'text': '5th text'},
+        {'id': 5, 'src': 'pictures/06.jpg', 'title': '6th title', 'text': '6th text'},
+        {'id': 6, 'src': 'pictures/07.jpg', 'title': '7th title', 'text': '7th text'},
+        {'id': 7, 'src': 'pictures/08.jpg', 'title': '8th title', 'text': '8th text'}
     ]
     }
 }
+// let photoViewContainer = document.querySelector('.main');
+// let thumbnailContainer = document.querySelector('.thumbnail');
 
 class UI {
     constructor() {
@@ -22,7 +24,9 @@ class UI {
 
     createMainImg(src) {
         let photoViewContainer = document.querySelector('.main');
+        photoViewContainer.innerHTML = "";
         let img = document.createElement('img');
+        img.setAttribute('class', 'selected');
         img.setAttribute('src', src);
         photoViewContainer.appendChild(img);
     }
@@ -30,6 +34,7 @@ class UI {
     createTitle(title) {
         let photoViewContainer = document.querySelector('.main');
         let titleOfImg = document.createElement('h2');
+        titleOfImg.setAttribute('class', 'selected');
         titleOfImg.innerHTML = title;
         photoViewContainer.appendChild(titleOfImg);
     }
@@ -37,22 +42,25 @@ class UI {
     createText(text) {
         let photoViewContainer = document.querySelector('.main');
         let textOfImg = document.createElement('p');
+        textOfImg.setAttribute('class', 'selected');
         textOfImg.innerHTML = text;
         photoViewContainer.appendChild(textOfImg);
     }
 
     createBackArrow(src) {
-        let photoViewContainer = document.querySelector('.main');
+        let photoViewContainer = document.querySelector('.back-arrow');
         let backArrow = document.createElement('img');
         backArrow.setAttribute('src', this.backArrowSrc);
         photoViewContainer.appendChild(backArrow);
+        backArrow.addEventListener('click', this.gallery.prewImg.bind(this));
     }
 
     createForwardArrow(src) {
-        let photoViewContainer = document.querySelector('.main');
+        let photoViewContainer = document.querySelector('.forward-arrow');
         let forwardArrow = document.createElement('img');
         forwardArrow.setAttribute('src', this.forwardArrow);
         photoViewContainer.appendChild(forwardArrow);
+        forwardArrow.addEventListener('click', this.gallery.nextImg.bind(this));
     }
 
     createThumbnail(thumbnailImagesSrc) {
@@ -60,6 +68,7 @@ class UI {
         thumbnailImagesSrc.forEach(function(src) {
             let thumbnailImg = document.createElement('img');
             thumbnailImg.setAttribute('src', src);
+            thumbnailImg.setAttribute('class', 'thumbnailImg');
             thumbnailContainer.appendChild(thumbnailImg);
         });
     }
@@ -72,20 +81,33 @@ class Gallery {
         this.createTitle = createTitle;
         this.createText = createText;
         this.createThumbnail = createThumbnail;
+        this.index = 0;
     }
 
-    currentMainImg() {
-        let src = this.data.listOfPictures[0].src;
+    checkIndex(index) {
+        if(index === -1) {
+            return index = this.data.listOfPictures.length - 1;
+        }
+        else if(index === this.data.listOfPictures.length) {
+            return index = 0;
+        } else {
+            return index;
+        }
+    }
+
+    firstMainImg() {
+        let src = this.data.listOfPictures[this.index].src;
+        console.log(this)
         this.createMainImg(src);
     }
 
-    currentTitle() {
-        let title = this.data.listOfPictures[0].title;
+    firstTitle() {
+        let title = this.data.listOfPictures[this.index].title;
         this.createTitle(title);
     }
 
-    currentText() {
-        let text = this.data.listOfPictures[0].text;
+    firstText() {
+        let text = this.data.listOfPictures[this.index].text;
         this.createText(text);
     }
 
@@ -97,12 +119,63 @@ class Gallery {
         this.createThumbnail(thumbnailImagesSrc);
     }
 
+    getIndex() {
+        let src = mainImg.getAttribute('src');
+        for(let i = 0; i < this.data.listOfPictures.length; i++) {
+            if(listOfPictures[i].src === src) {
+                return i;
+            }
+        }
+    }
+
+    prewImg() {
+        let currentImgTitleText = document.querySelectorAll(".selected");
+        let currentSrc = currentImgTitleText[0].getAttribute('src'); 
+        currentImgTitleText.forEach(function(element, index) {
+            element.classList.remove('selected');
+        });  
+        let index = 0;
+        for(let i = 0; i < this.gallery.data.listOfPictures.length; i++) {
+            if(this.gallery.data.listOfPictures[i].src === currentSrc) {
+                index = i;
+            }
+        }       
+        let nextIndex = this.gallery.checkIndex(index - 1);
+        let src = this.gallery.data.listOfPictures[nextIndex].src;
+        this.createMainImg(src);
+        let title = this.gallery.data.listOfPictures[nextIndex].title;
+        this.createTitle(title);
+        let text = this.gallery.data.listOfPictures[nextIndex].text;
+        this.createText(text);
+    }
+
+    nextImg() {
+        let currentImgTitleText = document.querySelectorAll(".selected");
+        let currentSrc = currentImgTitleText[0].getAttribute('src'); 
+        currentImgTitleText.forEach(function(element, index) {
+            element.classList.remove('selected');
+        });  
+        let index = 0;
+        for(let i = 0; i < this.gallery.data.listOfPictures.length; i++) {
+            if(this.gallery.data.listOfPictures[i].src === currentSrc) {
+                index = i;
+            }
+        }       
+        let nextIndex = this.gallery.checkIndex(index + 1);
+        let src = this.gallery.data.listOfPictures[nextIndex].src;
+        this.createMainImg(src);
+        let title = this.gallery.data.listOfPictures[nextIndex].title;
+        this.createTitle(title);
+        let text = this.gallery.data.listOfPictures[nextIndex].text;
+        this.createText(text);
+    }
+
 }
 
 let view = new UI;
-view.gallery.currentMainImg();
-view.gallery.currentTitle();
-view.gallery.currentText();
+view.gallery.firstMainImg();
+view.gallery.firstTitle();
+view.gallery.firstText();
 view.createBackArrow();
 view.createForwardArrow();
 view.gallery.thumbnailImages();

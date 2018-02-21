@@ -11,29 +11,29 @@ const listOfPictures = [
     {'id': 8, 'src': 'pictures/08.jpg', 'title': '8th title', 'text': '8th text'}
 ]
 const slideHelper = 1;
-// let mainImgDiv = document.querySelector('.main-image');
-// let mainImg = document.createElement('img');
-// let mainTitle = document.createElement('h2');
-// let mainText = document.createElement('p');
-// mainImg.setAttribute('class', 'selected');
-// mainImg.setAttribute('src', listOfPictures[0].src);
-// mainTitle.setAttribute('class', 'selected');
-// mainTitle.innerHTML = listOfPictures[0].title;
-// mainText.setAttribute('class', 'selected');
-// mainText.innerHTML = listOfPictures[0].text;
-// mainImgDiv.appendChild(mainImg);
-// mainImgDiv.appendChild(mainTitle);
-// mainImgDiv.appendChild(mainText);
+let mainImgDiv = document.querySelector('.main-image');
+let mainImg = document.createElement('img');
+let mainTitle = document.createElement('h2');
+let mainText = document.createElement('p');
+mainImg.setAttribute('class', 'selected');
+mainImg.setAttribute('src', listOfPictures[0].src);
+mainTitle.setAttribute('class', 'selected');
+mainTitle.innerHTML = listOfPictures[0].title;
+mainText.setAttribute('class', 'selected');
+mainText.innerHTML = listOfPictures[0].text;
+mainImgDiv.appendChild(mainImg);
+mainImgDiv.appendChild(mainTitle);
+mainImgDiv.appendChild(mainText);
 
-// let getBackArrow = document.querySelector('.back-arrow');
-// let backArrow = document.createElement('img');
-// backArrow.setAttribute('src', 'pictures/if_icon-ios7-arrow-back_211686.png');
-// getBackArrow.appendChild(backArrow);
+let getBackArrow = document.querySelector('.back-arrow');
+let backArrow = document.createElement('img');
+backArrow.setAttribute('src', 'pictures/if_icon-ios7-arrow-back_211686.png');
+getBackArrow.appendChild(backArrow);
 
-// let getForwardArrow = document.querySelector('.forward-arrow');
-// let forwardArrow = document.createElement('img');
-// forwardArrow.setAttribute('src', 'pictures/if_icon-ios7-arrow-forward_211688.png');
-// getForwardArrow.appendChild(forwardArrow);
+let getForwardArrow = document.querySelector('.forward-arrow');
+let forwardArrow = document.createElement('img');
+forwardArrow.setAttribute('src', 'pictures/if_icon-ios7-arrow-forward_211688.png');
+getForwardArrow.appendChild(forwardArrow);
 
 let getThumbnail = document.querySelector('.thumbnail');
 listOfPictures.forEach(function(img) {

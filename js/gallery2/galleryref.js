@@ -61,9 +61,6 @@ let mainElements = [main.createMainImg(), main.createMainh2(), main.createMainp(
 mainElements.forEach(function(element) {
     mainImgDiv.appendChild(element);
 });
-// mainImgDiv.appendChild(main.createMainImg());
-// mainImgDiv.appendChild(main.createMainh2());
-// mainImgDiv.appendChild(main.createMainp());
 
 let getBackArrow = document.querySelector('.back-arrow');
 let backArrow = new Element('pictures/if_icon-ios7-arrow-back_211686.png');
